@@ -1,0 +1,16 @@
+header{
+    background-color: #1E1E1E;
+    color: #f2f6fa;
+    height: 5vh;
+    padding: 1rem 2rem;
+}
+
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav .logo{
+    font-size: 2rem;
+}
