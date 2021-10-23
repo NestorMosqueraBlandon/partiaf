@@ -18,7 +18,7 @@ export default function Navigation() {
                       </div>
                       <div className="title">Notificaciones</div>
                 </Link>
-                <Link to="/" onClick={() => setActive('covers')} className={active === "covers"? "navigation__item active"
+                <Link to="/cover" onClick={() => setActive('covers')} className={active === "covers"? "navigation__item active"
                   : 'navigation__item'}>
 
                       <div className="icon">
@@ -34,7 +34,7 @@ export default function Navigation() {
                       </div>
                       <div className="title">Reservas</div>
                 </Link>
-                <Link to="/" onClick={() => setActive('buys')} className={active === "buys"? "navigation__item active"
+                <Link to="/buy" onClick={() => setActive('buys')} className={active === "buys"? "navigation__item active"
                   : 'navigation__item'}>
 
                       <div className="icon">
@@ -42,7 +42,7 @@ export default function Navigation() {
                       </div>
                       <div className="title">Compras</div>
                 </Link>
-                <Link to="/" onClick={() => setActive('menu')} className={active === "menu"? "navigation__item active"
+                <Link to="/menu" onClick={() => setActive('menu')} className={active === "menu"? "navigation__item active"
                   : 'navigation__item'}>
 
                       <div className="icon">
