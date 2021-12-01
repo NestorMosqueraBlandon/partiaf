@@ -5,11 +5,25 @@ import "./styles/main.css";
 import "./styles/screen.css";
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+} from "@apollo/client";
+
+
+const client = new ApolloClient({
+  uri: 'http://localhost:5100/',
+  cache: new InMemoryCache()
+})
+
 
 ReactDOM.render(
+  <ApolloProvider client={client} >
   <React.StrictMode>
     <App />
   </React.StrictMode>,
+  </ApolloProvider>,
   document.getElementById('root')
 );
 

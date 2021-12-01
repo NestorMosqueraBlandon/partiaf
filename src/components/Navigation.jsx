@@ -42,6 +42,14 @@ export default function Navigation() {
                       </div>
                       <div className="title">Compras</div>
                 </Link>
+                <Link to="/order" onClick={() => setActive('orders')} className={active === "orders"? "navigation__item active"
+                  : 'navigation__item'}>
+
+                      <div className="icon">
+                      <img src="./img/cargo.png" alt="" />
+                      </div>
+                      <div className="title">Pedidos</div>
+                </Link>
                 <Link to="/menu" onClick={() => setActive('menu')} className={active === "menu"? "navigation__item active"
                   : 'navigation__item'}>
 
@@ -50,13 +58,21 @@ export default function Navigation() {
                       </div>
                       <div className="title">Modificar Menu</div>
                 </Link>
-                <Link to="/" onClick={() => setActive('staff')} className={active === "staff"? "navigation__item active"
+                <Link to="/staff" onClick={() => setActive('staff')} className={active === "staff"? "navigation__item active"
                   : 'navigation__item'}>
 
                       <div className="icon">
                       <img src="./img/staff.png" alt="" />
                       </div>
                       <div className="title">Staff</div>
+                </Link>
+                <Link to="/chairs" onClick={() => setActive('chairs')} className={active === "chairs"? "navigation__item active"
+                  : 'navigation__item'}>
+
+                      <div className="icon">
+                      <img src="./img/chair.png" alt="" />
+                      </div>
+                      <div className="title">Mesas</div>
                 </Link>
             </ul>
         </aside>

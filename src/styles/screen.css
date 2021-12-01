@@ -10,6 +10,18 @@
     grid-template-columns: 1fr 300px;
 }
 
+.screen-grid{
+    position: relative;
+    width: calc(100% - 250px);
+    left: 250px;
+    top: 0;
+    overflow: hidden;
+    height: 94vh;
+    /* GRID */
+    display: grid;
+    /* grid-template-columns: 1fr 300px; */
+}
+
 .screen-two{
     position: relative;
     width: calc(100% - 250px);
@@ -371,4 +383,164 @@ textarea{
     align-items: center;
     justify-content: space-between;
     margin-top: 3rem;
+}
+
+.register{
+    padding: 4rem;
+}
+
+.register-title{
+    font-size: 2rem;
+}
+
+.register form{
+    background-color: #fff;
+    max-width: 700px;
+    border-radius: .5rem;
+    padding: 3rem;
+    border: 2px solid rgba(0, 0, 0, .2);
+    display: flex;
+    flex-direction: column;
+    margin-top: 5rem;
+}
+
+.left-state form{
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.register form p{
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.register form input, .left-state form input{
+    background-color:rgba(0, 0, 0, .05);
+    border-radius: .5rem;
+    padding: 1rem;
+    margin: 1rem;
+    border: none;
+}
+
+
+
+.term{
+    padding-left: 1.2rem;
+    font-size: 1rem;
+    color: rgba(0, 0, 0, .4);
+}
+
+.footer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 3rem;
+}
+
+.btn-normal{
+    background-color: rgba(0, 0, 0, .1);
+}
+
+.register-link{
+    color: rgba(0, 0, 0, .4);
+    padding-left: 1rem;
+    margin-top: 1rem;
+}
+
+button{
+    cursor: pointer;
+}
+
+.register.center{
+    background-color: rgba(0, 0, 0, .9);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.register-title{
+    font-size: 5rem;
+    color: rgba(255, 255, 255, .5);
+    margin-bottom: 0;
+}
+
+.right-buttons button{
+    padding: 0;
+    font-size: 2.5rem;
+    color: #fff;
+
+}
+
+.card-new{
+    width: 200px;
+    height: 200px;
+    flex-direction: column;
+    text-align: left;
+    font-size: 1.4rem;
+    align-items: flex-start;
+    
+}
+
+.wrap{
+    flex-wrap: wrap;
+    overflow: scroll;
+}
+.card-header{
+    font-size: 1.2rem;
+}
+
+.normal-text{
+    color: rgba(0, 0, 0, .5);
+    margin: 0;
+    padding: 0;
+}
+
+.left__screen{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 250px;
+}
+
+.left-state{
+    width: 100%;
+    max-width: 100%;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    width: 100%;
+    max-width: 100%;
+}
+
+.footer-chat{
+    position: absolute;
+    width: 97%;
+    bottom: 10px;
+    display: grid;
+    grid-template-columns: 1fr 80px 50px;
+    gap: .5rem;
+}
+
+.footer-chat input{
+    border: none;
+}
+
+.chat{
+    /* height: 100%; */
+    text-align: center;
+    color: rgba(0, 0, 0, .5);
+}
+
+.color{
+    color: #fff;
+}
+
+.register-title{
+    color: rgba(0, 0, 0, .5);
 }

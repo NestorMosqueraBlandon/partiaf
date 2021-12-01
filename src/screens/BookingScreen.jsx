@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import CardBooking from '../components/CardBooking'
 import data from '../utils/data'
 import * as timeago from "timeago.js"
+import CardBookin from '../components/CardBookin'
 
 export default function BookingScreen() {
     
@@ -35,7 +36,27 @@ export default function BookingScreen() {
                         <p>1254</p>
                     </div>
                 </div>
-                <div className="state">
+                <div className="flex">
+                <button className="btn-create"> CREAR RESERVA <i class='bx bxs-plus-square'></i></button>
+                <div className="right-buttons">
+                <button><i class='bx bx-calendar' ></i></button>
+                </div>
+                </div>
+                <div className="flex wrap">
+                    <CardBookin name="Owen Wilson" cupos="22" time="7:30pm" date="12/03/2021" state="Finalizada" />
+                    <CardBookin name="Karla Ramirez" cupos="22" time="7:30pm" date="12/03/2021" state="Finalizada" />
+                    <CardBookin name="Carlos Cuesta" cupos="22" time="7:30pm" date="12/03/2021" state="Activa" />
+                    <CardBookin name="Falipe Giulliani" cupos="22" time="7:30pm" date="12/03/2021" state="Finalizada" />
+                    <CardBookin name="Arturo Fernandez" cupos="22" time="7:30pm" date="12/03/2021" state="Activa" />
+                    <CardBookin name="Nicolas Tovar" cupos="22" time="7:30pm" date="12/03/2021" state="Finalizada" />
+                    <CardBookin name="Owen Wilson" cupos="22" time="7:30pm" date="12/03/2021" state="Finalizada" />
+                    <CardBookin name="Karla Ramirez" cupos="22" time="7:30pm" date="12/03/2021" state="Finalizada" />
+                    <CardBookin name="Carlos Cuesta" cupos="22" time="7:30pm" date="12/03/2021" state="Activa" />
+                    <CardBookin name="Falipe Giulliani" cupos="22" time="7:30pm" date="12/03/2021" state="Finalizada" />
+                    <CardBookin name="Arturo Fernandez" cupos="22" time="7:30pm" date="12/03/2021" state="Activa" />
+                    <CardBookin name="Nicolas Tovar" cupos="22" time="7:30pm" date="12/03/2021" state="Finalizada" />
+                </div>
+                {/* <div className="state">
                     <div className="state__header">
                     <h2>Estado de reserva: Activa</h2>
                     <button><i class='bx bxs-pencil'></i> Editar</button>
@@ -54,7 +75,7 @@ export default function BookingScreen() {
                         <h4>Descripcion de reserva:</h4>
                         <textarea name="" id="" cols="30" rows="10" value={note} ></textarea>
                     </div>
-                </div>
+                </div> */}
             </div>
             <div className="right__screen">
                 {data.bookings.map((booking) => (

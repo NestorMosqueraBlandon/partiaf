@@ -1,11 +1,25 @@
-import React from 'react'
+import { useQuery } from '@apollo/client'
+import React, { useEffect } from 'react'
+import { LOAD_MENUS } from '../graphql/Queries'
 
 export default function MenuScreen() {
+
+    const {loading, error, data}= useQuery(LOAD_MENUS)
+
+    useEffect(() => {
+
+    }, [data])
+
+    
+    if (error) return <p>Error :(</p>;
     return (
         <div className="screen-two">
+                    {/* <h2>MENU</h2> */}
+
+            {loading ? <div>Cargando...</div> : 
             <div className="center__screen">
+
                 <div className="card-t">
-                    <h2>MENU</h2>
                     <h4>ENTRADAS</h4>
                     <ul>
                         <li className="menu-item">
@@ -40,7 +54,6 @@ export default function MenuScreen() {
                     </div>
                 </div>
                 <div className="card-t">
-                    <h2>MENU</h2>
                     <h4>PLATOS FUERTES</h4>
                     <ul>
                         <li className="menu-item">
@@ -75,7 +88,6 @@ export default function MenuScreen() {
                     </div>
                 </div>
                 <div className="card-t">
-                    <h2>MENU</h2>
                     <h4>POSTRES</h4>
                     <ul>
                         <li className="menu-item">
@@ -110,6 +122,7 @@ export default function MenuScreen() {
                     </div>
                 </div>
             </div>
+            }
         </div>
     )
 }
