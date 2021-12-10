@@ -386,6 +386,8 @@ textarea{
 }
 
 .register{
+    position: relative;
+    z-index: 99999999;
     padding: 4rem;
 }
 
@@ -454,7 +456,7 @@ button{
 }
 
 .register.center{
-    background-color: rgba(0, 0, 0, .9);
+    background-color: #1a1a1a;
     height: 100vh;
     display: flex;
     align-items: center;
@@ -543,4 +545,97 @@ button{
 
 .register-title{
     color: rgba(0, 0, 0, .5);
+}
+
+.home{
+    background-color: #1a1a1a;
+    min-height: 98vh;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.home a{
+    color: #ccc;
+}
+
+.home .home__link{
+    background-color: #fff;
+    display: inline-block;
+    padding: 1rem 3rem;
+    border-radius: 1rem;
+    color: #1a1a1a;
+}
+
+.home__link:first-child{
+    background-color: #EBC74E;
+}
+
+.home form{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.home form input{
+    padding: 1rem 1rem;
+    border-radius: 1rem;
+    border: none;
+}
+
+
+.home form input:last-child{
+    position: relative;
+}
+
+.home form input[type="submit"]{
+    background-color: #EBC74E;    
+}
+
+.bussines{
+    position: relative;
+    z-index: 999999999;
+    background-color: #1a1a1a;
+    min-width: none;
+    height: 94vh;
+    /* min-height: 94vh; */
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    flex-direction: column;
+    padding-top: 15rem;
+}
+
+.bussines h2{
+    color: #ccc;
+    font-size: 5rem;
+    margin-bottom: 5rem;
+}
+
+.bussines picture{
+    height: 100px;
+    width: 100px;
+    border: 1px solid #ccc;
+    border-radius: 5rem;
+    margin-bottom: 1rem;
+}
+
+.bussines h3{
+    color: #fff;
+}
+
+.bussines p{
+    color: #EBC74E;
+    font-size: 1.2rem;
+
+}
+
+.bussines a{
+    background-color: #EBC74E;
+    padding: 1rem 3rem;
+    border-radius: 1.5rem;
+    margin-top: 2rem;
 }

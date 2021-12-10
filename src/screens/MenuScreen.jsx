@@ -11,6 +11,11 @@ export default function MenuScreen() {
     }, [data])
 
     
+    
+    if(!loading)
+    {
+        console.log(data.menus)
+    }
     if (error) return <p>Error :(</p>;
     return (
         <div className="screen-two">
@@ -19,28 +24,14 @@ export default function MenuScreen() {
             {loading ? <div>Cargando...</div> : 
             <div className="center__screen">
 
+                {data.menus.map((d, index) => (
+
                 <div className="card-t">
-                    <h4>ENTRADAS</h4>
+                    <h4>{index + 1} {d.title}</h4>
                     <ul>
                         <li className="menu-item">
                             <p>1. Guacamole </p> 
                             <span> $80.000 </span> 
-                                <div className="actions">
-                                    <button className="image"><i class='bx bxs-image' ></i></button>
-                                    <button className="close"><i class='bx bxs-x-circle' ></i></button>
-                                </div>
-                            </li>
-                            <li className="menu-item">
-                            <p>1. BRUSCHETTA TOMATO AND MOZZARELLA </p> 
-                            <span> $124.000 </span> 
-                                <div className="actions">
-                                    <button className="image"><i class='bx bxs-image' ></i></button>
-                                    <button className="close"><i class='bx bxs-x-circle' ></i></button>
-                                </div>
-                            </li>
-                            <li className="menu-item">
-                            <p>1. BRUSCHETTA TOMATO, GARLIC AND OLIVES </p> 
-                            <span> $225.000 </span> 
                                 <div className="actions">
                                     <button className="image"><i class='bx bxs-image' ></i></button>
                                     <button className="close"><i class='bx bxs-x-circle' ></i></button>
@@ -53,74 +44,8 @@ export default function MenuScreen() {
                         <button>Guardar</button>
                     </div>
                 </div>
-                <div className="card-t">
-                    <h4>PLATOS FUERTES</h4>
-                    <ul>
-                        <li className="menu-item">
-                            <p>1. Guacamole </p> 
-                            <span> $80.000 </span> 
-                                <div className="actions">
-                                    <button className="image"><i class='bx bxs-image' ></i></button>
-                                    <button className="close"><i class='bx bxs-x-circle' ></i></button>
-                                </div>
-                            </li>
-                            <li className="menu-item">
-                            <p>1. BRUSCHETTA TOMATO AND MOZZARELLA </p> 
-                            <span> $124.000 </span> 
-                                <div className="actions">
-                                    <button className="image"><i class='bx bxs-image' ></i></button>
-                                    <button className="close"><i class='bx bxs-x-circle' ></i></button>
-                                </div>
-                            </li>
-                            <li className="menu-item">
-                            <p>1. BRUSCHETTA TOMATO, GARLIC AND OLIVES </p> 
-                            <span> $225.000 </span> 
-                                <div className="actions">
-                                    <button className="image"><i class='bx bxs-image' ></i></button>
-                                    <button className="close"><i class='bx bxs-x-circle' ></i></button>
-                                </div>
-                            </li>
-                    </ul>
 
-                    <div className="footer-card-t">
-                        <button><i class='bx bx-plus-medical' ></i> Agregar Item</button>
-                        <button>Guardar</button>
-                    </div>
-                </div>
-                <div className="card-t">
-                    <h4>POSTRES</h4>
-                    <ul>
-                        <li className="menu-item">
-                            <p>1. Guacamole </p> 
-                            <span> $80.000 </span> 
-                                <div className="actions">
-                                    <button className="image"><i class='bx bxs-image' ></i></button>
-                                    <button className="close"><i class='bx bxs-x-circle' ></i></button>
-                                </div>
-                            </li>
-                            <li className="menu-item">
-                            <p>1. BRUSCHETTA TOMATO AND MOZZARELLA </p> 
-                            <span> $124.000 </span> 
-                                <div className="actions">
-                                    <button className="image"><i class='bx bxs-image' ></i></button>
-                                    <button className="close"><i class='bx bxs-x-circle' ></i></button>
-                                </div>
-                            </li>
-                            <li className="menu-item">
-                            <p>1. BRUSCHETTA TOMATO, GARLIC AND OLIVES </p> 
-                            <span> $225.000 </span> 
-                                <div className="actions">
-                                    <button className="image"><i class='bx bxs-image' ></i></button>
-                                    <button className="close"><i class='bx bxs-x-circle' ></i></button>
-                                </div>
-                            </li>
-                    </ul>
-
-                    <div className="footer-card-t">
-                        <button><i class='bx bx-plus-medical' ></i> Agregar Item</button>
-                        <button>Guardar</button>
-                    </div>
-                </div>
+))}
             </div>
             }
         </div>

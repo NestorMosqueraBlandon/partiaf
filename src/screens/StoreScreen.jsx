@@ -1,10 +1,12 @@
 import { useMutation } from '@apollo/client'
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
+import { Router } from 'workbox-routing'
 import { CREATE_USER_MUTATION } from '../graphql/Mutation'
 
 
-export default function StoreScreen() {
+export default function StoreScreen(props) {
     
     const [createUser, {error}] = useMutation(CREATE_USER_MUTATION)
 
@@ -30,6 +32,8 @@ export default function StoreScreen() {
                 password
             }
         })
+
+        props.history.push("/home")
     }
 
     if(error){
@@ -43,7 +47,13 @@ export default function StoreScreen() {
                 <p>Datos del establecimeinto</p>
 
                 <input type="text"  value={name} onChange={(e) => setName(e.target.value)} placeholder="Nombre"/>
-                <input type="text" value={type}  onChange={(e) => setType(e.target.value)} placeholder="Tipo de establecimiento" />
+                <label htmlFor="">Tipo de Establecimeinto</label>
+                <select name="" id="" value={type} onChange={(e) => setType(e.target.value)} >
+                    <option value="Discoteca">Discoteca</option>
+                    <option value="Bar">Bar</option>
+                    <option value="Gastrobar">Gastrobar</option>
+
+                </select>
                 <input type="text" value={nit} onChange={(e) => setNit(e.target.value)} name="" id="" placeholder="NIT" />
                 <div>
                     <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" />
@@ -63,7 +73,7 @@ export default function StoreScreen() {
                 <a href="" className="register-link">¿Ya tiene una cuenta, desea iniciar sesión?</a>
 
                 <div className="footer">
-                    <button className="btn-normal">Atras</button>
+                    <Link to="/"><button className="btn-normal">Atras</button></Link>
                     <button onClick={addUser} >Siguiente</button>
                 </div>
             </form>
