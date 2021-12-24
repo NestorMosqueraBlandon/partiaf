@@ -19,15 +19,18 @@ import { AuthProvider } from './context/auth';
 
 function App() {
 
-  const context = useContext(AuthContext)
+  // const context = useContext(AuthContext)
 
-  const { userInfo } = context;
+  // console.log(context)
 
+  const user = localStorage.getItem("userInfo") ? localStorage.getItem("userInfo") : null
+
+
+  console.log("App UserInfo",user)
   return (
-    <AuthProvider>
       <BrowserRouter>
         <div className="App">
-          {userInfo ?
+          {user ?
             <Layout>
               <Switch>
                 <Route path="/" component={BusinessScreen} exact></Route>
@@ -54,7 +57,6 @@ function App() {
 
         </div>
       </BrowserRouter>
-    </AuthProvider>
   );
 }
 

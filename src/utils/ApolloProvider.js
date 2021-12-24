@@ -10,9 +10,10 @@ const httpLink = createHttpLink({
 })
 
 const authLink = setContext(() => {
-    const token = localStorage.getItem('userInfo').token;
-
     console.log(localStorage.getItem('userInfo'))
+    const token = JSON.parse(localStorage.getItem('userInfo'));
+
+    console.log(token)
     return {
         headers: {
             Authorization: token? `Bearer ${token}` : ''

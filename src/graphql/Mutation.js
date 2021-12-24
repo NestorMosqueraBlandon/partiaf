@@ -16,6 +16,7 @@ mutation signin($email: String!, $password: String!) {
     age
     mobile
     address
+    token
   }
 }
 `
