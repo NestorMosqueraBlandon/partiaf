@@ -37,9 +37,9 @@ export default function BookingScreen() {
                     </div>
                 </div>
                 <div className="flex">
-                <button className="btn-create"> CREAR RESERVA <i class='bx bxs-plus-square'></i></button>
+                <button className="btn-create"> CREAR RESERVA <i className='bx bxs-plus-square'></i></button>
                 <div className="right-buttons">
-                <button><i class='bx bx-calendar' ></i></button>
+                <button><i className='bx bx-calendar' ></i></button>
                 </div>
                 </div>
                 <div className="flex wrap">
@@ -59,7 +59,7 @@ export default function BookingScreen() {
                 {/* <div className="state">
                     <div className="state__header">
                     <h2>Estado de reserva: Activa</h2>
-                    <button><i class='bx bxs-pencil'></i> Editar</button>
+                    <button><i className='bx bxs-pencil'></i> Editar</button>
                     </div>
                     <div>
                         <div className="item up">
@@ -79,7 +79,7 @@ export default function BookingScreen() {
             </div>
             <div className="right__screen">
                 {data.bookings.map((booking) => (
-                    <button className="button__none" onClick={() => setItem(booking.id)}>
+                    <button key={booking.id} className="button__none" onClick={() => setItem(booking.id)}>
                     <CardBooking key={booking.id} name={booking.name} number={booking.number}/>
                     </button>
                 ))}

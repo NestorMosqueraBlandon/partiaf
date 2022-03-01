@@ -1,14 +1,13 @@
-import { useMutation } from '@apollo/client'
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { Router } from 'workbox-routing'
-import { CREATE_USER_MUTATION } from '../graphql/Mutation'
-
+import { createStore } from '../actions/adminActions';
 
 export default function StoreScreen(props) {
     
-    const [createUser, {error}] = useMutation(CREATE_USER_MUTATION)
+    const adminSignin = useSelector((state) => state.adminSignin);
+    const { adminInfo, loading, error } = adminSignin;
 
     const [name, setName] = useState("");
     const [type, setType] = useState("");
@@ -16,38 +15,28 @@ export default function StoreScreen(props) {
     const [mobile, setMobile] = useState("");
     const [employes, setEmployes] = useState("");
     const [address, setAddress] = useState("");
-    const [email, setEmail] = useState("");
+    const [emailStore, setEmailStore] = useState("");
     const [password, setPassword] = useState("");
+    const [email, setEmail] = useState(adminInfo.email)
 
-    const addUser = () => {
-        createUser({
-            variables: {
-                name,
-                type,
-                nit,
-                mobile,
-                employes,
-                address,
-                email,
-                password
-            }
-        })
 
-        props.history.push("/home")
-    }
+    const dispatch = useDispatch();
 
-    if(error){
-        console.log(error)
-    }
+    const submitHandler = (e) => {
+        e.preventDefault();
+        dispatch(createStore({name, type, nit, mobile, employes, address, emailStore, password, email}))
+        props.history.push('/home')
+    } 
+
 
     return (
         <div className="register center">
-            <h2 className="register-title">Bienvenido!</h2>
-            <form action="">
+            <h2 className="register-title new-title">Bienvenido!</h2>
+            <form onSubmit={submitHandler}>
                 <p>Datos del establecimeinto</p>
 
                 <input type="text"  value={name} onChange={(e) => setName(e.target.value)} placeholder="Nombre"/>
-                <label htmlFor="">Tipo de Establecimeinto</label>
+                <label htmlFor="" className='form-label'>Tipo de Establecimeinto</label>
                 <select name="" id="" value={type} onChange={(e) => setType(e.target.value)} >
                     <option value="Discoteca">Discoteca</option>
                     <option value="Bar">Bar</option>
@@ -56,7 +45,7 @@ export default function StoreScreen(props) {
                 </select>
                 <input type="text" value={nit} onChange={(e) => setNit(e.target.value)} name="" id="" placeholder="NIT" />
                 <div>
-                    <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" />
+                    <input type="text" value={emailStore} onChange={(e) => setEmailStore(e.target.value)} placeholder="Email" />
                     <input type="text" value={mobile} onChange={(e) => setMobile(e.target.value)} name="" id="" placeholder="Movil" />
                 </div>
                 <div>
@@ -74,7 +63,7 @@ export default function StoreScreen(props) {
 
                 <div className="footer">
                     <Link to="/"><button className="btn-normal">Atras</button></Link>
-                    <button onClick={addUser} >Siguiente</button>
+                    <button >Siguiente</button>
                 </div>
             </form>
             

@@ -1,8 +1,17 @@
 import React from 'react'
 import '../styles/header.css'
 import { Link } from 'react-router-dom';
+import { signout } from '../actions/adminActions';
+import { useDispatch } from 'react-redux';
 
 export default function Header() {
+
+    const dispatch = useDispatch();
+
+    const signoutHandler = () => {
+        dispatch(signout());
+      };
+
     return (
         <header>
             <nav>
@@ -11,8 +20,9 @@ export default function Header() {
                     <Link to='/settings' className="color">
                     <i className='bx bxs-cog'></i> Configuracion
                 </Link>
-
+                <button className='ml-10' onClick={signoutHandler}>Salir</button>
                 </div>
+
             </nav>
         </header>
     )

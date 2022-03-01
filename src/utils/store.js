@@ -1,17 +1,27 @@
 import { applyMiddleware, combineReducers, createStore, compose } from "redux"
 import thunk from "redux-thunk";
 import { userSigninReducer } from '../reducers/userReducer.js';
-
+import { adminSigninReducer, createStoreReducer, storeListReducer, storeSigninReducer } from '../reducers/adminReducer.js';
 const initialState = {
-    // userSignin: {
-    //     userInfo: localStorage.getItem("userInfo")
-    //     ? JSON.parse(localStorage.getItem("userInfo"))
-    //     : null,
-    // }
+    adminSignin: {
+        adminInfo: localStorage.getItem('adminInfo')
+          ? JSON.parse(localStorage.getItem('adminInfo'))
+          : null,
+      },
+
+      storeSignin: {
+        storeInfo: localStorage.getItem('storeInfo')
+          ? JSON.parse(localStorage.getItem('storeInfo'))
+          : null,
+      },
 }
 
 const reducer = combineReducers({
-    userSignin: userSigninReducer
+    userSignin: userSigninReducer,
+    adminSignin: adminSigninReducer,
+    storeCreate: createStoreReducer,
+    storeList: storeListReducer,
+    storeSignin: storeSigninReducer,
 })
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

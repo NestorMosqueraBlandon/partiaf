@@ -25,7 +25,7 @@ export default function BuyScreen() {
                 <div className="state-card">
                     <div className="state__header">
                     <h3>OWEN WILSON / MESA 4 / M. FELIPE GRANADOS</h3>
-                    <span className="corner"><i class='bx bxs-star' ></i></span>
+                    <span className="corner"><i className='bx bxs-star' ></i></span>
                     </div>
                     <div className="buy_item-list">
                         <div className="buy_item">
@@ -49,7 +49,7 @@ export default function BuyScreen() {
                 <div className="state-card">
                     <div className="state__header">
                     <h3>OWEN WILSON / MESA 4 / M. FELIPE GRANADOS</h3>
-                    <span className="corner"><i class='bx bxs-star' ></i></span>
+                    <span className="corner"><i className='bx bxs-star' ></i></span>
                     </div>
                     <div className="buy_item-list">
                         <div className="buy_item">
@@ -73,7 +73,7 @@ export default function BuyScreen() {
                 <div className="state-card">
                     <div className="state__header">
                     <h3>OWEN WILSON / MESA 4 / M. FELIPE GRANADOS</h3>
-                    <span className="corner"><i class='bx bxs-star' ></i></span>
+                    <span className="corner"><i className='bx bxs-star' ></i></span>
                     </div>
                     <div className="buy_item-list">
                         <div className="buy_item">
@@ -97,7 +97,7 @@ export default function BuyScreen() {
                 <div className="state-card">
                     <div className="state__header">
                     <h3>OWEN WILSON / MESA 4 / M. FELIPE GRANADOS</h3>
-                    <span className="corner"><i class='bx bxs-star' ></i></span>
+                    <span className="corner"><i className='bx bxs-star' ></i></span>
                     </div>
                     <div className="buy_item-list">
                         <div className="buy_item">
@@ -121,7 +121,7 @@ export default function BuyScreen() {
                 <div className="state-card">
                     <div className="state__header">
                     <h3>OWEN WILSON / MESA 4 / M. FELIPE GRANADOS</h3>
-                    <span className="corner"><i class='bx bxs-star' ></i></span>
+                    <span className="corner"><i className='bx bxs-star' ></i></span>
                     </div>
                     <div className="buy_item-list">
                         <div className="buy_item">
@@ -145,7 +145,7 @@ export default function BuyScreen() {
                 <div className="state-card">
                     <div className="state__header">
                     <h3>OWEN WILSON / MESA 4 / M. FELIPE GRANADOS</h3>
-                    <span className="corner"><i class='bx bxs-star' ></i></span>
+                    <span className="corner"><i className='bx bxs-star' ></i></span>
                     </div>
                     <div className="buy_item-list">
                         <div className="buy_item">

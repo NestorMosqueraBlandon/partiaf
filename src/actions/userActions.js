@@ -10,6 +10,9 @@ import {
 
 } from '../constants/userConstants';
 
+const URL = 'https://partiaf-api.herokuapp.com/';
+
+
 export const signin = (username, password) => async (dispatch) => {
     dispatch({ type: USER_SIGNIN_REQUEST, payload: { username, password } });
     try {
