@@ -18,7 +18,7 @@ import {
 
 // const URL = "http://localhost:5200/api/v1";
 // const URL = 'https://rveapiv2.herokuapp.com/api/v1'
-const URL = 'https://partiaf-api.herokuapp.com/';
+const URL = 'https://partiaf-api.herokuapp.com/api/v1';
 
 export const signin = (email, password) => async (dispatch) => {
   dispatch({ type: ADMIN_SIGNIN_REQUEST, payload: { email, password } });
