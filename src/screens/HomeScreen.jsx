@@ -1,12 +1,27 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
+import React from "react";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import LoadingBox from "../components/LoadingBox";
 
 export default function HomeScreen() {
-    return (
-        <div className="home">
-            <Link className="home__link" to="/login">Iniciar sesión</Link>
-            <Link className="home__link" to="/register">Crear usuario</Link>
-            <Link to="/">Has olvidado tu contraseña?</Link>
-        </div>
-    )
+  const adminSignin = useSelector((state) => state.adminSignin);
+  const { loading, error, adminInfo } = adminSignin;
+
+  return (
+    <div className="home">
+      {loading ? (
+        <LoadingBox />
+      ) : (
+        <>
+          <Link className="home__link" to="/login">
+            Iniciar sesión
+          </Link>
+          <Link className="home__link" to="/register">
+            Crear usuario
+          </Link>
+          <Link to="/">Has olvidado tu contraseña?</Link>
+        </>
+      )}
+    </div>
+  );
 }

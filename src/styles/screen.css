@@ -730,13 +730,45 @@ select{
     display: flex;
     gap: 2rem;
     flex-wrap: wrap;
+    overflow: scroll;
 }
 .cover__card{
     min-width: 288px;
+    width: 300px;
     min-height: 200px;
     border: none;
     border-radius: 5px;
     padding: 1em;
     box-shadow: 0 4px 8px rgba(0, 0, 0, .1);
     background-color: #ffffff;
+}
+
+.loading__box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.loading__circle{
+    border: 1px solid rgba(255, 255, 255, .5);
+    height:80px;
+    width: 80px;
+    border-radius: 5rem;
+    border-left: 1px solid transparent;
+    margin-bottom: 1rem;
+    transition: 1s;
+    animation: animateLoading .5s linear infinite;
+}
+
+.loading__text{
+    color: #ccc;
+}
+
+@keyframes animateLoading {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
 }

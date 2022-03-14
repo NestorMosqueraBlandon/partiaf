@@ -10,14 +10,14 @@ export default function Navigation() {
     return (
         <aside>
             <ul>
-                <Link to="/" onClick={() => setActive('notifications')} className={active === "notifications"? "navigation__item active"
+                {/* <Link to="/" onClick={() => setActive('notifications')} className={active === "notifications"? "navigation__item active"
                   : 'navigation__item'}>
 
                       <div className="icon">
                         <img src="./img/warning.png" alt="" />
                       </div>
                       <div className="title">Notificaciones</div>
-                </Link>
+                </Link> */}
                 <Link to="/cover" onClick={() => setActive('covers')} className={active === "covers"? "navigation__item active"
                   : 'navigation__item'}>
 
