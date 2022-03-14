@@ -20,7 +20,11 @@ import {
     STORE_COVER_RESET,
     LIST_COVER_REQUEST,
     LIST_COVER_SUCCESS,
-    LIST_COVER_FAIL
+    LIST_COVER_FAIL,
+    DELETE_COVER_REQUEST,
+    DELETE_COVER_SUCCESS,
+    DELETE_COVER_FAIL,
+    DELETE_COVER_RESET,
   } from '../constants/adminConstants';
 
 export const adminSigninReducer = (state = {}, action) => {
@@ -105,6 +109,21 @@ export const coverListReducer = (state = { covers: [] }, action) => {
       return { loading: false, covers: action.payload };
     case LIST_COVER_FAIL:
       return { loading: false, error: action.payload };
+    default:
+      return state;
+  }
+};
+
+export const deleteStoreCoverReducer = (state = {}, action) => {
+  switch (action.type) {
+    case DELETE_COVER_REQUEST:
+      return { loading: true };
+    case DELETE_COVER_SUCCESS:
+      return { loading: false, success: true };
+    case DELETE_COVER_FAIL:
+      return { loading: false, error: action.payload };
+    case DELETE_COVER_RESET:
+      return {};
     default:
       return state;
   }

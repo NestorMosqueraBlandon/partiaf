@@ -72,7 +72,7 @@ export default function CoverCreateScreen() {
       <div>
         <div className="item item-flex w-100 up">
           <h3>TIPO DE EVENTO</h3>
-          <input type="text" name="" id="" value={name} onChange={(e) => setName(e.target.value)} />
+          <input type="text" name="" id="" value={name} onChange={(e) => setName(e.target.value)} required />
         </div>
         <div className="event-fields">
           <div className="left"></div>
@@ -80,21 +80,21 @@ export default function CoverCreateScreen() {
             <div className="w-50">
               <div className="item item-flex w-100">
                 <h3>Precio</h3>
-                <input type="number" value={price} onChange={(e) => setPrice(e.target.value)} />
+                <input type="number" value={price} onChange={(e) => setPrice(e.target.value)} required />
               </div>
               <div className="item item-flex w-100">
                 <h3>Cupo total</h3>
-                <input type="number" value={totalLimit} onChange={(e) => setTotalLimit(e.target.value)} />
+                <input type="number" value={totalLimit} onChange={(e) => setTotalLimit(e.target.value)} required />
               </div>
             </div>
             <div className="w-50">
               <div className="item item-flex w-100">
                 <h3>Fecha</h3>
-                <input type="date" value={date} onChange={(e) => setDate(e.target.value)}y />
+                <input type="date" value={date} onChange={(e) => setDate(e.target.value)} required/>
               </div>
               <div className="item item-flex w-100">
                 <h3>Hora</h3>
-                <input type="text" value={hour} onChange={(e) => setHour(e.target.value)} />
+                <input type="text" value={hour} onChange={(e) => setHour(e.target.value)} required />
               </div>
             </div>
           </div>

@@ -20,11 +20,14 @@ import {
   LIST_COVER_REQUEST,
   LIST_COVER_SUCCESS,
   LIST_COVER_FAIL,
+  DELETE_COVER_SUCCESS,
+  DELETE_COVER_REQUEST,
+  DELETE_COVER_FAIL,
 } from "../constants/adminConstants";
 
-// const URL = "http://localhost:4200/api/v1";
+const URL = "http://localhost:4200/api/v1";
 // const URL = 'https://rveapiv2.herokuapp.com/api/v1'
-const URL = 'https://partiaf-api.herokuapp.com/api/v1';
+// const URL = 'https://partiaf-api.herokuapp.com/api/v1';
 
 export const signin = (email, password) => async (dispatch) => {
   dispatch({ type: ADMIN_SIGNIN_REQUEST, payload: { email, password } });
@@ -177,17 +180,17 @@ export const createStoreCover = (email, storeId, type, date, hour, price, descri
 
 
 export const deleteStoreCover = (email, storeId, coverId) => async (dispatch) => {
-  dispatch({ type: STORE_COVER_REQUEST, payload: {email, storeId, coverId } });
+  dispatch({ type: DELETE_COVER_REQUEST, payload: {email, storeId, coverId } });
   try {
-    const { data } = await Axios.post(`${URL}/stores/createCover`, {
-      email, storeId, coverId
+    const { data } = await Axios.delete(`${URL}/stores/covers/${coverId}?email=${email}&storeId=${storeId}`, {
+      email, storeId
     });
 
-    dispatch({ type: STORE_COVER_SUCCESS, payload: data });
+    dispatch({ type: DELETE_COVER_SUCCESS, payload: data });
     // localStorage.setItem("storeInfo", JSON.stringify(data));
   } catch (error) {
     dispatch({
-      type: STORE_COVER_FAIL,
+      type: DELETE_COVER_FAIL,
       payload:
         error.response && error.response.data.message
           ? error.response.data.message

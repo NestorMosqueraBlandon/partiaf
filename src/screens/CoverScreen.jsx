@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import CoverCreateScreen from "../components/CoverCreateScreen";
 import { listCovers } from "../actions/adminActions";
 import CoverListScreen from "../components/CoverListScreen";
-import { STORE_COVER_RESET } from "../constants/adminConstants";
+import { DELETE_COVER_RESET, STORE_COVER_RESET } from "../constants/adminConstants";
 import LoadingBox from '../components/LoadingBox'
 
 export default function CoverScreen(props) {
@@ -37,19 +37,25 @@ export default function CoverScreen(props) {
   const createCover = useSelector((state) => state.createCover);
   const { loading: loadingCreate, error: errorCreate, success: successCreate } = createCover;
 
+  const deleteCover = useSelector((state) => state.deleteCover);
+  const { success: successDelete } = deleteCover;
+
+
   const dispatch = useDispatch();
 
 
   useEffect(() => {
     if(successCreate) {
-      
-
       dispatch({type: STORE_COVER_RESET})
       setThatScreen("List")
   }
+  if(successDelete) {
+    dispatch({type: DELETE_COVER_RESET})
+    setThatScreen("List")
+}
     dispatch(listCovers(adminInfo.email, storeInfo.store._id))
 
-  }, [dispatch, adminInfo, storeInfo, successCreate])
+  }, [dispatch, adminInfo, storeInfo, successCreate, successDelete])
 
   
 
