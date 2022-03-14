@@ -17,14 +17,15 @@ export default function StoreScreen(props) {
     const [address, setAddress] = useState("");
     const [emailStore, setEmailStore] = useState("");
     const [password, setPassword] = useState("");
-    const [email, setEmail] = useState(adminInfo.email)
+    const [email, setEmail] = useState(adminInfo.email);
+    const [totalLimit, setTotalLimit] = useState("");
 
 
     const dispatch = useDispatch();
 
     const submitHandler = (e) => {
         e.preventDefault();
-        dispatch(createStore({name, type, nit, mobile, employes, address, emailStore, password, email}))
+        dispatch(createStore({name, type, nit, mobile, employes, address, emailStore, password, email, totalLimit}))
         props.history.push('/home')
     } 
 
@@ -44,6 +45,7 @@ export default function StoreScreen(props) {
 
                 </select>
                 <input type="text" value={nit} onChange={(e) => setNit(e.target.value)} name="" id="" placeholder="NIT" />
+                <input type="text" value={totalLimit} onChange={(e) => setTotalLimit(e.target.value)} name="" id="" placeholder="Cupo total" />
                 <div>
                     <input type="text" value={emailStore} onChange={(e) => setEmailStore(e.target.value)} placeholder="Email" />
                     <input type="text" value={mobile} onChange={(e) => setMobile(e.target.value)} name="" id="" placeholder="Movil" />
