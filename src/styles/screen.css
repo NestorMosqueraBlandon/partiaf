@@ -724,3 +724,19 @@ select{
 .ml-10{
     margin-left: 1rem;
 }
+
+
+.cover__list{
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+.cover__card{
+    min-width: 288px;
+    min-height: 200px;
+    border: none;
+    border-radius: 5px;
+    padding: 1em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, .1);
+    background-color: #ffffff;
+}

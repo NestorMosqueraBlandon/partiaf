@@ -13,7 +13,14 @@ import {
     STORE_SIGNIN_REQUEST,
     STORE_SIGNIN_SUCCESS,
     STORE_SIGNIN_FAIL,
-    STORE_SIGNOUT
+    STORE_SIGNOUT,
+    STORE_COVER_REQUEST,
+    STORE_COVER_SUCCESS,
+    STORE_COVER_FAIL,
+    STORE_COVER_RESET,
+    LIST_COVER_REQUEST,
+    LIST_COVER_SUCCESS,
+    LIST_COVER_FAIL
   } from '../constants/adminConstants';
 
 export const adminSigninReducer = (state = {}, action) => {
@@ -70,6 +77,34 @@ export const storeSigninReducer = (state = {}, action) => {
       return { loading: false, error: action.payload };
     case STORE_SIGNOUT:
       return {};
+    default:
+      return state;
+  }
+};
+
+export const createStoreCoverReducer = (state = {}, action) => {
+  switch (action.type) {
+    case STORE_COVER_REQUEST:
+      return { loading: true };
+    case STORE_COVER_SUCCESS:
+      return { loading: false, success: true };
+    case STORE_COVER_FAIL:
+      return { loading: false, error: action.payload };
+    case STORE_COVER_RESET:
+      return {};
+    default:
+      return state;
+  }
+};
+
+export const coverListReducer = (state = { covers: [] }, action) => {
+  switch (action.type) {
+    case LIST_COVER_REQUEST:
+      return { loading: true };
+    case LIST_COVER_SUCCESS:
+      return { loading: false, covers: action.payload };
+    case LIST_COVER_FAIL:
+      return { loading: false, error: action.payload };
     default:
       return state;
   }

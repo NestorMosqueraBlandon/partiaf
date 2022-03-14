@@ -14,11 +14,17 @@ import {
   STORE_SIGNIN_REQUEST,
   STORE_SIGNIN_SUCCESS,
   STORE_SIGNIN_FAIL,
+  STORE_COVER_REQUEST,
+  STORE_COVER_SUCCESS,
+  STORE_COVER_FAIL,
+  LIST_COVER_REQUEST,
+  LIST_COVER_SUCCESS,
+  LIST_COVER_FAIL,
 } from "../constants/adminConstants";
 
-// const URL = "http://localhost:5200/api/v1";
+const URL = "http://localhost:4200/api/v1";
 // const URL = 'https://rveapiv2.herokuapp.com/api/v1'
-const URL = 'https://partiaf-api.herokuapp.com/api/v1';
+// const URL = 'https://partiaf-api.herokuapp.com/api/v1';
 
 export const signin = (email, password) => async (dispatch) => {
   dispatch({ type: ADMIN_SIGNIN_REQUEST, payload: { email, password } });
@@ -88,6 +94,7 @@ export const createStore = (store) => async (dispatch) => {
   }
 };
 
+
 export const listStores = (email) => async (dispatch, getState) => {
   
   dispatch({ type: LIST_STORE_REQUEST });
@@ -98,6 +105,26 @@ export const listStores = (email) => async (dispatch, getState) => {
   } catch (error) {
     dispatch({
       type: LIST_STORE_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    });
+  }
+};
+
+
+export const listCovers = (email, storeId) => async (dispatch, getState) => {
+  
+  console.log(email, storeId)
+  dispatch({ type: LIST_COVER_REQUEST});
+  try {
+    const { data } = await Axios.get(`${URL}/stores/covers?email=${email}&storeId=${storeId}`);
+    console.log(data)
+    dispatch({ type: LIST_COVER_SUCCESS, payload: data });
+  } catch (error) {
+    dispatch({
+      type: LIST_COVER_FAIL,
       payload:
         error.response && error.response.data.message
           ? error.response.data.message
@@ -120,6 +147,26 @@ export const signinStore = (email, storeId, password) => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: STORE_SIGNIN_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    });
+  }
+};
+
+export const createStoreCover = (email, storeId, type, date, hour, price, description, totalLimit, name) => async (dispatch) => {
+  dispatch({ type: STORE_COVER_REQUEST, payload: {email, storeId, type, date, hour, price, description, totalLimit, name } });
+  try {
+    const { data } = await Axios.post(`${URL}/stores/createCover`, {
+      email, storeId, type, date, hour, price, description,totalLimit, name
+    });
+
+    dispatch({ type: STORE_COVER_SUCCESS, payload: data });
+    // localStorage.setItem("storeInfo", JSON.stringify(data));
+  } catch (error) {
+    dispatch({
+      type: STORE_COVER_FAIL,
       payload:
         error.response && error.response.data.message
           ? error.response.data.message

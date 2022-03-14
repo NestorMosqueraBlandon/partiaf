@@ -1,7 +1,7 @@
 import { applyMiddleware, combineReducers, createStore, compose } from "redux"
 import thunk from "redux-thunk";
 import { userSigninReducer } from '../reducers/userReducer.js';
-import { adminSigninReducer, createStoreReducer, storeListReducer, storeSigninReducer } from '../reducers/adminReducer.js';
+import { adminSigninReducer, coverListReducer, createStoreCoverReducer, createStoreReducer, storeListReducer, storeSigninReducer } from '../reducers/adminReducer.js';
 const initialState = {
     adminSignin: {
         adminInfo: localStorage.getItem('adminInfo')
@@ -22,6 +22,8 @@ const reducer = combineReducers({
     storeCreate: createStoreReducer,
     storeList: storeListReducer,
     storeSignin: storeSigninReducer,
+    createCover: createStoreCoverReducer,
+    coversList: coverListReducer
 })
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
