@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom'
 import { listStores, signinStore } from '../actions/adminActions';
+import LoadingBox from '../components/LoadingBox';
 
 export default function BusinessScreen(props) {
 
@@ -50,7 +51,7 @@ export default function BusinessScreen(props) {
             </picture>
             <h3>{adminInfo.name}</h3>
             <p>Por favor selecciona tu negocio</p>
-            {loading? (<h2>Loading</h2>) : (
+            {loading? (<LoadingBox />) : (
             <>
                 {stores.map((store) => (
                     <button onClick={() => selectBar(store) } key={store._id} className='store-link'>{store.name}</button>

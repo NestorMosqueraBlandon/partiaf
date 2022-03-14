@@ -6,6 +6,7 @@ import CoverCreateScreen from "../components/CoverCreateScreen";
 import { listCovers } from "../actions/adminActions";
 import CoverListScreen from "../components/CoverListScreen";
 import { STORE_COVER_RESET } from "../constants/adminConstants";
+import LoadingBox from '../components/LoadingBox'
 
 export default function CoverScreen(props) {
   const [name, setName] = useState("");
@@ -58,7 +59,7 @@ export default function CoverScreen(props) {
         <div className="flex flexm">
           <div className="box">
             <h3>Total Entradas</h3>
-            {loadingList? <h6>Cargando...</h6> : (
+            {loadingList? <LoadingBox /> : (
               <p>{covers.length}</p>
             )}
           </div>

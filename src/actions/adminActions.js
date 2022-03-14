@@ -174,3 +174,24 @@ export const createStoreCover = (email, storeId, type, date, hour, price, descri
     });
   }
 };
+
+
+export const deleteStoreCover = (email, storeId, coverId) => async (dispatch) => {
+  dispatch({ type: STORE_COVER_REQUEST, payload: {email, storeId, coverId } });
+  try {
+    const { data } = await Axios.post(`${URL}/stores/createCover`, {
+      email, storeId, coverId
+    });
+
+    dispatch({ type: STORE_COVER_SUCCESS, payload: data });
+    // localStorage.setItem("storeInfo", JSON.stringify(data));
+  } catch (error) {
+    dispatch({
+      type: STORE_COVER_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    });
+  }
+};

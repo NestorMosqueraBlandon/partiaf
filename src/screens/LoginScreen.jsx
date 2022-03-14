@@ -7,6 +7,7 @@ import { USER_SIGNIN_SUCCESS } from "../constants/userConstants";
 import { AuthContext } from "../context/auth";
 import swal from "sweetalert";
 import { signin } from "../actions/adminActions";
+import LoadingBox from "../components/LoadingBox";
 
 export default function LoginScreen(props) {
   const adminSignin = useSelector((state) => state.adminSignin);
@@ -44,7 +45,7 @@ export default function LoginScreen(props) {
   return (
     <div className="home">
       {loading ? (
-        <h2>Cargando...</h2>
+        <LoadingBox />
       ) : (
         <form onSubmit={submitHandler}>
           <input

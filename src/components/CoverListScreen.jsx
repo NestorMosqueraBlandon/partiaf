@@ -1,11 +1,12 @@
 import React from "react";
+import LoadingBox from "./LoadingBox";
 
 export default function CoverListScreen({ loading, covers }) {
     
   return (
     <div className="cover__list">
       {loading ? (
-        <h4>Cargando...</h4>
+        <LoadingBox />
       ) : (
         <>
           {covers.map((cover) => (
