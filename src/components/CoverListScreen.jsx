@@ -58,7 +58,7 @@ export default function CoverListScreen({ loading, covers }) {
       dispatch({ type: UPDATE_COVER_RESET });
      setUpdate(false);
     }
-  }, [successUpdate, successDelete]);
+  }, [dispatch, successUpdate, successDelete]);
   return (
     <>
       {update ? (

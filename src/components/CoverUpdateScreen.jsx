@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import * as timeago from "timeago.js";
-import { createStoreCover, updatenStoreCover } from "../actions/adminActions";
-import { STORE_COVER_RESET, UPDATE_COVER_RESET } from "../constants/adminConstants";
+import { updatenStoreCover } from "../actions/adminActions";
+import { UPDATE_COVER_RESET } from "../constants/adminConstants";
 
 export default function CoverUpdateScreen(cover) {
   console.log(cover)
@@ -21,7 +20,7 @@ export default function CoverUpdateScreen(cover) {
   const { storeInfo } = storeSignin;
 
   const updateCover = useSelector((state) => state.updateCover);
-  const { loading, error, success: successUpdate } = updateCover;
+  const { success: successUpdate } = updateCover;
 
   const dispatch = useDispatch();
   const submitHandler = (e) => {

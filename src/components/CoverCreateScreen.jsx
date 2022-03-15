@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import * as timeago from "timeago.js";
 import { createStoreCover } from "../actions/adminActions";
 import { STORE_COVER_RESET } from "../constants/adminConstants";
 
@@ -21,7 +20,7 @@ export default function CoverCreateScreen() {
   const { storeInfo } = storeSignin;
 
   const createCover = useSelector((state) => state.createCover);
-  const { loading, error, success: successCreate } = createCover;
+  const { loading, success: successCreate } = createCover;
 
   const dispatch = useDispatch();
   const submitHandler = (e) => {

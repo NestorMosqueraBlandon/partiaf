@@ -14,10 +14,10 @@ export default function BusinessScreen(props) {
   const [barSelected, setBarSelected] = useState([]);
 
   const storeList = useSelector((state) => state.storeList);
-  const { loading, error, stores } = storeList;
+  const { loading, stores } = storeList;
 
   const storeSignin = useSelector((state) => state.storeSignin);
-  const { loading: loadingStores, storeInfo, error: errorSignin } = storeSignin;
+  const { storeInfo, error: errorSignin } = storeSignin;
 
   const dispatch = useDispatch();
 
@@ -60,7 +60,7 @@ export default function BusinessScreen(props) {
           {stores? (
 
 
-              <>
+              <div className="stores-list">
               {stores.map((store) => (
                   <button
                   onClick={() => selectBar(store)}
@@ -70,7 +70,7 @@ export default function BusinessScreen(props) {
                   {store.name}
                 </button>
               ))}
-            </>
+            </div>
               ): (<h3>No hay Negocios</h3>)}
           </>
         )}

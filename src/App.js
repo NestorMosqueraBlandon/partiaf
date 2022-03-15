@@ -1,11 +1,9 @@
-import React, { useContext, useState } from "react";
+import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Layout from "./components/Layout";
-import { AuthContext } from "./context/auth";
 import BookingScreen from "./screens/BookingScreen";
 import BusinessScreen from "./screens/BusinessScreen";
 import BuyScreen from "./screens/BuyScreen";
-import ComingSoon from "./screens/ComingSoon";
 import CoverScreen from "./screens/CoverScreen";
 import HomeScreen from "./screens/HomeScreen";
 import LoginScreen from "./screens/LoginScreen";
@@ -15,9 +13,9 @@ import SettingsScreen from "./screens/SettingsScreen";
 import StaffScreen from "./screens/StaffScreen";
 import StoreScreen from "./screens/StoreScreen";
 
-import { AuthProvider } from "./context/auth";
 import { useSelector } from "react-redux";
 import LayoutHome from "./components/LayoutHome";
+import ComingSoon from "./screens/ComingSoon";
 
 function App() {
   const adminSignin = useSelector((state) => state.adminSignin);
@@ -25,15 +23,16 @@ function App() {
   console.log(adminInfo);
 
   const storeSignin = useSelector((state) => state.storeSignin);
-  const { storeInfo } = storeSignin;
+  const { loading, storeInfo } = storeSignin;
 
   return (
     <BrowserRouter>
-      <div className="App">
-        {adminInfo && storeInfo ? (
+      <>
+      
+        {adminInfo && storeInfo && !loading ? (
           <Layout>
             <Switch>
-              <Route path="/home" component={BookingScreen} exact></Route>
+              <Route path="/home" component={ComingSoon} exact></Route>
               <Route path="/booking" component={BookingScreen} exact></Route>
               <Route path="/menu" component={MenuScreen} exact></Route>
               <Route path="/cover" component={CoverScreen} exact></Route>
@@ -57,7 +56,7 @@ function App() {
             <Route path="/settings" component={SettingsScreen} exact></Route>
           </>
         )}
-      </div>
+      </>
     </BrowserRouter>
   );
 }

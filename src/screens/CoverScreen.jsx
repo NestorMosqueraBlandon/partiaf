@@ -62,7 +62,11 @@ export default function CoverScreen(props) {
 if(successUpdate){
   dispatch({ type: UPDATE_COVER_RESET });
 }
-    dispatch(listCovers(adminInfo.email, storeInfo.store._id))
+
+if(storeInfo){
+  dispatch(listCovers(adminInfo.email, storeInfo.store._id))
+
+}
 
   }, [dispatch, adminInfo, storeInfo, successCreate, successDelete, successUpdate])
 

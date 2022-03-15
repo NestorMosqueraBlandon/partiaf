@@ -8,12 +8,12 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import store from './utils/store';
 // import ApolloProvider from "./utils/ApolloProvider"
-import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
+// import { ApolloClient, InMemoryCache } from '@apollo/client';
 
-const client = new ApolloClient({
-  uri: 'http://localhost:5100/',
-  cache: new InMemoryCache()
-})
+// const client = new ApolloClient({
+//   uri: 'http://localhost:5100/',
+//   cache: new InMemoryCache()
+// })
 
 
 // ReactDOM.render(ApolloProvider, document.getElementById('root'));

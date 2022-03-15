@@ -1,20 +1,19 @@
-import React, { useState } from 'react'
+import React from 'react'
 import CardBooking from '../components/CardBooking'
 import data from '../utils/data'
-import * as timeago from "timeago.js"
 
 export default function BuyScreen() {
     
-    const [name, setName] = useState("")
-    const [note, setNote] = useState("")
-    const [date, setDate] = useState("")
+    // const [name, setName] = useState("")
+    // const [note, setNote] = useState("")
+    // const [date, setDate] = useState("")
 
     const setItem = (id) => {
-        data.bookings.filter((booking) => booking.id == id).map((booking) => {
-            setName(booking.name)
-            setNote(booking.note)
-            setDate(booking.date)
-        })
+        // data.bookings.filter((booking) => booking.id == id).map((booking) => {
+        //     setName(booking.name)
+        //     setNote(booking.note)
+        //     setDate(booking.date)
+        // })
     }
 
     

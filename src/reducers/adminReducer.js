@@ -52,7 +52,7 @@ export const createStoreReducer = (state = {}, action) => {
     case CREATE_STORE_REQUEST:
       return { loading: true };
     case CREATE_STORE_SUCCESS:
-      return { loading: false, success: true };
+      return { loading: false, storeInfo: action.payload };
     case CREATE_STORE_FAIL:
       return { loading: false, error: action.payload };
     case CREATE_STORE_RESET:

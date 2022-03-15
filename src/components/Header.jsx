@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../styles/header.css";
 import { Link } from "react-router-dom";
-import { signinStore, signout, signoutBussiness } from "../actions/adminActions";
+import { signout, signoutBussiness } from "../actions/adminActions";
 import { useDispatch, useSelector } from "react-redux";
 
 export default function Header() {
@@ -22,7 +22,7 @@ export default function Header() {
   return (
     <header>
       <nav>
-        <div className="logo">
+        <div className="logo" onClick={() => setDrop(!drop)}>
           <i className="bx bx-world"></i> PARTIAF
         </div>
         <div className={drop ? "dropdown active" : "dropdown"}>

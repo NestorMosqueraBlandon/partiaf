@@ -27,11 +27,14 @@ import {
   UPDATE_COVER_SUCCESS,
   UPDATE_COVER_FAIL,
   STORE_SIGNOUT,
+  CREATE_STORE_REQUEST,
+  CREATE_STORE_SUCCESS,
+  CREATE_STORE_FAIL,
 } from "../constants/adminConstants";
 
-const URL = "http://localhost:4200/api/v1";
+// const URL = "http://localhost:4200/api/v1";
 // const URL = 'https://rveapiv2.herokuapp.com/api/v1'
-// const URL = 'https://partiaf-api.herokuapp.com/api/v1';
+const URL = 'https://partiaf-api.herokuapp.com/api/v1';
 
 export const signin = (email, password) => async (dispatch) => {
   dispatch({ type: ADMIN_SIGNIN_REQUEST, payload: { email, password } });
@@ -84,15 +87,17 @@ export const signout = () => (dispatch) => {
 
 
 export const createStore = (store) => async (dispatch) => {
-  dispatch({ type: ADMIN_SIGNIN_REQUEST, payload: store });
+  dispatch({ type: CREATE_STORE_REQUEST, payload: store });
   try {
     const { data } = await Axios.post(`${URL}/stores/`, store);
 
-    dispatch({ type: ADMIN_SIGNIN_SUCCESS, payload: data });
-    localStorage.setItem("adminInfo", JSON.stringify(data));
+    dispatch({ type: CREATE_STORE_SUCCESS, payload: data });
+    dispatch({ type: STORE_SIGNIN_SUCCESS, payload: data });
+    console.log(data)
+    localStorage.setItem("storeInfo", JSON.stringify(data));
   } catch (error) {
     dispatch({
-      type: ADMIN_SIGNIN_FAIL,
+      type: CREATE_STORE_FAIL,
       payload:
         error.response && error.response.data.message
           ? error.response.data.message
