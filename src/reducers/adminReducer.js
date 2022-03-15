@@ -25,6 +25,10 @@ import {
     DELETE_COVER_SUCCESS,
     DELETE_COVER_FAIL,
     DELETE_COVER_RESET,
+    UPDATE_COVER_REQUEST,
+    UPDATE_COVER_SUCCESS,
+    UPDATE_COVER_FAIL,
+    UPDATE_COVER_RESET,
   } from '../constants/adminConstants';
 
 export const adminSigninReducer = (state = {}, action) => {
@@ -123,6 +127,21 @@ export const deleteStoreCoverReducer = (state = {}, action) => {
     case DELETE_COVER_FAIL:
       return { loading: false, error: action.payload };
     case DELETE_COVER_RESET:
+      return {};
+    default:
+      return state;
+  }
+};
+
+export const updateStoreCoverReducer = (state = {}, action) => {
+  switch (action.type) {
+    case UPDATE_COVER_REQUEST:
+      return { loading: true };
+    case UPDATE_COVER_SUCCESS:
+      return { loading: false, success: true };
+    case UPDATE_COVER_FAIL:
+      return { loading: false, error: action.payload };
+    case UPDATE_COVER_RESET:
       return {};
     default:
       return state;

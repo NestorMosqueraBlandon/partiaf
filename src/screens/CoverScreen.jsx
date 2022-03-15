@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import CoverCreateScreen from "../components/CoverCreateScreen";
 import { listCovers } from "../actions/adminActions";
 import CoverListScreen from "../components/CoverListScreen";
-import { DELETE_COVER_RESET, STORE_COVER_RESET } from "../constants/adminConstants";
+import { DELETE_COVER_RESET, STORE_COVER_RESET, UPDATE_COVER_RESET } from "../constants/adminConstants";
 import LoadingBox from '../components/LoadingBox'
 
 export default function CoverScreen(props) {
@@ -41,6 +41,11 @@ export default function CoverScreen(props) {
   const { success: successDelete } = deleteCover;
 
 
+
+  const updateCover = useSelector((state) => state.updateCover);
+  const { success: successUpdate } = updateCover;
+
+
   const dispatch = useDispatch();
 
 
@@ -53,9 +58,13 @@ export default function CoverScreen(props) {
     dispatch({type: DELETE_COVER_RESET})
     setThatScreen("List")
 }
+
+if(successUpdate){
+  dispatch({ type: UPDATE_COVER_RESET });
+}
     dispatch(listCovers(adminInfo.email, storeInfo.store._id))
 
-  }, [dispatch, adminInfo, storeInfo, successCreate, successDelete])
+  }, [dispatch, adminInfo, storeInfo, successCreate, successDelete, successUpdate])
 
   
 
@@ -66,7 +75,7 @@ export default function CoverScreen(props) {
           <div className="box">
             <h3>Total Entradas</h3>
             {loadingList? <LoadingBox /> : (
-              <p>{covers.length}</p>
+              <p>{storeInfo.store.totalLimit}</p>
             )}
           </div>
           <div className="box">

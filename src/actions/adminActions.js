@@ -23,11 +23,15 @@ import {
   DELETE_COVER_SUCCESS,
   DELETE_COVER_REQUEST,
   DELETE_COVER_FAIL,
+  UPDATE_COVER_REQUEST,
+  UPDATE_COVER_SUCCESS,
+  UPDATE_COVER_FAIL,
+  STORE_SIGNOUT,
 } from "../constants/adminConstants";
 
-// const URL = "http://localhost:4200/api/v1";
+const URL = "http://localhost:4200/api/v1";
 // const URL = 'https://rveapiv2.herokuapp.com/api/v1'
-const URL = 'https://partiaf-api.herokuapp.com/api/v1';
+// const URL = 'https://partiaf-api.herokuapp.com/api/v1';
 
 export const signin = (email, password) => async (dispatch) => {
   dispatch({ type: ADMIN_SIGNIN_REQUEST, payload: { email, password } });
@@ -197,4 +201,31 @@ export const deleteStoreCover = (email, storeId, coverId) => async (dispatch) =>
           : error.message,
     });
   }
+};
+
+
+export const updatenStoreCover = (email, storeId, coverId, type, date, hour, price, description, totalLimit, name) => async (dispatch) => {
+  dispatch({ type: UPDATE_COVER_REQUEST, payload: {email, storeId, coverId, type, date, hour, price, description, totalLimit, name } });
+  try {
+    const { data } = await Axios.put(`${URL}/stores/updateCover/${coverId}`, {
+      email, storeId, coverId, type, date, hour, price, description,totalLimit, name
+    });
+
+    dispatch({ type: UPDATE_COVER_SUCCESS, payload: data });
+    // localStorage.setItem("storeInfo", JSON.stringify(data));
+  } catch (error) {
+    dispatch({
+      type: UPDATE_COVER_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    });
+  }
+};
+
+export const signoutBussiness = () => (dispatch) => {
+  localStorage.removeItem('storeInfo');
+  dispatch({ type: STORE_SIGNOUT });
+  document.location.href = '/';
 };
