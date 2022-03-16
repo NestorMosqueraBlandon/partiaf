@@ -26,14 +26,14 @@ export default function Navigation() {
                       </div>
                       <div className="title">Covers</div>
                 </Link>
-                {/* <Link to="/booking" onClick={() => setActive('booking')} className={active === "booking"? "navigation__item active"
+                <Link to="/booking" onClick={() => setActive('booking')} className={active === "booking"? "navigation__item active"
                   : 'navigation__item'}>
-
                       <div className="icon">
                       <img src="./img/booking.png" alt="" />
                       </div>
                       <div className="title">Reservas</div>
                 </Link>
+                {/* 
                 <Link to="/buy" onClick={() => setActive('buys')} className={active === "buys"? "navigation__item active"
                   : 'navigation__item'}>
 

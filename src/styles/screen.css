@@ -855,7 +855,7 @@ select {
 }
 
 .stores-list{
-  height: 50vh;
+  max-height: 50vh;
   display: flex;
   flex-direction: column;
   overflow: scroll;
