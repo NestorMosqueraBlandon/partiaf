@@ -671,7 +671,7 @@ select {
   display: none;
   left: 0;
   z-index: 99999999999;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 .modalStore.active {
@@ -859,4 +859,9 @@ select {
   display: flex;
   flex-direction: column;
   overflow: scroll;
+}
+
+.btn-none{
+  background-color: #ccc;
+  margin-top: 1rem;
 }

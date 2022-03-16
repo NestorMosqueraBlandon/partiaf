@@ -95,6 +95,7 @@ export default function BusinessScreen(props) {
             placeholder="Ingrese la contrasena del negocio"
           />
           <button onClick={submitHandler}>Continuar</button>
+          <button className="btn-none" onClick={() => setOpenModal(false)} >Atras</button>
           {/* </form> */}
         </div>
       </div>
