@@ -17,7 +17,7 @@ html{
 body{
     font-family: 'Roboto', sans-serif;
     font-size: 1.6rem;
-    background-color: #fff;
+    background-color: #f2f2f2;
     height: 100vh;
 }
 
@@ -32,30 +32,4 @@ a{
 
 img{
     width: 100%;
-}
-
-
-/* HOME */
-.img_home{
-    filter: invert(.8);
-    width: 250px;
-    margin-bottom: 10rem;
-}
-
-.home__link{
-    background-color: rgba(0, 0, 0, .1);
-    padding: 1rem;
-    border-radius: 1rem;
-    color: #1E1E1E !important;
-    min-width: 300px;
-    text-align: center;
-}
-
-.home__link__btn{
-    background-color: gold;
-    padding: 1rem;
-    border-radius: 1rem;
-    color: #1E1E1E !important;
-    min-width: 300px;
-    text-align: center;
 }

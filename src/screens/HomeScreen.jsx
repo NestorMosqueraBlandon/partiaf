@@ -13,13 +13,13 @@ export default function HomeScreen() {
         <LoadingBox />
       ) : (
         <>
-          <img className="img_home" src="/img/logo_junto.svg" alt="" />
-          <Link className="home__link__btn" to="/login">
+          <Link className="home__link" to="/login">
             Iniciar sesión
           </Link>
           <Link className="home__link" to="/register">
             Crear usuario
           </Link>
+          <Link to="/">Has olvidado tu contraseña?</Link>
         </>
       )}
     </div>
