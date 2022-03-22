@@ -66,14 +66,14 @@ export default function Navigation() {
                       </div>
                       <div className="title">Staff</div>
                 </Link> */}
-                {/* <Link to="/chairs" onClick={() => setActive('chairs')} className={active === "chairs"? "navigation__item active"
+                <Link to="/chairs" onClick={() => setActive('chairs')} className={active === "chairs"? "navigation__item active"
                   : 'navigation__item'}>
 
                       <div className="icon">
                       <img src="./img/chair.png" alt="" />
                       </div>
                       <div className="title">Mesas</div>
-                </Link> */}
+                </Link>
             </ul>
         </aside>
     )

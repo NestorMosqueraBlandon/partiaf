@@ -5,15 +5,19 @@ import { useDispatch, useSelector } from "react-redux";
 import CoverCreateScreen from "../components/CoverCreateScreen";
 import { listCovers } from "../actions/adminActions";
 import CoverListScreen from "../components/CoverListScreen";
-import { DELETE_COVER_RESET, STORE_COVER_RESET, UPDATE_COVER_RESET } from "../constants/adminConstants";
-import LoadingBox from '../components/LoadingBox'
+import {
+  DELETE_COVER_RESET,
+  STORE_COVER_RESET,
+  UPDATE_COVER_RESET,
+} from "../constants/adminConstants";
+import LoadingBox from "../components/LoadingBox";
 
 export default function CoverScreen(props) {
   const [name, setName] = useState("");
   const [note, setNote] = useState("");
   const [date, setDate] = useState("");
 
-  const [thatScreen, setThatScreen] = useState('Create');
+  const [thatScreen, setThatScreen] = useState("Create");
 
   const setItem = (id) => {
     data.bookings
@@ -35,42 +39,45 @@ export default function CoverScreen(props) {
   const { loading: loadingList, error: errorList, covers } = coversList;
 
   const createCover = useSelector((state) => state.createCover);
-  const { loading: loadingCreate, error: errorCreate, success: successCreate } = createCover;
+  const {
+    loading: loadingCreate,
+    error: errorCreate,
+    success: successCreate,
+  } = createCover;
 
   const deleteCover = useSelector((state) => state.deleteCover);
   const { success: successDelete } = deleteCover;
 
-
-
   const updateCover = useSelector((state) => state.updateCover);
   const { success: successUpdate } = updateCover;
 
-
   const dispatch = useDispatch();
 
-
   useEffect(() => {
-    if(successCreate) {
-      dispatch({type: STORE_COVER_RESET})
-      setThatScreen("List")
-  }
-  if(successDelete) {
-    dispatch({type: DELETE_COVER_RESET})
-    setThatScreen("List")
-}
+    if (successCreate) {
+      dispatch({ type: STORE_COVER_RESET });
+      setThatScreen("List");
+    }
+    if (successDelete) {
+      dispatch({ type: DELETE_COVER_RESET });
+      setThatScreen("List");
+    }
 
-if(successUpdate){
-  dispatch({ type: UPDATE_COVER_RESET });
-}
+    if (successUpdate) {
+      dispatch({ type: UPDATE_COVER_RESET });
+    }
 
-if(storeInfo){
-  dispatch(listCovers(adminInfo.email, storeInfo.store._id))
-
-}
-
-  }, [dispatch, adminInfo, storeInfo, successCreate, successDelete, successUpdate])
-
-  
+    if (storeInfo) {
+      dispatch(listCovers(adminInfo.email, storeInfo.store._id));
+    }
+  }, [
+    dispatch,
+    adminInfo,
+    storeInfo,
+    successCreate,
+    successDelete,
+    successUpdate,
+  ]);
 
   return (
     <div className="screen">
@@ -78,9 +85,7 @@ if(storeInfo){
         <div className="flex flexm">
           <div className="box">
             <h3>Total Entradas</h3>
-            {loadingList? <LoadingBox /> : (
-              <p>{storeInfo.store.totalLimit}</p>
-            )}
+            {loadingList ? <LoadingBox /> : <p>{storeInfo.store.totalLimit}</p>}
           </div>
           <div className="box">
             <h3>Entradas Efectivas</h3>
@@ -92,23 +97,24 @@ if(storeInfo){
           </div>
         </div>
         {thatScreen == "List" ? (
-          <button className="btn-create" onClick={() => setThatScreen('Create')}>
-          {" "}
-          CREAR ENTRADA <i className="bx bxs-plus-square"></i>
-        </button>
-        ): 
-        (
-          <button className="btn-create" onClick={() => setThatScreen('List')}>
-          {" "}
-          LISTA DE ENTRADAS <i className="bx bxs-plus-square"></i>
-        </button>
+          <button
+            className="btn-create"
+            onClick={() => setThatScreen("Create")}
+          >
+            {" "}
+            CREAR ENTRADA <i className="bx bxs-plus-square"></i>
+          </button>
+        ) : (
+          <button className="btn-create" onClick={() => setThatScreen("List")}>
+            {" "}
+            LISTA DE ENTRADAS <i className="bx bxs-plus-square"></i>
+          </button>
         )}
 
-        {thatScreen == "List"? (
+        {thatScreen == "List" ? (
           <CoverListScreen loading={loadingList} covers={covers} />
-        ): (
+        ) : (
           <CoverCreateScreen />
-
         )}
       </div>
       <div className="right__screen">

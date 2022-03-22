@@ -1,44 +1,107 @@
-import React from 'react'
-import CardBooking from '../components/CardBooking'
-import data from '../utils/data'
-import CardBookin from '../components/CardBookin'
+import React, { useEffect, useState } from "react";
+import CardBooking from "../components/CardBooking";
+import data from "../utils/data";
+import CardBookin from "../components/CardBookin";
+import { useDispatch, useSelector } from "react-redux";
+import { listBookings } from "../actions/bookingActions";
+import LoadingBox from "../components/LoadingBox";
+import CoverListScreen from "../components/CoverListScreen";
+import CoverCreateScreen from "../components/CoverCreateScreen";
+import BookingListScreen from "../components/BookingListScreen";
+import BookingCreateScreen from "../components/BookingCreateScreen";
 
 export default function BookingScreen() {
-    
+  const adminSignin = useSelector((state) => state.adminSignin);
+  const { adminInfo } = adminSignin;
 
-    const setItem = (id) => {
-        // data.bookings.filter((booking) => booking.id == id).map((booking) => {
-        //     setName(booking.name)
-        //     setNote(booking.note)
-        //     setDate(booking.date)
-        // })
+  const storeSignin = useSelector((state) => state.storeSignin);
+  const { storeInfo } = storeSignin;
+
+  const bookingList = useSelector((state) => state.bookingList);
+  const { loading: loadingList, error: errorList, bookings } = bookingList;
+
+  const bookingCreate = useSelector((state) => state.bookingCreate);
+  const {
+    loading: loadingCreate,
+    error: errorCreate,
+    success: successCreate,
+  } = bookingCreate;
+
+  const bookingDelete = useSelector((state) => state.bookingDelete);
+  const { success: successDelete } = bookingDelete;
+
+  const bookingUpdate = useSelector((state) => state.bookingUpdate);
+  const { success: successUpdate } = bookingUpdate;
+
+  const [thatScreen, setThatScreen] = useState("Create");
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (storeInfo) {
+      dispatch(listBookings(adminInfo.email, storeInfo.store._id));
     }
+  }, [dispatch, successCreate, successDelete, successUpdate]);
 
-    return (
-        <div className='screen'>
-            <div className="center__screen">
-                <input type="text" className="search" placeholder="Buscar:" />
-                <div className="flex">
-                    <div className="box">
-                        <h3>Total Reservas</h3>
-                        <p>1254</p>
-                    </div>
-                    <div className="box">
-                        <h3>Reservas Efectivas</h3>
-                        <p>1254</p>
-                    </div>
-                    <div className="box">
-                        <h3>Historial de Reservas </h3>
-                        <p>1254</p>
-                    </div>
-                </div>
-                <div className="flex">
-                <button className="btn-create"> CREAR RESERVA <i className='bx bxs-plus-square'></i></button>
-                <div className="right-buttons">
-                <button><i className='bx bx-calendar' ></i></button>
-                </div>
-                </div>
-                <div className="flex wrap">
+  const setItem = (id) => {
+    // data.bookings.filter((booking) => booking.id == id).map((booking) => {
+    //     setName(booking.name)
+    //     setNote(booking.note)
+    //     setDate(booking.date)
+    // })
+  };
+
+  return (
+    <div className="screen">
+      <div className="center__screen">
+        <input type="text" className="search" placeholder="Buscar:" />
+        <div className="flex">
+          <div className="box">
+            <h3>Total Reservas</h3>
+            <p>{loadingList ? <LoadingBox /> : <p>{bookings.length}</p>}</p>
+          </div>
+          <div className="box">
+            <h3>Reservas Efectivas</h3>
+            <p>0</p>
+          </div>
+          <div className="box">
+            <h3>Historial de Reservas </h3>
+            <p>0</p>
+          </div>
+        </div>
+
+        <div className="flex">
+          {thatScreen == "List" ? (
+            <button
+              className="btn-create"
+              onClick={() => setThatScreen("Create")}
+            >
+              {" "}
+              CREAR RESERVA <i className="bx bxs-plus-square"></i>
+            </button>
+          ) : (
+            <button
+              className="btn-create"
+              onClick={() => setThatScreen("List")}
+            >
+              {" "}
+              LISTA DE RESERVAS <i className="bx bxs-plus-square"></i>
+            </button>
+          )}
+          <div className="right-buttons">
+            <button>
+              <i className="bx bx-calendar"></i>
+            </button>
+          </div>
+        </div>
+
+        {thatScreen == "List" ? (
+          <BookingListScreen loading={loadingList} bookings={bookings} />
+        ) : (
+            // <p>This will be moved</p>
+          <BookingCreateScreen />
+        )}
+        {/* <div className="flex wrap">
                     <CardBookin name="Owen Wilson" cupos="22" time="7:30pm" date="12/03/2021" state="Finalizada" />
                     <CardBookin name="Karla Ramirez" cupos="22" time="7:30pm" date="12/03/2021" state="Finalizada" />
                     <CardBookin name="Carlos Cuesta" cupos="22" time="7:30pm" date="12/03/2021" state="Activa" />
@@ -51,8 +114,8 @@ export default function BookingScreen() {
                     <CardBookin name="Falipe Giulliani" cupos="22" time="7:30pm" date="12/03/2021" state="Finalizada" />
                     <CardBookin name="Arturo Fernandez" cupos="22" time="7:30pm" date="12/03/2021" state="Activa" />
                     <CardBookin name="Nicolas Tovar" cupos="22" time="7:30pm" date="12/03/2021" state="Finalizada" />
-                </div>
-                {/* <div className="state">
+                </div> */}
+        {/* <div className="state">
                     <div className="state__header">
                     <h2>Estado de reserva: Activa</h2>
                     <button><i className='bx bxs-pencil'></i> Editar</button>
@@ -72,14 +135,22 @@ export default function BookingScreen() {
                         <textarea name="" id="" cols="30" rows="10" value={note} ></textarea>
                     </div>
                 </div> */}
-            </div>
-            <div className="right__screen">
-                {data.bookings.map((booking) => (
-                    <button key={booking.id} className="button__none" onClick={() => setItem(booking.id)}>
-                    <CardBooking key={booking.id} name={booking.name} number={booking.number}/>
-                    </button>
-                ))}
-            </div>
-        </div>
-    )
+      </div>
+      <div className="right__screen">
+        {data.bookings.map((booking) => (
+          <button
+            key={booking.id}
+            className="button__none"
+            onClick={() => setItem(booking.id)}
+          >
+            <CardBooking
+              key={booking.id}
+              name={booking.name}
+              number={booking.number}
+            />
+          </button>
+        ))}
+      </div>
+    </div>
+  );
 }
