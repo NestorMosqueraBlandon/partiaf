@@ -49,7 +49,6 @@ export default function BookingListScreen({ loading, bookings }) {
     await setUpdate(true);
     console.log(coverSelect);
   };
-
   useEffect(() => {
     if (successDelete) {
       dispatch({ type: DELETE_COVER_RESET });
@@ -72,24 +71,6 @@ export default function BookingListScreen({ loading, bookings }) {
             <>
               {bookings.map((cover) => (
                     <CardBookin name={cover.info} cupos={cover.cupo} time={cover.hour} date={cover.date} state={cover.state} />
-
-                // <div className="cover__card">
-                //   <h4>Tipo: {cover.name}</h4>
-                //   <p>{cover.type}</p>
-                //   <p>Precio: {cover.price}</p>
-                //   <p>Fecha: {cover.date}</p>
-                //   <p>Cupos: {cover.totalLimit}</p>
-                //   <p>Hora: {cover.hour}</p>
-                //   <p>Descripcion: {cover.description}</p>
-                //   <div className="foogler">
-                //   <button onClick={() => updateHandler(cover)}>
-                //     <i className='bx bxs-pencil'></i>
-                //   </button>
-                //   <button onClick={() => deleteHandler(cover)}>
-                //     <i className="bx bx-trash"></i>
-                //   </button>
-                //   </div>
-                // </div>
               ))}
             </>
           )}
