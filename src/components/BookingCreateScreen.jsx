@@ -22,6 +22,7 @@ export default function BookingCreateScreen() {
   const bookingCreate = useSelector((state) => state.bookingCreate);
   const { loading, success: successCreate } = bookingCreate;
 
+  // LOGICAL
   const dispatch = useDispatch();
   const submitHandler = (e) => {
     e.preventDefault();
