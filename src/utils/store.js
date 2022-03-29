@@ -3,6 +3,7 @@ import thunk from "redux-thunk";
 import { userSigninReducer } from '../reducers/userReducer.js';
 import { adminSigninReducer, coverListReducer, createStoreCoverReducer, createStoreReducer, deleteStoreCoverReducer, storeListReducer, storeSigninReducer, updateStoreCoverReducer } from '../reducers/adminReducer.js';
 import { bookingCreateReducer, bookingDeleteReducer, bookingListReducer, bookingUpdateReducer } from "../reducers/bookingReducer.js";
+import menuReducer from "../reducers/menuReducer.js";
 const initialState = {
     adminSignin: {
         adminInfo: localStorage.getItem('adminInfo')
@@ -30,7 +31,14 @@ const reducer = combineReducers({
     bookingUpdate: bookingUpdateReducer,
     bookingCreate: bookingCreateReducer,
     bookingDelete: bookingDeleteReducer,
-    bookingList: bookingListReducer
+    bookingList: bookingListReducer,
+
+    //<------- MENU ----------> 
+    menuList: menuReducer.listReducer,
+    menuCreate: menuReducer.createReducer,
+    menuUpdate: menuReducer.updateReducer,
+    menuDelete: menuReducer.deleteReducer 
+
 })
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
