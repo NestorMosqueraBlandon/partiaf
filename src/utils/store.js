@@ -4,6 +4,7 @@ import { userSigninReducer } from '../reducers/userReducer.js';
 import { adminSigninReducer, coverListReducer, createStoreCoverReducer, createStoreReducer, deleteStoreCoverReducer, storeListReducer, storeSigninReducer, updateStoreCoverReducer } from '../reducers/adminReducer.js';
 import { bookingCreateReducer, bookingDeleteReducer, bookingListReducer, bookingUpdateReducer } from "../reducers/bookingReducer.js";
 import menuReducer from "../reducers/menuReducer.js";
+import itemsReducer from "../reducers/itemsReducer.js";
 const initialState = {
     adminSignin: {
         adminInfo: localStorage.getItem('adminInfo')
@@ -37,7 +38,14 @@ const reducer = combineReducers({
     menuList: menuReducer.listReducer,
     menuCreate: menuReducer.createReducer,
     menuUpdate: menuReducer.updateReducer,
-    menuDelete: menuReducer.deleteReducer 
+    menuDelete: menuReducer.deleteReducer, 
+
+    //<------- ITEM ---------->
+    itemList: itemsReducer.listReducer,
+    itemCreate: itemsReducer.createReducer,
+    itemUpdate: itemsReducer.updateReducer,
+    itemDelete: itemsReducer.deleteReducer
+
 
 })
 
