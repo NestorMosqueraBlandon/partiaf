@@ -3,7 +3,10 @@ import LoadingBox from "./LoadingBox";
 import swal from "sweetalert";
 import { deleteStoreCover } from "../actions/adminActions";
 import { useDispatch, useSelector } from "react-redux";
-import { DELETE_COVER_RESET, UPDATE_COVER_RESET } from "../constants/adminConstants";
+import {
+  DELETE_COVER_RESET,
+  UPDATE_COVER_RESET,
+} from "../constants/adminConstants";
 import CoverUpdateScreen from "./CoverUpdateScreen";
 import CardBookin from "./CardBookin";
 
@@ -22,7 +25,6 @@ export default function BookingListScreen({ loading, bookings }) {
 
   const updateCover = useSelector((state) => state.updateCover);
   const { success: successUpdate } = updateCover;
-
 
   const dispatch = useDispatch();
 
@@ -44,7 +46,7 @@ export default function BookingListScreen({ loading, bookings }) {
   };
 
   const updateHandler = async (cover) => {
-    console.log(cover)
+    console.log(cover);
     await setCoverSelect(cover);
     await setUpdate(true);
     console.log(coverSelect);
@@ -53,10 +55,10 @@ export default function BookingListScreen({ loading, bookings }) {
     if (successDelete) {
       dispatch({ type: DELETE_COVER_RESET });
     }
-    
-    if(successUpdate){
+
+    if (successUpdate) {
       dispatch({ type: UPDATE_COVER_RESET });
-     setUpdate(false);
+      setUpdate(false);
     }
   }, [dispatch, successUpdate, successDelete]);
   return (
@@ -69,9 +71,21 @@ export default function BookingListScreen({ loading, bookings }) {
             <LoadingBox />
           ) : (
             <>
-              {bookings.map((cover) => (
-                    <CardBookin name={cover.info} cupos={cover.cupo} time={cover.hour} date={cover.date} state={cover.state} />
-              ))}
+              {bookings == undefined ? (
+                <h2>NO HAY RESERVAS</h2>
+              ) : (
+                <>
+                  {bookings.map((cover) => (
+                    <CardBookin
+                      name={cover.info}
+                      cupos={cover.cupo}
+                      time={cover.hour}
+                      date={cover.date}
+                      state={cover.state}
+                    />
+                  ))}
+                </>
+              )}
             </>
           )}
         </div>

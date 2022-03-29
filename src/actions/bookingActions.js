@@ -19,9 +19,9 @@ import {
   UPDATE_BOOKING_RESET,
 } from "../constants/bookingConstants";
 
-const URL = "http://localhost:4200/api/v1";
+// const URL = "http://localhost:4200/api/v1";
 // const URL = 'https://rveapiv2.herokuapp.com/api/v1'
-// const URL = 'https://partiaf-api.herokuapp.com/api/v1';
+const URL = 'https://partiaf-api.herokuapp.com/api/v1';
 
 
 

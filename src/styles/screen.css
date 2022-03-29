@@ -865,3 +865,23 @@ select {
   background-color: #ccc;
   margin-top: 1rem;
 }
+
+.center-extend{
+  width: 300px;
+  margin: 0 auto;
+}
+
+.center-extend button{
+  width: 300px;
+}
+
+.card-t input{
+  border: none;
+  outline: none;
+  height: 30px;
+  font-size: 2rem;
+}
+
+.menu-item .price{
+  text-align: left;
+}

@@ -58,7 +58,7 @@ export default function BookingScreen() {
         <div className="flex">
           <div className="box">
             <h3>Total Reservas</h3>
-            <p>{loadingList ? <LoadingBox /> : <p>{bookings.length}</p>}</p>
+            <p>{loadingList ? <LoadingBox /> : <p>{bookings == undefined? "NO HAY RESERVAS" : bookings.length}</p>}</p>
           </div>
           <div className="box">
             <h3>Reservas Efectivas</h3>
