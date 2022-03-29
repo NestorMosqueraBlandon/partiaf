@@ -70,10 +70,11 @@ export default class actionsTemplate {
     }
   };
 
-  delete = (id) => async (dispatch, getState) => {
+  delete = (id, email, storeId, menuId) => async (dispatch, getState) => {
+    console.log(email,storeId)
     dispatch({ type: this.DELETE_REQUEST, payload: id });
     try {
-      const { data } = await Axios.delete(`${this.URL}/${this.api}/${id}`);
+      const { data } = await Axios.delete(`${this.URL}/${this.api}/${id}?email=${email}&storeId=${storeId}&menuId=${menuId}`);
       dispatch({ type: this.DELETE_SUCCESS, payload: data });
     } catch (err) {
       console.log(err);

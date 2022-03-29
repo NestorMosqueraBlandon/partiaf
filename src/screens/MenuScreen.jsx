@@ -9,15 +9,14 @@ import itemsActions from "../actions/itemsActions";
 import store from "../utils/store";
 
 export default function MenuScreen() {
-  
   const dispatch = useDispatch();
-  const [menuId, setMenuId]=useState();
+  const [menuId, setMenuId] = useState();
 
   const AddItem = async (id) => {
-    console.log("ID", id)
-    await setMenuId(id)
-    await setOpenModalItem(true)
-  }
+    console.log("ID", id);
+    await setMenuId(id);
+    await setOpenModalItem(true);
+  };
 
   // < --------------------list process  ------------------------->
   const menuList = useSelector((state) => state.menuList);
@@ -51,34 +50,40 @@ export default function MenuScreen() {
     );
   };
 
+  // < --------------------create item process  ------------------------->
+  //enviar email - storeid, menuId, name, precio
+  const itemCreate = useSelector((state) => state.itemCreate);
+  const {
+    loading: loadingCreateItem,
+    error: errorCreateItem,
+    success: successCreateItem,
+  } = itemCreate;
 
-    // < --------------------create item process  ------------------------->
-    //enviar email - storeid, menuId, name, precio
-    const itemCreate = useSelector((state) => state.itemCreate);
-    const { loading: loadingCreateItem, error: errorCreateItem, success: successCreateItem, } = itemCreate;
+  const [openModalItem, setOpenModalItem] = useState(false);
+  const [name, setName] = useState("");
+  const [price, setPrice] = useState("");
 
-    const [openModalItem, setOpenModalItem] = useState(false);
-    const [name, setName] = useState("");
-    const [price, setPrice] = useState("");
-
-    console.log(menuId)
-    const submitCreateItemHandler = (e) => {
-      
-      e.preventDefault();
-      dispatch(itemsActions.create({
-        name: name, 
+  console.log(menuId);
+  const submitCreateItemHandler = (e) => {
+    e.preventDefault();
+    dispatch(
+      itemsActions.create({
+        name: name,
         price: price,
         email: adminInfo.email,
         storeId: storeInfo.store._id,
-        menuId : menuId
-      }))
-    }
+        menuId: menuId,
+      })
+    );
+  };
 
-
-   // < --------------------delete process  ------------------------->
+  // < --------------------delete process  ------------------------->
   const menuDelete = useSelector((state) => state.menuDelete);
-  const { loading: loadingDelete, error: errorDelete, success: successDelete } = menuDelete;
-
+  const {
+    loading: loadingDelete,
+    error: errorDelete,
+    success: successDelete,
+  } = menuDelete;
 
   const deleteHandler = (menu) => {
     swal("Seguro que quieres borrar " + menu.title + "?", {
@@ -90,11 +95,43 @@ export default function MenuScreen() {
         swal("Poof! " + menu.title + " borrado", {
           icon: "success",
         });
-        dispatch(menuActions.delete(menu._id));
+        dispatch(
+          menuActions.delete(menu._id, adminInfo.email, storeInfo.store._id)
+        );
       }
     });
   };
 
+  // < --------------------delete item process  ------------------------->
+  //   idItem, email, storeid, menuid
+  const itemDelete = useSelector((state) => state.itemDelete);
+  const {
+    loading: loadingDeleteItem,
+    error: errorDeleteItem,
+    success: succesDeleteItem,
+  } = itemDelete;
+
+  const deleteItemHandler = (item, menu) => {
+    swal("Seguro que quieres borrar " + item.name + "?", {
+      icon: "warning",
+      buttons: ["Cancelar", "Si"],
+      dangerMode: true,
+    }).then((willDelete) => {
+      if (willDelete) {
+        swal("Poof! " + item.name + " borrado", {
+          icon: "success",
+        });
+        dispatch(
+          itemsActions.delete(
+            item._id,
+            adminInfo.email,
+            storeInfo.store._id,
+            menu._id
+          )
+        );
+      }
+    });
+  };
 
   useEffect(() => {
     const menuConstants = new constantsTemplate("MENU");
@@ -114,14 +151,23 @@ export default function MenuScreen() {
       dispatch(menuActions.list(adminInfo.email, storeInfo.store._id));
     }
 
-    if(successDelete){
+    if (successDelete) {
       dispatch({ type: menuConstants.constants().DELETE_RESET });
     }
-    
 
-  }, [dispatch, adminInfo, storeInfo, successCreate, successDelete, successCreateItem]);
+    if (succesDeleteItem) {
+      dispatch({ type: itemsConstants.constants().DELETE_RESET });
+    }
+  }, [
+    dispatch,
+    adminInfo,
+    storeInfo,
+    successCreate,
+    successDelete,
+    successCreateItem,
+    succesDeleteItem,
+  ]);
 
-  
   return (
     <>
       <div className="screen-two">
@@ -143,7 +189,10 @@ export default function MenuScreen() {
                         <button className="image">
                           <i className="bx bxs-image"></i>
                         </button>
-                        <button className="close">
+                        <button
+                          className="close"
+                          onClick={() => deleteItemHandler(item, men)}
+                        >
                           <i className="bx bxs-x-circle"></i>
                         </button>
                       </div>
@@ -154,13 +203,9 @@ export default function MenuScreen() {
                   <button onClick={() => AddItem(men._id)}>
                     <i className="bx bx-plus-medical"></i> Agregar Item
                   </button>
-                 <div>
-                 <button>Guardar</button>
-                 <button  onClick={() => deleteHandler(men)}> 
-                 <i className="bx bxs-trash-alt"></i> 
-                 </button>
-                 </div>
-                  
+                  <button onClick={() => deleteHandler(men)}>
+                    <i className="bx bxs-trash-alt"></i>
+                  </button>
                 </div>
               </div>
             ))}
@@ -201,8 +246,8 @@ export default function MenuScreen() {
         </div>
       </div>
 
-         {/*MODAL ITEM CREATE*/}
-         <div className={openModalItem ? "openModal" : "closeModal"}>
+      {/*MODAL ITEM CREATE*/}
+      <div className={openModalItem ? "openModal" : "closeModal"}>
         <div className="modal">
           <div className="modal-header">
             <h2>Crear</h2>
@@ -214,7 +259,7 @@ export default function MenuScreen() {
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
-             <input
+            <input
               type="number"
               placeholder="Precio"
               value={price}
