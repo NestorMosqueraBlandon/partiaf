@@ -43,9 +43,7 @@ export default function CoverCreateScreen() {
     );
   };
 
-  console.log("SUCCESS", successCreate)
-  console.log("LOADING", loading)
-
+  
   useEffect(() => {
     if(successCreate) {
         console.log("ENTROOO")

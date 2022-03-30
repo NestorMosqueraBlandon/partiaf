@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { createStoreCover } from "../actions/adminActions";
 import { createBooking } from "../actions/bookingActions";
-import { STORE_COVER_RESET } from "../constants/adminConstants";
 import { CREATE_BOOKING_RESET } from "../constants/bookingConstants";
 
 export default function BookingCreateScreen() {
@@ -20,7 +18,7 @@ export default function BookingCreateScreen() {
   const { storeInfo } = storeSignin;
 
   const bookingCreate = useSelector((state) => state.bookingCreate);
-  const { loading, success: successCreate } = bookingCreate;
+  const { success: successCreate } = bookingCreate;
 
   // LOGICAL
   const dispatch = useDispatch();

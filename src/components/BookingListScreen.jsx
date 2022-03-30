@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import LoadingBox from "./LoadingBox";
-import swal from "sweetalert";
-import { deleteStoreCover } from "../actions/adminActions";
 import { useDispatch, useSelector } from "react-redux";
 import {
   DELETE_COVER_RESET,
@@ -28,6 +26,7 @@ export default function BookingListScreen({ loading, bookings }) {
 
   const dispatch = useDispatch();
 
+  /*
   const deleteHandler = (cover) => {
     swal("Seguro que quiere borrar " + cover.name + "?", {
       icon: "warning",
@@ -44,6 +43,7 @@ export default function BookingListScreen({ loading, bookings }) {
       }
     });
   };
+ 
 
   const updateHandler = async (cover) => {
     console.log(cover);
@@ -51,6 +51,8 @@ export default function BookingListScreen({ loading, bookings }) {
     await setUpdate(true);
     console.log(coverSelect);
   };
+
+   */
   useEffect(() => {
     if (successDelete) {
       dispatch({ type: DELETE_COVER_RESET });

@@ -22,11 +22,10 @@ export default function Header() {
   return (
     <header>
       <nav>
-        <div className="logo" onClick={() => setDrop(!drop)}>
-          <i className="bx bx-world"></i> PARTIAF
+        <div className="partiaf-icon" onClick={() => setDrop(!drop)}>
+          <img src="./img/resources/partiaf-icon.svg" />
         </div>
         <div className={drop ? "dropdown active" : "dropdown"}>
-          <div className="menu-item">{adminInfo.name}</div>
           <div className="option">
             <Link to="/settings" className="color">
               <i className="bx bxs-cog"></i> Configuracion

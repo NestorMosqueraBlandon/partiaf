@@ -1,9 +1,12 @@
 header{
-    background-color: #1E1E1E;
+    position: relative;
+    left: 10rem;
+    background-color: #fff;
+    border-bottom: 1px solid rgba(0, 0, 0, .3);
+    width: calc(100% - 10rem);
     color: #f2f6fa;
     height: 5vh;
-    padding: 1rem 2rem;
-    display: none;
+    padding: 1rem 2rem; 
 }
 
 nav{
@@ -14,4 +17,10 @@ nav{
 
 nav .logo{
     font-size: 2rem;
+}
+
+.partiaf-icon{
+    width: 180px;
+    margin-top: .5rem;
+    /*margin-left: 3rem;*/
 }

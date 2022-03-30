@@ -5,8 +5,8 @@
 
 .screen {
   position: relative;
-  width: calc(100% - 250px);
-  left: 250px;
+  width: calc(100% - 10rem);
+  left: 10rem;
   top: 0;
   overflow: hidden;
   height: 94vh;
@@ -17,8 +17,8 @@
 
 .screen-grid {
   position: relative;
-  width: calc(100% - 250px);
-  left: 250px;
+  width: calc(100% - 10rem);
+  left: 10rem;
   top: 0;
   overflow: hidden;
   height: 94vh;
@@ -29,8 +29,8 @@
 
 .screen-two {
   position: relative;
-  width: calc(100% - 250px);
-  left: 250px;
+  width: calc(100% - 10rem);
+  left: 10rem;
   top: 0;
   overflow: hidden;
   height: 94vh;
@@ -38,8 +38,8 @@
 
 .screencenter {
   position: relative;
-  width: calc(100% - 250px);
-  left: 250px;
+  width: calc(100% - 10rem);
+  left: 10rem;
   top: 0;
   overflow: hidden;
   height: 94vh;
@@ -185,9 +185,9 @@
 button {
   padding: 0.8rem 1.5rem;
   border: none;
-  background-color: #ebc74e;
+  background-color: #FDBD00;
   border-radius: 0.5rem;
-  color: #1a1a1a;
+  /*color: #1a1a1a;*/
   font-weight: 500;
 }
 

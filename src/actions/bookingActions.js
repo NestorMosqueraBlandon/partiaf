@@ -7,19 +7,15 @@ import {
   DELETE_BOOKING_SUCCESS,
   DELETE_BOOKING_REQUEST,
   DELETE_BOOKING_FAIL,
-  DELETE_BOOKING_RESET,
   CREATE_BOOKING_SUCCESS,
   CREATE_BOOKING_REQUEST,
-  CREATE_BOOKING_RESET,
   CREATE_BOOKING_FAIL,
   UPDATE_BOOKING_REQUEST,
   UPDATE_BOOKING_SUCCESS,
   UPDATE_BOOKING_FAIL,
-  UPDATE_BOOKING_RESET,
 } from "../constants/bookingConstants";
 
-// const URL = "http://localhost:4200/api/v1";
-// const URL = 'https://rveapiv2.herokuapp.com/api/v1'
+
 const URL = "https://partiaf-api.herokuapp.com/api/v1";
 
 export const listBookings = (email, storeId) => async (dispatch, getState) => {
@@ -29,7 +25,7 @@ export const listBookings = (email, storeId) => async (dispatch, getState) => {
     const { data } = await Axios.get(
       `${URL}/bookings/booking?email=${email}&storeId=${storeId}`
     );
-    console.log(data);
+    
     dispatch({ type: LIST_BOOKING_SUCCESS, payload: data });
   } catch (error) {
     dispatch({
