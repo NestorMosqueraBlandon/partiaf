@@ -9,14 +9,17 @@ import CoverUpdateScreen from "./CoverUpdateScreen";
 import CardBookin from "./CardBookin";
 
 export default function BookingListScreen({ loading, bookings }) {
+  
+  /*
   const adminSignin = useSelector((state) => state.adminSignin);
   const { adminInfo } = adminSignin;
 
   const storeSignin = useSelector((state) => state.storeSignin);
   const { storeInfo } = storeSignin;
+  */
 
   const [update, setUpdate] = useState(false);
-  const [coverSelect, setCoverSelect] = useState({});
+  const [coverSelect] = useState({});
 
   const deleteCover = useSelector((state) => state.deleteCover);
   const { success: successDelete } = deleteCover;
@@ -73,7 +76,7 @@ export default function BookingListScreen({ loading, bookings }) {
             <LoadingBox />
           ) : (
             <>
-              {bookings == undefined ? (
+              {bookings === undefined ? (
                 <h2>NO HAY RESERVAS</h2>
               ) : (
                 <>

@@ -7,7 +7,7 @@ import { createStore } from '../actions/adminActions';
 export default function StoreScreen(props) {
     
     const adminSignin = useSelector((state) => state.adminSignin);
-    const { adminInfo, loading, error } = adminSignin;
+    const { adminInfo } = adminSignin;
 
     const [name, setName] = useState("");
     const [type, setType] = useState("");
@@ -17,7 +17,7 @@ export default function StoreScreen(props) {
     const [address, setAddress] = useState("");
     const [emailStore, setEmailStore] = useState("");
     const [password, setPassword] = useState("");
-    const [email, setEmail] = useState(adminInfo.email);
+    const [email] = useState(adminInfo.email);
     const [totalLimit, setTotalLimit] = useState("");
 
 
@@ -61,7 +61,7 @@ export default function StoreScreen(props) {
                     <input type="password" placeholder="Confirmar contraseña" />
                 </div>
                 <span className="term">Al registrase usted acepta los terminos y condiciones del servicio de PARTIAF</span>
-                <a href="" className="register-link">¿Ya tiene una cuenta, desea iniciar sesión?</a>
+                <a href="/" className="register-link">¿Ya tiene una cuenta, desea iniciar sesión?</a>
 
                 <div className="footer">
                     <Link to="/"><button className="btn-normal">Atras</button></Link>

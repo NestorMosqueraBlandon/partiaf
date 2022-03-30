@@ -6,7 +6,7 @@ import LoadingBox from "../components/LoadingBox";
 import "../styles/customStyles.css";
 import swal from "sweetalert";
 import itemsActions from "../actions/itemsActions";
-import store from "../utils/store";
+
 
 export default function MenuScreen() {
   const dispatch = useDispatch();
@@ -20,7 +20,7 @@ export default function MenuScreen() {
 
   // < --------------------list process  ------------------------->
   const menuList = useSelector((state) => state.menuList);
-  const { loading, error, data: menu } = menuList;
+  const { loading, data: menu } = menuList;
 
   const adminSignin = useSelector((state) => state.adminSignin);
   const { adminInfo } = adminSignin;
@@ -31,8 +31,6 @@ export default function MenuScreen() {
   // < --------------------create process  ------------------------->
   const menuCreate = useSelector((state) => state.menuCreate);
   const {
-    loading: loadingCreate,
-    error: errorCreate,
     success: successCreate,
   } = menuCreate;
 
@@ -54,8 +52,6 @@ export default function MenuScreen() {
   //enviar email - storeid, menuId, name, precio
   const itemCreate = useSelector((state) => state.itemCreate);
   const {
-    loading: loadingCreateItem,
-    error: errorCreateItem,
     success: successCreateItem,
   } = itemCreate;
 
@@ -63,7 +59,6 @@ export default function MenuScreen() {
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
 
-  console.log(menuId);
   const submitCreateItemHandler = (e) => {
     e.preventDefault();
     dispatch(
@@ -80,8 +75,6 @@ export default function MenuScreen() {
   // < --------------------delete process  ------------------------->
   const menuDelete = useSelector((state) => state.menuDelete);
   const {
-    loading: loadingDelete,
-    error: errorDelete,
     success: successDelete,
   } = menuDelete;
 
@@ -106,8 +99,7 @@ export default function MenuScreen() {
   //   idItem, email, storeid, menuid
   const itemDelete = useSelector((state) => state.itemDelete);
   const {
-    loading: loadingDeleteItem,
-    error: errorDeleteItem,
+   
     success: succesDeleteItem,
   } = itemDelete;
 

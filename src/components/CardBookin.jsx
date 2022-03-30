@@ -3,7 +3,7 @@ import React from 'react'
 export default function CardBookin({name, state, cupos, time, date}) {
     return (
         <div className="card card-new">
-            <div className="card-header"><p> Estado de reserva: {state == true?"Activa" : "Finalizada"} </p></div>
+            <div className="card-header"><p> Estado de reserva: {state === true?"Activa" : "Finalizada"} </p></div>
             <div>
             INFO
             <h2>{name}</h2>

@@ -5,7 +5,7 @@ import LoadingBox from "../components/LoadingBox";
 
 export default function HomeScreen() {
   const adminSignin = useSelector((state) => state.adminSignin);
-  const { loading, error, adminInfo } = adminSignin;
+  const { loading } = adminSignin;
 
   return (
     <div className="home">

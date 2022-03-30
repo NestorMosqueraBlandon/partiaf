@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { signout, signup } from '../actions/adminActions';
+import { signup } from '../actions/adminActions';
 
 export default function RegisterScreen(props) {
     const [name, setName] = useState('');
@@ -16,9 +16,8 @@ export default function RegisterScreen(props) {
     const [confirmPassword, setConfirmPassword] = useState('');
     
     const [password, setPassword] = useState('');
-    const [passwordVisibility, setPasswordVisibility] = useState(true)
 
-    const redirect = props.location.search ? props.location.search.split("=")[1] : '/';
+    //const redirect = props.location.search ? props.location.search.split("=")[1] : '/';
 
     const adminSignin = useSelector((state) => state.adminSignin);
     const {adminInfo} = adminSignin;
@@ -46,7 +45,7 @@ export default function RegisterScreen(props) {
         if(adminInfo && !storeInfo){
             props.history.push("/")
         }
-    }, [props.history, adminInfo])
+    }, [props.history, adminInfo, storeInfo, props])
 
   
     return (
@@ -76,7 +75,7 @@ export default function RegisterScreen(props) {
                     <input type="password" placeholder="Confirmar contraseña" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
                 </div>
                 <span className="term">Al registrase usted acepta los terminos y condiciones del servicio de PARTIAF</span>
-                <a href="" className="register-link">¿Ya tiene una cuenta, desea iniciar sesión?</a>
+                <a href="/" className="register-link">¿Ya tiene una cuenta, desea iniciar sesión?</a>
 
                 <div className="footer">
                     <Link to="/"><button className="btn-normal">Atras</button></Link>
