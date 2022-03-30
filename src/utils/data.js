@@ -7,7 +7,7 @@ const data =
             state: false,
             date: Date.now(),
             note: "2 Cervezas",
-            number: 14
+            number: 10
 
         },
         {

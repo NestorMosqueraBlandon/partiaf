@@ -75,13 +75,13 @@ export default function BookingListScreen({ loading, bookings }) {
                 <h2>NO HAY RESERVAS</h2>
               ) : (
                 <>
-                  {bookings.map((cover) => (
+                  {bookings.map((booking) => (
                     <CardBookin
-                      name={cover.info}
-                      cupos={cover.cupo}
-                      time={cover.hour}
-                      date={cover.date}
-                      state={cover.state}
+                      name={booking.info}
+                      cupos={booking.cupo}
+                      time={booking.hour}
+                      date={booking.date}
+                      state={booking.state}
                     />
                   ))}
                 </>

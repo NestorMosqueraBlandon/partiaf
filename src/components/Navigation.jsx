@@ -9,6 +9,9 @@ export default function Navigation() {
 
     return (
         <aside>
+          <div className='logo-navigation'>
+            <img src="./img/resources/logo-header.svg" alt="logo" />
+          </div>
             <ul>
                 {/* <Link to="/" onClick={() => setActive('notifications')} className={active === "notifications"? "navigation__item active"
                   : 'navigation__item'}>
@@ -22,14 +25,14 @@ export default function Navigation() {
                   : 'navigation__item'}>
 
                       <div className="icon">
-                      <img src="./img/cover.png" alt="" />
+                      <img src="./img/navigation/covers-icon.svg" alt="" />
                       </div>
                       <div className="title">Covers</div>
                 </Link>
                 <Link to="/booking" onClick={() => setActive('booking')} className={active === "booking"? "navigation__item active"
                   : 'navigation__item'}>
                       <div className="icon">
-                      <img src="./img/booking.png" alt="" />
+                      <img src="./img/navigation/booking-icon.svg" alt="" />
                       </div>
                       <div className="title">Reservas</div>
                 </Link>
@@ -37,9 +40,9 @@ export default function Navigation() {
                   : 'navigation__item'}>
 
                       <div className="icon">
-                      <img src="./img/menu.png" alt="" />
+                      <img src="./img/navigation/menu-icon.svg" alt="" />
                       </div>
-                      <div className="title">Modificar Menu</div>
+                      <div className="title">Menu</div>
                 </Link>
                 {/* 
                 <Link to="/buy" onClick={() => setActive('buys')} className={active === "buys"? "navigation__item active"
@@ -66,8 +69,8 @@ export default function Navigation() {
                       <img src="./img/staff.png" alt="" />
                       </div>
                       <div className="title">Staff</div>
-                </Link> */}
-                <Link to="/chairs" onClick={() => setActive('chairs')} className={active === "chairs"? "navigation__item active"
+                </Link> 
+                 <Link to="/chairs" onClick={() => setActive('chairs')} className={active === "chairs"? "navigation__item active"
                   : 'navigation__item'}>
 
                       <div className="icon">
@@ -75,6 +78,8 @@ export default function Navigation() {
                       </div>
                       <div className="title">Mesas</div>
                 </Link>
+                */}
+               
             </ul>
         </aside>
     )

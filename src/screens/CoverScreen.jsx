@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import CardBooking from "../components/CardBooking";
 import data from "../utils/data";
 import { useDispatch, useSelector } from "react-redux";
 import CoverCreateScreen from "../components/CoverCreateScreen";
@@ -19,6 +18,7 @@ export default function CoverScreen(props) {
 
   const [thatScreen, setThatScreen] = useState("Create");
 
+  // < ------- LOCAL DATES ------------>
   const setItem = (id) => {
     data.bookings
       .filter((booking) => booking.id == id)
@@ -47,6 +47,7 @@ export default function CoverScreen(props) {
 
   const deleteCover = useSelector((state) => state.deleteCover);
   const { success: successDelete } = deleteCover;
+  
 
   const updateCover = useSelector((state) => state.updateCover);
   const { success: successUpdate } = updateCover;
