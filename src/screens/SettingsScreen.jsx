@@ -26,7 +26,7 @@ export default function SettingsScreen() {
                     <input type="password" placeholder="Confirmar contraseña" />
                 </div>
                 <span className="term">Al registrase usted acepta los terminos y condiciones del servicio de PARTIAF</span>
-                <a href="" className="register-link">¿Ya tiene una cuenta, desea iniciar sesión?</a>
+                <a href="/" className="register-link">¿Ya tiene una cuenta, desea iniciar sesión?</a>
 
                 <div className="footer">
                     <button className="btn-normal">Atras</button>

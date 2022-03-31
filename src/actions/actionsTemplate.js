@@ -33,7 +33,6 @@ export default class actionsTemplate {
         `${this.URL}/${this.api}?email=${email}&storeId=${storeId}`
       );
 
-      console.log(data)
       
       dispatch({ type: this.LIST_SUCCESS, payload: data });
     } catch (err) {

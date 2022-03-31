@@ -2,7 +2,7 @@ header{
     position: relative;
     left: 10rem;
     background-color: #fff;
-    border-bottom: 1px solid rgba(0, 0, 0, .3);
+    border-bottom: 1px solid rgba(0, 0, 0, .1) ;
     width: calc(100% - 10rem);
     color: #f2f6fa;
     height: 8vh;

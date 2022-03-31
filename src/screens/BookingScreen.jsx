@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from "react";
 import CardBooking from "../components/CardBooking";
 import data from "../utils/data";
-import CardBookin from "../components/CardBookin";
 import { useDispatch, useSelector } from "react-redux";
 import { listBookings } from "../actions/bookingActions";
 import LoadingBox from "../components/LoadingBox";
-import CoverListScreen from "../components/CoverListScreen";
-import CoverCreateScreen from "../components/CoverCreateScreen";
 import BookingListScreen from "../components/BookingListScreen";
 import BookingCreateScreen from "../components/BookingCreateScreen";
 
@@ -18,12 +15,11 @@ export default function BookingScreen() {
   const { storeInfo } = storeSignin;
 
   const bookingList = useSelector((state) => state.bookingList);
-  const { loading: loadingList, error: errorList, bookings } = bookingList;
+  const { loading: loadingList,  bookings } = bookingList;
 
   const bookingCreate = useSelector((state) => state.bookingCreate);
   const {
-    loading: loadingCreate,
-    error: errorCreate,
+    
     success: successCreate,
   } = bookingCreate;
 
@@ -41,7 +37,7 @@ export default function BookingScreen() {
     if (storeInfo) {
       dispatch(listBookings(adminInfo.email, storeInfo.store._id));
     }
-  }, [dispatch, successCreate, successDelete, successUpdate]);
+  }, [dispatch, successCreate, successDelete, successUpdate, adminInfo, storeInfo]);
 
   const setItem = (id) => {
     // data.bookings.filter((booking) => booking.id == id).map((booking) => {
@@ -58,7 +54,7 @@ export default function BookingScreen() {
         <div className="flex">
           <div className="box">
             <h3>Total Reservas</h3>
-            <p>{loadingList ? <LoadingBox /> : <p>{bookings == undefined? "NO HAY RESERVAS" : bookings.length}</p>}</p>
+            <p>{loadingList ? <LoadingBox /> : <p>{bookings === undefined? "NO HAY RESERVAS" : bookings.length}</p>}</p>
           </div>
           <div className="box">
             <h3>Reservas Efectivas</h3>
@@ -71,7 +67,7 @@ export default function BookingScreen() {
         </div>
 
         <div className="flex">
-          {thatScreen == "List" ? (
+          {thatScreen === "List" ? (
             <button
               className="btn-create"
               onClick={() => setThatScreen("Create")}
@@ -95,7 +91,7 @@ export default function BookingScreen() {
           </div>
         </div>
 
-        {thatScreen == "List" ? (
+        {thatScreen === "List" ? (
           <BookingListScreen loading={loadingList} bookings={bookings} />
         ) : (
             // <p>This will be moved</p>

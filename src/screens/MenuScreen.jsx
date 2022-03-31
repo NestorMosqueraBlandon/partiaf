@@ -6,7 +6,6 @@ import LoadingBox from "../components/LoadingBox";
 import "../styles/customStyles.css";
 import swal from "sweetalert";
 import itemsActions from "../actions/itemsActions";
-import store from "../utils/store";
 
 export default function MenuScreen() {
   const dispatch = useDispatch();
@@ -20,7 +19,7 @@ export default function MenuScreen() {
 
   // < --------------------list process  ------------------------->
   const menuList = useSelector((state) => state.menuList);
-  const { loading, error, data: menu } = menuList;
+  const { loading, data: menu } = menuList;
 
   const adminSignin = useSelector((state) => state.adminSignin);
   const { adminInfo } = adminSignin;
@@ -30,11 +29,7 @@ export default function MenuScreen() {
 
   // < --------------------create process  ------------------------->
   const menuCreate = useSelector((state) => state.menuCreate);
-  const {
-    loading: loadingCreate,
-    error: errorCreate,
-    success: successCreate,
-  } = menuCreate;
+  const { success: successCreate } = menuCreate;
 
   const [openModal, setOpenModal] = useState(false);
   const [title, setTitle] = useState("");
@@ -53,17 +48,12 @@ export default function MenuScreen() {
   // < --------------------create item process  ------------------------->
   //enviar email - storeid, menuId, name, precio
   const itemCreate = useSelector((state) => state.itemCreate);
-  const {
-    loading: loadingCreateItem,
-    error: errorCreateItem,
-    success: successCreateItem,
-  } = itemCreate;
+  const { success: successCreateItem } = itemCreate;
 
   const [openModalItem, setOpenModalItem] = useState(false);
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
 
-  console.log(menuId);
   const submitCreateItemHandler = (e) => {
     e.preventDefault();
     dispatch(
@@ -79,11 +69,7 @@ export default function MenuScreen() {
 
   // < --------------------delete process  ------------------------->
   const menuDelete = useSelector((state) => state.menuDelete);
-  const {
-    loading: loadingDelete,
-    error: errorDelete,
-    success: successDelete,
-  } = menuDelete;
+  const { success: successDelete } = menuDelete;
 
   const deleteHandler = (menu) => {
     swal("Seguro que quieres borrar " + menu.title + "?", {
@@ -105,11 +91,7 @@ export default function MenuScreen() {
   // < --------------------delete item process  ------------------------->
   //   idItem, email, storeid, menuid
   const itemDelete = useSelector((state) => state.itemDelete);
-  const {
-    loading: loadingDeleteItem,
-    error: errorDeleteItem,
-    success: succesDeleteItem,
-  } = itemDelete;
+  const { success: succesDeleteItem } = itemDelete;
 
   const deleteItemHandler = (item, menu) => {
     swal("Seguro que quieres borrar " + item.name + "?", {
@@ -175,40 +157,47 @@ export default function MenuScreen() {
           <LoadingBox />
         ) : (
           <div className="center__screen">
-            {menu.map((men) => (
-              <div key={men._id} className="card-t">
-                <h4>{men.title}</h4>
+            {menu.length === undefined ? (
+              <h2>NO HAY MENUS, POR FAVOR AÑADE UNO </h2>
+            ) : (
+              <>
+                {menu.map((men) => (
+                  <div key={men._id} className="card-t">
+                    <h4>{men.title}</h4>
 
-                <ul>
-                  {men.items.map((item) => (
-                    <li key={men._id} className="menu-item">
-                      <p>{item.name} </p>
+                    <ul>
+                      {men.items.map((item) => (
+                        <li key={men._id} className="menu-item">
+                          <p>{item.name} </p>
 
-                      <span className="price"> $ {item.price}</span>
-                      <div className="actions">
-                        <button className="image">
-                          <i className="bx bxs-image"></i>
-                        </button>
-                        <button
-                          className="close"
-                          onClick={() => deleteItemHandler(item, men)}
-                        >
-                          <i className="bx bxs-x-circle"></i>
-                        </button>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-                <div className="footer-card-t">
-                  <button onClick={() => AddItem(men._id)}>
-                    <i className="bx bx-plus-medical"></i> Agregar Item
-                  </button>
-                  <button onClick={() => deleteHandler(men)}>
-                    <i className="bx bxs-trash-alt"></i>
-                  </button>
-                </div>
-              </div>
-            ))}
+                          <span className="price"> $ {item.price}</span>
+                          <div className="actions">
+                            <button className="image">
+                              <i className="bx bxs-image"></i>
+                            </button>
+                            <button
+                              className="close"
+                              onClick={() => deleteItemHandler(item, men)}
+                            >
+                              <i className="bx bxs-x-circle"></i>
+                            </button>
+                          </div>
+                        </li>
+                      ))}
+                    </ul>
+                    <div className="footer-card-t">
+                      <button onClick={() => AddItem(men._id)}>
+                        <i className="bx bx-plus-medical"></i> Agregar Item
+                      </button>
+                      <button onClick={() => deleteHandler(men)}>
+                        <i className="bx bxs-trash-alt"></i>
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </>
+            )}
+
             <div className="center-extend">
               <button onClick={() => setOpenModal(!openModal)}>
                 Agregar Menu

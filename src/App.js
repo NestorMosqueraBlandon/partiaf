@@ -20,7 +20,6 @@ import ComingSoon from "./screens/ComingSoon";
 function App() {
   const adminSignin = useSelector((state) => state.adminSignin);
   const { adminInfo } = adminSignin;
-  console.log(adminInfo);
 
   const storeSignin = useSelector((state) => state.storeSignin);
   const { loading, storeInfo } = storeSignin;

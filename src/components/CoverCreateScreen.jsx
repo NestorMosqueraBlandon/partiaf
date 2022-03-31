@@ -27,7 +27,7 @@ export default function CoverCreateScreen() {
   const { storeInfo } = storeSignin;
 
   const createCover = useSelector((state) => state.createCover);
-  const { loading, success: successCreate } = createCover;
+  const { success: successCreate } = createCover;
 
   const dispatch = useDispatch();
   const submitHandler = (e) => {

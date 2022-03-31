@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import data from "../utils/data";
 import { useDispatch, useSelector } from "react-redux";
 import CoverCreateScreen from "../components/CoverCreateScreen";
 import { listCovers } from "../actions/adminActions";
@@ -12,12 +11,9 @@ import {
 import LoadingBox from "../components/LoadingBox";
 
 export default function CoverScreen(props) {
-  const [name, setName] = useState("");
-  const [note, setNote] = useState("");
-  const [date, setDate] = useState("");
-
   const [thatScreen, setThatScreen] = useState("Create");
 
+  /*
   // < ------- LOCAL DATES ------------>
   const setItem = (id) => {
     data.bookings
@@ -28,6 +24,7 @@ export default function CoverScreen(props) {
         setDate(booking.date);
       });
   };
+  */
 
   const adminSignin = useSelector((state) => state.adminSignin);
   const { adminInfo } = adminSignin;
@@ -36,18 +33,13 @@ export default function CoverScreen(props) {
   const { storeInfo } = storeSignin;
 
   const coversList = useSelector((state) => state.coversList);
-  const { loading: loadingList, error: errorList, covers } = coversList;
+  const { loading: loadingList, covers } = coversList;
 
   const createCover = useSelector((state) => state.createCover);
-  const {
-    loading: loadingCreate,
-    error: errorCreate,
-    success: successCreate,
-  } = createCover;
+  const { success: successCreate } = createCover;
 
   const deleteCover = useSelector((state) => state.deleteCover);
   const { success: successDelete } = deleteCover;
-  
 
   const updateCover = useSelector((state) => state.updateCover);
   const { success: successUpdate } = updateCover;
@@ -97,7 +89,7 @@ export default function CoverScreen(props) {
             <p>0</p>
           </div>
         </div>
-        {thatScreen == "List" ? (
+        {thatScreen === "List" ? (
           <button
             className="btn-create"
             onClick={() => setThatScreen("Create")}
@@ -112,7 +104,7 @@ export default function CoverScreen(props) {
           </button>
         )}
 
-        {thatScreen == "List" ? (
+        {thatScreen === "List" ? (
           <CoverListScreen loading={loadingList} covers={covers} />
         ) : (
           <CoverCreateScreen />

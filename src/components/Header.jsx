@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import "../styles/header.css";
 import { Link } from "react-router-dom";
 import { signout, signoutBussiness } from "../actions/adminActions";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 export default function Header() {
+  /*
   const adminSignin = useSelector((state) => state.adminSignin);
   const { adminInfo } = adminSignin;
+  */
 
   const dispatch = useDispatch();
 
@@ -23,7 +25,7 @@ export default function Header() {
     <header>
       <nav>
         <div className="partiaf-icon" onClick={() => setDrop(!drop)}>
-          <img src="./img/resources/partiaf-icon.svg" />
+          <img src="./img/resources/partiaf-icon.svg" alt="logo-partiaf" />
         </div>
         <div className={drop ? "dropdown active" : "dropdown"}>
           <div className="option">

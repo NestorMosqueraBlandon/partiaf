@@ -1,21 +1,16 @@
-import { useMutation } from "@apollo/client";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { LOGIN_USER_MUTATION } from "../graphql/Mutation";
-import { USER_SIGNIN_SUCCESS } from "../constants/userConstants";
-import { AuthContext } from "../context/auth";
 import swal from "sweetalert";
 import { signin } from "../actions/adminActions";
 import LoadingBox from "../components/LoadingBox";
 
 export default function LoginScreen(props) {
   const adminSignin = useSelector((state) => state.adminSignin);
-  const { loading, error, adminInfo } = adminSignin;
+  const { loading } = adminSignin;
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [passwordVisibility, setPasswordVisibility] = useState(true);
 
   const dispatch = useDispatch();
 
