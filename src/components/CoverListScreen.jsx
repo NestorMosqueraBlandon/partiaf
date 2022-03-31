@@ -7,7 +7,7 @@ import { DELETE_COVER_RESET, UPDATE_COVER_RESET } from "../constants/adminConsta
 import CoverUpdateScreen from "./CoverUpdateScreen";
 import { DivisaFormater } from "../utils/DivisaFormater";
 
-export default function CoverListScreen({ loading, covers }) {
+export default function CoverListScreen({ loading, covers, state }) {
   const adminSignin = useSelector((state) => state.adminSignin);
   const { adminInfo } = adminSignin;
 
@@ -60,6 +60,7 @@ export default function CoverListScreen({ loading, covers }) {
      setUpdate(false);
     }
   }, [dispatch, successUpdate, successDelete]);
+  
   return (
     <>
       {update ? (
@@ -72,6 +73,7 @@ export default function CoverListScreen({ loading, covers }) {
             <>
               {covers.map((cover) => (
                 <div className="cover__card">
+                  <div className="card-header"><p> Estado del cover : {state == true?"Activa" : "Finalizada"} </p></div>
                   <h4>Tipo: {cover.name}</h4>
                   <p>{cover.type}</p>
                   <p>Precio: {DivisaFormater(cover.price)}</p>

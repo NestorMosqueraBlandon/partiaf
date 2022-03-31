@@ -85,7 +85,7 @@ export default function BookingScreen() {
               onClick={() => setThatScreen("List")}
             >
               {" "}
-              LISTA DE RESERVAS <i className="bx bxs-plus-square"></i>
+              LISTA DE RESERVAS
             </button>
           )}
           <div className="right-buttons">
