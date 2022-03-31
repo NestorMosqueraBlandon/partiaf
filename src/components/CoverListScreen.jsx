@@ -5,6 +5,7 @@ import { deleteStoreCover } from "../actions/adminActions";
 import { useDispatch, useSelector } from "react-redux";
 import { DELETE_COVER_RESET, UPDATE_COVER_RESET } from "../constants/adminConstants";
 import CoverUpdateScreen from "./CoverUpdateScreen";
+import { DivisaFormater } from "../utils/DivisaFormater";
 
 export default function CoverListScreen({ loading, covers }) {
   const adminSignin = useSelector((state) => state.adminSignin);
@@ -73,7 +74,7 @@ export default function CoverListScreen({ loading, covers }) {
                 <div className="cover__card">
                   <h4>Tipo: {cover.name}</h4>
                   <p>{cover.type}</p>
-                  <p>Precio: {cover.price}</p>
+                  <p>Precio: {DivisaFormater(cover.price)}</p>
                   <p>Fecha: {cover.date}</p>
                   <p>Cupos: {cover.totalLimit}</p>
                   <p>Hora: {cover.hour}</p>
