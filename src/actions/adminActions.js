@@ -128,11 +128,9 @@ export const listStores = (email) => async (dispatch, getState) => {
 
 export const listCovers = (email, storeId) => async (dispatch, getState) => {
   
-  console.log(email, storeId)
   dispatch({ type: LIST_COVER_REQUEST});
   try {
     const { data } = await Axios.get(`${URL}/stores/covers?email=${email}&storeId=${storeId}`);
-    console.log(data)
     dispatch({ type: LIST_COVER_SUCCESS, payload: data });
   } catch (error) {
     dispatch({

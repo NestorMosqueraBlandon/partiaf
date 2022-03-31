@@ -157,7 +157,7 @@ export default function MenuScreen() {
           <LoadingBox />
         ) : (
           <div className="center__screen">
-            {menu.length == undefined ? (
+            {menu.length === undefined ? (
               <h2>NO HAY MENUS, POR FAVOR AÑADE UNO </h2>
             ) : (
               <>
