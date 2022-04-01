@@ -127,7 +127,6 @@ export default function CoverCreateScreen() {
           </div>
         </div>
       </div>
-
       <div className="screfooter">
         <div className="option">
           <div className="form-group">
