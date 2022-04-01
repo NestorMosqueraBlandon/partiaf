@@ -44,7 +44,7 @@ export default function Navigation() {
                       </div>
                       <div className="title">Menu</div>
                 </Link>
-                <Link to="/chairs" onClick={() => setActive('chairs')} className={active === "chairs"? "navigation__item active"
+                <Link to="/settings" onClick={() => setActive('settings')} className={active === "settings"? "navigation__item active"
                   : 'navigation__item'}>
 
                       <div className="icon">

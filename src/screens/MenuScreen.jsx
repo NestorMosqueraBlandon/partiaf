@@ -6,6 +6,7 @@ import LoadingBox from "../components/LoadingBox";
 import "../styles/customStyles.css";
 import swal from "sweetalert";
 import itemsActions from "../actions/itemsActions";
+import axios from "axios";
 
 export default function MenuScreen() {
   const dispatch = useDispatch();
@@ -17,7 +18,7 @@ export default function MenuScreen() {
     await setOpenModalItem(true);
   };
 
-  // < --------------------list process  ------------------------->
+  // < --------------------List Process  ------------------------->
   const menuList = useSelector((state) => state.menuList);
   const { loading, data: menu } = menuList;
 
@@ -27,7 +28,7 @@ export default function MenuScreen() {
   const storeSignin = useSelector((state) => state.storeSignin);
   const { storeInfo } = storeSignin;
 
-  // < --------------------create process  ------------------------->
+  // < --------------------Create Process  ------------------------->
   const menuCreate = useSelector((state) => state.menuCreate);
   const { success: successCreate } = menuCreate;
 
@@ -45,7 +46,31 @@ export default function MenuScreen() {
     );
   };
 
-  // < --------------------create item process  ------------------------->
+    // UPLOAD IMAGE HANDLER
+  const uploadHandler = async (e, imageFIeld = "image") => {
+    const file = e.target.files[0];
+    const bodyFormData = new FormData();
+    bodyFormData.append("file", file);
+    try {
+      dispatch({ type: "UPLOAD_REQUEST" });
+      const { data } = await axios.post(
+        "https://rveapi.herokuapp.com/api/v1/users/upload",
+        bodyFormData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+      dispatch({ type: "UPLOAD_SUCCESS" });
+      setItemImage(data.secure_url);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+
+  // < --------------------Create Item Process  ------------------------->
   //enviar email - storeid, menuId, name, precio
   const itemCreate = useSelector((state) => state.itemCreate);
   const { success: successCreateItem } = itemCreate;
@@ -53,6 +78,9 @@ export default function MenuScreen() {
   const [openModalItem, setOpenModalItem] = useState(false);
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
+  const [amount, setAmount] = useState("");
+  const [itemImage, setItemImage] = useState("");
+
 
   const submitCreateItemHandler = (e) => {
     e.preventDefault();
@@ -60,6 +88,8 @@ export default function MenuScreen() {
       itemsActions.create({
         name: name,
         price: price,
+        image: itemImage,
+        amount: amount,
         email: adminInfo.email,
         storeId: storeInfo.store._id,
         menuId: menuId,
@@ -115,6 +145,7 @@ export default function MenuScreen() {
     });
   };
 
+
   useEffect(() => {
     const menuConstants = new constantsTemplate("MENU");
     const itemsConstants = new constantsTemplate("ITEM");
@@ -168,6 +199,7 @@ export default function MenuScreen() {
                     <ul>
                       {men.items.map((item) => (
                         <li key={men._id} className="menu-item">
+                          <img className="img-preview" src={item.image} alt="" />
                           <p>{item.name} </p>
 
                           <span className="price"> $ {item.price}</span>
@@ -254,6 +286,14 @@ export default function MenuScreen() {
               value={price}
               onChange={(e) => setPrice(e.target.value)}
             />
+              <input
+              type="number"
+              placeholder="Cantidad"
+              value={amount}
+              onChange={(e) => setAmount(e.target.value)}
+            />
+            <input type="file" name="file" id="file"  onChange={(e) => uploadHandler(e, "featuredImage")}  />
+            <img alt="" className="img-preview" src={itemImage}  />
           </form>
           <div className="modal-footer">
             <button className="btn" onClick={submitCreateItemHandler}>

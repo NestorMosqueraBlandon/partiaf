@@ -788,7 +788,6 @@ select {
 
 .dropdown {
   position: relative;
-  margin-right: 2rem;
 }
 
 .dropdown::before {
@@ -805,6 +804,8 @@ select {
   transform: rotate(-45deg);
   pointer-events: none;
   transition: 0.5s;
+
+
 }
 
 .dropdown .menu-item{
@@ -833,6 +834,8 @@ select {
   flex-direction: column;
   align-items: center;
   padding: 2rem .8rem;
+  margin-right: 2rem;
+
 }
 
 .dropdown .option a{
@@ -906,4 +909,8 @@ select {
   border-radius: 5px;
   width: 80%;
   margin-right: 20px;
+}
+
+.img-preview{
+  max-width: 100px;
 }

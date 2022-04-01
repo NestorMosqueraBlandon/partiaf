@@ -1,39 +1,45 @@
-export default function SettingsScreen() {
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteStore } from "../actions/adminActions";
+
+export default function SettingsScreen(props) {
+
+    const [password, setPassword] = useState('');
+    const [openModal, setOpenModal] = useState(false);
+
+
+    const adminSignin = useSelector((state) => state.adminSignin);
+    const { adminInfo } = adminSignin;
+    
+    const storeSignin = useSelector((state) => state.storeSignin);
+    const { storeInfo, error: errorSignin } = storeSignin;
+
+    const dispatch = useDispatch();
+
+    const submitHandler = (e) => {
+        e.preventDefault();
+        dispatch(deleteStore(adminInfo.email, storeInfo.store._id, password));
+    }
+
     return (
-        <div className="register">
-            <div className="register-title">
-                PARTIAF
-            </div>
-
-            <form action="">
-                <p>Datos de registro</p>
-
-                <input type="text"  placeholder="Nombre"/>
-                <input type="text" placeholder="Apellidos" />
-                <input type="text" name="" id="" placeholder="CC" />
-                <div>
-                    <input type="text"placeholder="Email" />
-                    <input type="text" name="" id="" placeholder="Movil" />
-                </div>
-                <div>
-                    <input type="text"placeholder="Edad" />
-                    <input type="text" name="" id="" placeholder="Direccion" />
-                </div>
-
-                <p>Ingrese contrseña y confirme</p>
-                <div>
-                    <input type="password" placeholder="Contraseña" />
-                    <input type="password" placeholder="Confirmar contraseña" />
-                </div>
-                <span className="term">Al registrase usted acepta los terminos y condiciones del servicio de PARTIAF</span>
-                <a href="/" className="register-link">¿Ya tiene una cuenta, desea iniciar sesión?</a>
-
-                <div className="footer">
-                    <button className="btn-normal">Atras</button>
-                    <button >Siguiente</button>
-                </div>
-            </form>
-            
+        <>
+        <div className="settings">
+            <button onClick={() => setOpenModal(true)}>Eliminar Negocio</button>
         </div>
+         <div className={openModal ? "modalStore active" : "modalStore"}>
+         <div>
+           <input
+             type="password"
+             value={password}
+             onChange={(e) => setPassword(e.target.value)}
+             placeholder="Ingrese la contrasena del negocio"
+           />
+           <button onClick={submitHandler}>Continuar</button>
+           <button className="btn-none" onClick={() => setOpenModal(false)} >Atras</button>
+           {/* </form> */}
+         </div>
+       </div>
+       </>
+
     )
 }
