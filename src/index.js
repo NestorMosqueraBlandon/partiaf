@@ -7,6 +7,9 @@ import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import store from './utils/store';
+import {MuiPickersUtilsProvider} from '@material-ui/pickers';
+import DateFnsUtils from '@date-io/date-fns';
+import esLocale from 'date-fns/locale/es';
 // import ApolloProvider from "./utils/ApolloProvider"
 // import { ApolloClient, InMemoryCache } from '@apollo/client';
 
@@ -22,7 +25,9 @@ import store from './utils/store';
 ReactDOM.render(
   <Provider store={store}>
       <React.StrictMode>
+        <MuiPickersUtilsProvider utils={DateFnsUtils} locale={esLocale} >
         <App />
+        </MuiPickersUtilsProvider>
       </React.StrictMode>
   </Provider>,
     document.getElementById('root')

@@ -95,12 +95,12 @@ export default function CoverScreen(props) {
             onClick={() => setThatScreen("Create")}
           >
             {" "}
-            CREAR ENTRADA <i className="bx bxs-plus-square"></i>
+            CREAR ENTRADA 
           </button>
         ) : (
           <button className="btn-create" onClick={() => setThatScreen("List")}>
             {" "}
-            LISTA DE ENTRADAS <i className="bx bxs-plus-square"></i>
+            LISTA DE ENTRADAS
           </button>
         )}
 

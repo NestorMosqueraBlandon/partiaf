@@ -82,3 +82,20 @@
     max-width: 300px;
     gap: 2rem;
 }
+
+
+.settings{
+    margin-top: 2rem;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(100% - 15rem);
+}
+
+.settings button{
+    background-color: #ff0f0f;
+    margin-top: 5rem;
+    color: #fff;
+    width: 300px;
+}

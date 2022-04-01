@@ -213,6 +213,7 @@ button {
 
 .item {
   margin-top: 1rem;
+  width: 100%;
 }
 .item.up {
   margin-top: 50px;
@@ -254,7 +255,7 @@ textarea {
 }
 
 .w-100 input {
-  width: 75%;
+  width: 100%;
 }
 
 .event-fields {
@@ -273,8 +274,8 @@ textarea {
 .event-fields .w-50 {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
+  justify-content: center;
+  gap: 4rem;
 }
 
 .event-fields .w-50 h3 {
@@ -293,8 +294,9 @@ textarea {
 }
 
 .w-70 {
-  width: 80%;
+  width: 100%;
 }
+
 .item-flex {
   display: flex;
   align-items: center;
@@ -786,7 +788,6 @@ select {
 
 .dropdown {
   position: relative;
-  margin-right: 2rem;
 }
 
 .dropdown::before {
@@ -803,6 +804,8 @@ select {
   transform: rotate(-45deg);
   pointer-events: none;
   transition: 0.5s;
+
+
 }
 
 .dropdown .menu-item{
@@ -831,6 +834,8 @@ select {
   flex-direction: column;
   align-items: center;
   padding: 2rem .8rem;
+  margin-right: 2rem;
+
 }
 
 .dropdown .option a{
@@ -884,4 +889,28 @@ select {
 
 .menu-item .price{
   text-align: left;
+}
+
+.container__componentsDate{
+  display: flex;
+}
+
+.componentsDate{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 2rem;
+  width: 100%;
+  font-size: 1.2rem;
+}
+
+.componentsDate .cc1{
+  border-radius: 5px;
+  width: 80%;
+  margin-right: 20px;
+}
+
+.img-preview{
+  max-width: 100px;
 }

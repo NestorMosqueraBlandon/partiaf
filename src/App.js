@@ -12,7 +12,6 @@ import RegisterScreen from "./screens/RegisterScreen";
 import SettingsScreen from "./screens/SettingsScreen";
 import StaffScreen from "./screens/StaffScreen";
 import StoreScreen from "./screens/StoreScreen";
-
 import { useSelector } from "react-redux";
 import LayoutHome from "./components/LayoutHome";
 import ComingSoon from "./screens/ComingSoon";
@@ -37,6 +36,7 @@ function App() {
               <Route path="/cover" component={CoverScreen} exact></Route>
               <Route path="/buy" component={BuyScreen} exact></Route>
               <Route path="/staff" component={StaffScreen} exact></Route>
+              <Route path="/settings" component={SettingsScreen} exact></Route>
             </Switch>
             {/* <Route path="/" component={ComingSoon} exact></Route>   */}
           </Layout>

@@ -28,6 +28,8 @@ export default function Header() {
           <img src="./img/resources/partiaf-icon.svg" alt="logo-partiaf" />
         </div>
         <div className={drop ? "dropdown active" : "dropdown"}>
+        <img className="user-image" src="/img/userImage.jpeg" alt="" />
+
           <div className="option">
             <Link to="/settings" className="color">
               <i className="bx bxs-cog"></i> Configuracion

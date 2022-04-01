@@ -5,6 +5,7 @@ import { adminSigninReducer, coverListReducer, createStoreCoverReducer, createSt
 import { bookingCreateReducer, bookingDeleteReducer, bookingListReducer, bookingUpdateReducer } from "../reducers/bookingReducer.js";
 import menuReducer from "../reducers/menuReducer.js";
 import itemsReducer from "../reducers/itemsReducer.js";
+import { generalReducer } from "../reducers/globalReducer.js";
 const initialState = {
     adminSignin: {
         adminInfo: localStorage.getItem('adminInfo')
@@ -44,9 +45,9 @@ const reducer = combineReducers({
     itemList: itemsReducer.listReducer,
     itemCreate: itemsReducer.createReducer,
     itemUpdate: itemsReducer.updateReducer,
-    itemDelete: itemsReducer.deleteReducer
+    itemDelete: itemsReducer.deleteReducer,
 
-
+    uploadImage: generalReducer
 })
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

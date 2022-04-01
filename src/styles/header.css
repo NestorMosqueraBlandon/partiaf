@@ -5,7 +5,7 @@ header{
     border-bottom: 1px solid rgba(0, 0, 0, .1) ;
     width: calc(100% - 10rem);
     color: #f2f6fa;
-    height: 5vh;
+    /* height: 8vh; */
     padding: 1rem 2rem; 
 }
 
@@ -23,4 +23,9 @@ nav .logo{
     width: 180px;
     margin-top: .5rem;
     /*margin-left: 3rem;*/
+}
+
+.user-image{
+    max-width: 35px;
+    border-radius: 5rem;
 }
