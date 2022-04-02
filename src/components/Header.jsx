@@ -2,13 +2,12 @@ import React, { useState } from "react";
 import "../styles/header.css";
 import { Link } from "react-router-dom";
 import { signout, signoutBussiness } from "../actions/adminActions";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function Header() {
-  /*
+
   const adminSignin = useSelector((state) => state.adminSignin);
   const { adminInfo } = adminSignin;
-  */
 
   const dispatch = useDispatch();
 
@@ -28,7 +27,7 @@ export default function Header() {
           <img src="./img/resources/partiaf-icon.svg" alt="logo-partiaf" />
         </div>
         <div className={drop ? "dropdown active" : "dropdown"}>
-        <img className="user-image" src="/img/userImage.jpeg" alt="" />
+        <img className="user-image" src={adminInfo.image} alt="" />
 
           <div className="option">
             <Link to="/settings" className="color">

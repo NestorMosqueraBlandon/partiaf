@@ -59,16 +59,18 @@ export const signin = (email, password) => async (dispatch) => {
   }
 };
 
-export const signup = (name, lastname, identification, email, mobile, age, address, password) => async (dispatch) => {
-  dispatch({ type: ADMIN_REGISTER_REQUEST, payload: { name, lastname, identification, email, mobile, age, address, password } });
+export const signup = (name, lastname, identification, email, mobile, age, address, password, image) => async (dispatch) => {
+  dispatch({ type: ADMIN_REGISTER_REQUEST, payload: { name, lastname, identification, email, mobile, age, address, password, image } });
   try {
     const { data } = await Axios.post(`${URL}/admins/signout`, {
-      name, lastname, identification, email, mobile, age, address, password
+      name, lastname, identification, email, mobile, age, address, password, image
     });
 
     dispatch({ type: ADMIN_REGISTER_SUCCESS, payload: data });
     dispatch({ type: ADMIN_SIGNIN_SUCCESS, payload: data });
     localStorage.setItem("adminInfo", JSON.stringify(data));
+  document.location.href = '/';
+
   } catch (error) {
     dispatch({
       type: ADMIN_REGISTER_FAIL,

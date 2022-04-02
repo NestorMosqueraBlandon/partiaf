@@ -13,13 +13,19 @@ export default function HomeScreen() {
         <LoadingBox />
       ) : (
         <>
+          <img className="back-logo" src="./img/logo/disc.svg" alt="" />
+          
+          <span className="front-container-logo">
+
+          <img className="front-logo" src="./img/resources/logo-header.svg" alt="" />
+          <img className="front-logo-word" src="./img/resources/partiaf-icon.svg" alt="" />
+          </span>
           <Link className="home__link" to="/login">
             Iniciar sesión
           </Link>
-          <Link className="home__link" to="/register">
+          <Link className="home__link-none" to="/register">
             Crear usuario
           </Link>
-          <Link to="/">Has olvidado tu contraseña?</Link>
         </>
       )}
     </div>

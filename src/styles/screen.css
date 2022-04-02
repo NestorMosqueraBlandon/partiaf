@@ -390,19 +390,72 @@ textarea {
   position: relative;
   z-index: 99999999;
   padding: 4rem;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.register .front-container-logo{
+  margin-bottom:  0;
 }
 
 .register-title {
   font-size: 2rem;
 }
 
+.register-btn{
+  width: 100%;
+}
+
+.register-header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.register-header a button{
+  background-color: #1a1a1a;
+  color: #fff !important;
+  border-radius: .5rem;
+}
+
+
+.register .register-content{
+  display: flex;
+  justify-content: flex-start;
+}
+
+.register form input,
+.left-state form input {
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  /* width: 80%; */
+}
+
+.register .warning{
+  border: 1px solid red;
+}
+
+.register input[type="file"]{
+  width: 120%;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  height: 95%;
+}
+
+
 .register form {
   background-color: #fff;
   max-width: 700px;
   border-radius: 0.5rem;
   padding: 3rem;
-  border: 2px solid rgba(0, 0, 0, 0.2);
-  display: flex;
+  /* border: 2px solid rgba(0, 0, 0, 0.2); */
+  /* display: flex; */
   flex-direction: column;
   margin-top: 5rem;
 }
@@ -419,14 +472,7 @@ textarea {
   font-weight: 600;
 }
 
-.register form input,
-.left-state form input {
-  background-color: rgba(0, 0, 0, 0.05);
-  border-radius: 0.5rem;
-  padding: 1rem;
-  margin: 1rem;
-  border: none;
-}
+
 
 .term {
   padding-left: 1.2rem;
@@ -455,14 +501,14 @@ button {
   cursor: pointer;
 }
 
-.register.center {
-  background-color: #1a1a1a;
+/* .register.center {
+  background-color: #fff;
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-}
+} */
 
 .register-title {
   font-size: 5rem;
@@ -546,27 +592,46 @@ button {
 }
 
 .home {
-  background-color: #1a1a1a;
-  min-height: 98vh;
+  /* background-color: #fff; */
+  min-height: 100vh;
   margin: 0 auto;
   display: flex;
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
   flex-direction: column;
   gap: 2rem;
+  margin-top: 100px;
 }
 
 .home a {
   color: #ccc;
 }
 
+
 .home .home__link {
-  background-color: #fff;
+  background-color: #FDBD00;
   display: inline-block;
   padding: 1rem 3rem;
-  border-radius: 1rem;
+  border-radius: .8rem;
   color: #1a1a1a;
+  min-width: 300px;
+  text-align: center;
+  font-weight: 500;
 }
+
+
+.home .home__link-none{
+  background-color: rgba(0, 0, 0, 0.2);
+  display: inline-block;
+  padding: 1rem 3rem;
+  border-radius: .8rem;
+  color: #1a1a1a;
+  min-width: 300px;
+  text-align: center;
+  font-weight: 500;
+  z-index: 1;
+}
+
 
 .home__link:first-child {
   background-color: #ebc74e;
@@ -581,6 +646,11 @@ button {
 .home form input {
   padding: 1rem 1rem;
   border-radius: 1rem;
+  background: none;
+  border: 2px solid rgba(0, 0, 0, 0.6);
+}
+
+.home form input[type="submit"] {
   border: none;
 }
 
@@ -588,14 +658,13 @@ button {
   position: relative;
 }
 
-.home form input[type="submit"] {
-  background-color: #ebc74e;
-}
-
 .bussines {
-  position: relative;
-  z-index: 999999999;
-  background-color: #1a1a1a;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 9999999999999;
+  background-color: #fff;
   min-width: none;
   height: 100vh;
   /* min-height: 94vh; */
@@ -603,13 +672,19 @@ button {
   align-items: center;
   /* justify-content: center; */
   flex-direction: column;
-  padding-top: 10rem;
+  padding-top: 5rem;
+}
+
+.bussines .front-container-logo{
+  margin-bottom: 10rem;
+  margin-top: 0;
 }
 
 .bussines h2 {
-  color: #ccc;
+  color: rgba(0, 0, 0, 0.7);
   font-size: 5rem;
   margin-bottom: 5rem;
+  font-weight: 400;
 }
 
 .bussines picture {
@@ -618,22 +693,28 @@ button {
   border: 1px solid #ccc;
   border-radius: 5rem;
   margin-bottom: 1rem;
+  overflow: hidden;
+  border: 2px solid #FDBD00;
 }
 
 .bussines h3 {
-  color: #fff;
+  color: rgba(0, 0, 0, 0.7);
+  margin-bottom: 2rem;
 }
 
 .bussines p {
-  color: #ebc74e;
+  color: #000;
+  font-weight: 600;
   font-size: 1.2rem;
 }
 
 .bussines a {
-  background-color: #ebc74e;
+  background-color: #FDBD00;
   padding: 1rem 3rem;
   border-radius: 1.5rem;
   margin-top: 2rem;
+  min-width: 200px;
+  text-align: center;
 }
 
 select {
@@ -662,6 +743,9 @@ select {
   padding: 1rem 3rem;
   border-radius: 1.5rem;
   margin-top: 2rem;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  min-width: 200px;
+  color: rgba(0, 0, 0, 0.8);
 }
 
 .modalStore {
@@ -863,7 +947,7 @@ select {
   max-height: 50vh;
   display: flex;
   flex-direction: column;
-  overflow: scroll;
+  overflow-y: auto;
 }
 
 .btn-none{
