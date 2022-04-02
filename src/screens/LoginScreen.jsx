@@ -42,6 +42,14 @@ export default function LoginScreen(props) {
       {loading ? (
         <LoadingBox />
       ) : (
+        <>
+  <img className="back-logo" src="./img/logo/disc.svg" alt="" />
+          
+          <span className="front-container-logo">
+
+          <img className="front-logo" src="./img/resources/logo-header.svg" alt="" />
+          <img className="front-logo-word" src="./img/resources/partiaf-icon.svg" alt="" />
+          </span>
         <form onSubmit={submitHandler}>
           <input
             type="email"
@@ -55,10 +63,12 @@ export default function LoginScreen(props) {
             onChange={(e) => setPassword(e.target.value)}
             placeholder="Contraseña"
           />
-          <input type="submit" value="Ingresar" />
+          <input className="home__link" type="submit" value="ENTRAR" />
         </form>
+        </>
+
       )}
-      <Link to="/">Has olvidado tu contraseña?</Link>
+      <Link className="password-forget" to="/">Has olvidado tu contraseña?</Link>
     </div>
   );
 }

@@ -36,28 +36,28 @@ export default function StoreScreen(props) {
             <form onSubmit={submitHandler}>
                 <p>Datos del establecimeinto</p>
 
-                <input type="text"  value={name} onChange={(e) => setName(e.target.value)} placeholder="Nombre"/>
+                <input type="text"  value={name} onChange={(e) => setName(e.target.value)} placeholder="Nombre" required/>
                 <label htmlFor="" className='form-label'>Tipo de Establecimeinto</label>
-                <select name="" id="" value={type} onChange={(e) => setType(e.target.value)} >
+                <select name="" id="" value={type} onChange={(e) => setType(e.target.value)}  required >
                     <option value="Discoteca">Discoteca</option>
                     <option value="Bar">Bar</option>
                     <option value="Gastrobar">Gastrobar</option>
 
                 </select>
-                <input type="text" value={nit} onChange={(e) => setNit(e.target.value)} name="" id="" placeholder="NIT" />
-                <input type="text" value={totalLimit} onChange={(e) => setTotalLimit(e.target.value)} name="" id="" placeholder="Cupo total" />
+                <input type="number" value={nit} onChange={(e) => setNit(e.target.value)} name="" id="" placeholder="NIT" required />
+                <input type="text" value={totalLimit} onChange={(e) => setTotalLimit(e.target.value)} name="" id="" placeholder="Cupo total" required />
                 <div>
-                    <input type="text" value={emailStore} onChange={(e) => setEmailStore(e.target.value)} placeholder="Email" />
-                    <input type="text" value={mobile} onChange={(e) => setMobile(e.target.value)} name="" id="" placeholder="Movil" />
+                    <input type="email" value={emailStore} onChange={(e) => setEmailStore(e.target.value)} placeholder="Email" required />
+                    <input type="text" value={mobile} onChange={(e) => setMobile(e.target.value)} name="" id="" placeholder="Movil" required />
                 </div>
                 <div>
-                    <input type="text" value={employes} onChange={(e) => setEmployes(e.target.value)} placeholder="N° de empleados" />
-                    <input type="text" value={address} onChange={(e) => setAddress(e.target.value)} name="" id="" placeholder="Direccion" />
+                    <input type="number" value={employes} onChange={(e) => setEmployes(e.target.value)} placeholder="N° de empleados" required />
+                    <input type="text" value={address} onChange={(e) => setAddress(e.target.value)} name="" id="" placeholder="Direccion" required />
                 </div>
 
                 <p>Ingrese contrseña y confirme</p>
                 <div>
-                    <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Contraseña" />
+                    <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Contraseña" required />
                     <input type="password" placeholder="Confirmar contraseña" />
                 </div>
                 <span className="term">Al registrase usted acepta los terminos y condiciones del servicio de PARTIAF</span>

@@ -99,3 +99,33 @@
     color: #fff;
     width: 300px;
 }
+
+.back-logo{
+    filter: invert(.05);
+    position: absolute;
+    z-index: -1;
+    width: 800px;
+}
+
+.front-logo{
+    max-width: 30px;
+    filter: invert(.8);
+}
+
+
+.front-logo-word{
+    max-width: 100px;
+}
+
+.front-container-logo{
+    display: flex;
+    gap: 1rem;
+    margin-top: 100px;
+    margin-bottom: 150px ;
+}
+
+
+
+.home .password-forget{
+    color: #000 ;
+}

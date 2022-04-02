@@ -47,11 +47,17 @@ export default function BusinessScreen(props) {
   return (
     <>
       <div className="bussines">
+                  
+      <span className="front-container-logo">
+
+<img className="front-logo" src="./img/resources/logo-header.svg" alt="" />
+<img className="front-logo-word" src="./img/resources/partiaf-icon.svg" alt="" />
+</span>
         <h2>Bienvenido!</h2>
         <picture>
-          <img src="" alt="" />
+          <img src={adminInfo.image} alt="" />
         </picture>
-        <h3>{adminInfo.name}</h3>
+        <h3>{adminInfo.name} {adminInfo.lastname}</h3>
         <p>Por favor selecciona tu negocio</p>
         {loading ? (
           <LoadingBox />
