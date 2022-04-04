@@ -88,7 +88,7 @@ export default function BookingCreateScreen() {
 
       <div className="screfooter">
     
-        <h4>Descripcion de reserva:</h4>
+        <h4>Descripcion:</h4>
         <textarea name="" id="" cols="30" rows="10" value={description} onChange={(e) => setDescription(e.target.value)}></textarea>
       </div>
     </div>

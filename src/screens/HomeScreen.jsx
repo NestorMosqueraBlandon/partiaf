@@ -13,7 +13,7 @@ export default function HomeScreen() {
         <LoadingBox />
       ) : (
         <>
-          <img className="back-logo" src="./img/logo/disc.svg" alt="" />
+          <img className="back-logo" src="./img/background_wallpaper.svg" alt="" />
           
           <span className="front-container-logo">
 

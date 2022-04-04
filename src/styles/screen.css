@@ -621,7 +621,7 @@ button {
 
 
 .home .home__link-none{
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: #DCDCDC;
   display: inline-block;
   padding: 1rem 3rem;
   border-radius: .8rem;

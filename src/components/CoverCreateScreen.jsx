@@ -153,7 +153,7 @@ export default function CoverCreateScreen() {
             <label htmlFor="especial">Especial</label>
           </div>
         </div>
-        <h4>Descripcion de cover:</h4>
+        <h4>Descripcion:</h4>
         <textarea
           name=""
           id=""

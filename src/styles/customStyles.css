@@ -104,28 +104,35 @@
     filter: invert(.05);
     position: absolute;
     z-index: -1;
-    width: 800px;
+    width: 1000px;
+    top: 0;
 }
 
 .front-logo{
-    max-width: 30px;
+    max-width: 50px;
     filter: invert(.8);
 }
 
 
 .front-logo-word{
-    max-width: 100px;
+    max-width: 150px;
 }
 
 .front-container-logo{
     display: flex;
     gap: 1rem;
     margin-top: 100px;
-    margin-bottom: 150px ;
+    margin-bottom: 120px ;
 }
 
 
 
 .home .password-forget{
     color: #000 ;
+}
+
+.error{
+    color: #ff0f0f;
+    font-size: 1.3rem;
+    font-weight: 600;
 }
