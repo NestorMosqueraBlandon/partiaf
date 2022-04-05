@@ -56,6 +56,8 @@ export default function RegisterScreen(props) {
 
   const submitHandler = (e) => {
     e.preventDefault();
+
+    if(password.length > 8){
     dispatch(
       signup(
         name,
@@ -69,6 +71,8 @@ export default function RegisterScreen(props) {
         image
       )
     );
+  }
+
     // if (adminInfo) {
     //   props.history.push("/");
     // }
