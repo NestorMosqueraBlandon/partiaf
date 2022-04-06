@@ -41,11 +41,19 @@
 }
 
 .container__contents .image {
+  position: relative;
   display: flex;
-  position: absolute;
-  padding-left: 34%;
-  top: 70rem;
-  height: 53rem;
+  align-items: center;
+  justify-content: center;
+  /* height: 53rem; */
+  z-index: 99999999;
+  max-width: 300px;
+  margin: 0 auto;
+  margin-top: -1100px;
+}
+
+.container__contents .image  img{
+  width: 100%;
 }
 
 .blank_space h2 {
@@ -137,6 +145,7 @@
 }
 
 .grid_two .imagen_disco img{
-    width: 94%;
     margin-left: 11rem;
+    margin-top: -30px;
+    /* margin-left: 11rem; */
 }
