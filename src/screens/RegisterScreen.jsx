@@ -6,6 +6,8 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { signup } from "../actions/adminActions";
+import LoadingBox from "../components/LoadingBox";
+import LoadingBoxWhite from "../components/LoadingBoxWhite";
 
 export default function RegisterScreen(props) {
   const [name, setName] = useState("");
@@ -19,6 +21,11 @@ export default function RegisterScreen(props) {
   const [confirmPassword, setConfirmPassword] = useState("");
 
   const [password, setPassword] = useState("");
+
+  const uploadImage = useSelector((state) => state.uploadImage);
+  const {loading} = uploadImage;
+
+  console.log(loading)
 
     // UPLOAD IMAGE HANDLER
     const uploadHandler = async (e, imageFIeld = "image") => {
@@ -124,6 +131,13 @@ export default function RegisterScreen(props) {
             value={lastname}
             onChange={(e) => setLastname(e.target.value)}
           />
+          
+          <label htmlFor="">Tipo de documento</label>
+          <select name="" id=""  required >
+                    <option value="Discoteca">Cedula de ciudadania</option>
+                    <option value="Bar">Cedula de extrangeria</option>
+                    <option value="Gastrobar">Pasaporte</option>
+                </select>
           <input
             type="number"
             name=""
@@ -183,9 +197,11 @@ export default function RegisterScreen(props) {
           </div>
         </div>
 
-        <div>
+        <div className="file-input">
         <input type="file" name="file" id="file"  onChange={(e) => uploadHandler(e, "featuredImage")}  />
+        {loading? <LoadingBoxWhite /> : (
         <img alt="" className="img-preview" src={image}  />
+        )}
         </div>
         </div>
 

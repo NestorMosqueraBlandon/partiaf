@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
@@ -8,9 +8,12 @@ export default function StoreScreen(props) {
     
     const adminSignin = useSelector((state) => state.adminSignin);
     const { adminInfo } = adminSignin;
+  
+    const storeCreate = useSelector((state) => state.storeCreate);
+    const { loading, error, success: successCreate } = storeCreate;
 
     const [name, setName] = useState("");
-    const [type, setType] = useState("");
+    const [type, setType] = useState("Discoteca");
     const [nit, setNit] = useState("");
     const [mobile, setMobile] = useState("");
     const [employes, setEmployes] = useState("");
@@ -26,9 +29,14 @@ export default function StoreScreen(props) {
     const submitHandler = (e) => {
         e.preventDefault();
         dispatch(createStore({name, type, nit, mobile, employes, address, emailStore, password, email, totalLimit}))
-        props.history.push('/home')
     } 
 
+
+    useEffect(() => {
+        if(successCreate){
+            props.history.push('/home')
+        }
+    }, [successCreate])
 
     return (
         <div className="register center">
@@ -42,7 +50,6 @@ export default function StoreScreen(props) {
                     <option value="Discoteca">Discoteca</option>
                     <option value="Bar">Bar</option>
                     <option value="Gastrobar">Gastrobar</option>
-
                 </select>
                 <input type="number" value={nit} onChange={(e) => setNit(e.target.value)} name="" id="" placeholder="NIT" required />
                 <input type="text" value={totalLimit} onChange={(e) => setTotalLimit(e.target.value)} name="" id="" placeholder="Cupo total" required />

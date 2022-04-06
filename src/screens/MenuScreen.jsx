@@ -180,6 +180,8 @@ export default function MenuScreen() {
     successCreateItem,
     succesDeleteItem,
   ]);
+  
+  console.log(menu)
 
   return (
     <>
@@ -199,10 +201,11 @@ export default function MenuScreen() {
                     <ul>
                       {men.items.map((item) => (
                         <li key={men._id} className="menu-item">
-                          <img className="img-preview" src={item.image} alt="" />
+                          <img className="img-preview-menu" src={item.image} alt="" />
                           <p>{item.name} </p>
 
                           <span className="price"> $ {item.price}</span>
+                          <span className="price"> {item.amount > 0? "DISPONIBLE" : "NO DISPONIBLE"}</span>
                           <div className="actions">
                             <button className="image">
                               <i className="bx bxs-image"></i>
