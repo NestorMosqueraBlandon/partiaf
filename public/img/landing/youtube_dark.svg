@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="44.093" height="36.612" viewBox="0 0 44.093 36.612">
+  <defs>
+    <filter id="Trazado_188" x="0" y="0" width="44.093" height="36.612" filterUnits="userSpaceOnUse">
+      <feOffset dy="10" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="youtube_dark" transform="translate(9)">
+    <g transform="matrix(1, 0, 0, 1, -9, 0)" filter="url(#Trazado_188)">
+      <path id="Trazado_188-2" data-name="Trazado 188" d="M985.092,5150.471A5.472,5.472,0,0,0,979.62,5145H964.472a5.472,5.472,0,0,0-5.472,5.472v6.668a5.472,5.472,0,0,0,5.472,5.472H979.62a5.472,5.472,0,0,0,5.472-5.472Zm-8.885,3.333-5.656,3.1c-.246.133-.462-.045-.462-.325v-6.372c0-.284.224-.462.47-.321l5.7,3.268A.371.371,0,0,1,976.208,5153.8Z" transform="translate(-950 -5145)" fill="#333"/>
+    </g>
+  </g>
+</svg>

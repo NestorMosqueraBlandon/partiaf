@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="44.72" height="45.719" viewBox="0 0 44.72 45.719">
+  <defs>
+    <filter id="Elipse_4" x="18.868" y="4.818" width="21.133" height="22.133" filterUnits="userSpaceOnUse">
+      <feOffset dy="10" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Trazado_189" x="6.89" y="6.827" width="31.16" height="32.161" filterUnits="userSpaceOnUse">
+      <feOffset dy="10" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-2"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Trazado_190" x="0" y="0" width="44.72" height="45.719" filterUnits="userSpaceOnUse">
+      <feOffset dy="10" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-3"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur-3"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="instagram_dark" transform="translate(9)">
+    <g transform="matrix(1, 0, 0, 1, -9, 0)" filter="url(#Elipse_4)">
+      <circle id="Elipse_4-2" data-name="Elipse 4" cx="1.566" cy="1.566" r="1.566" transform="translate(27.87 4.82)" fill="#333"/>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, -9, 0)" filter="url(#Trazado_189)">
+      <path id="Trazado_189-2" data-name="Trazado 189" d="M852.3,5147.767a6.581,6.581,0,1,0,6.581,6.581A6.587,6.587,0,0,0,852.3,5147.767Zm0,10.8a4.215,4.215,0,1,1,4.215-4.215A4.22,4.22,0,0,1,852.3,5158.563Z" transform="translate(-829.83 -5140.94)" fill="#333"/>
+    </g>
+    <g id="Grupo_194" data-name="Grupo 194">
+      <g transform="matrix(1, 0, 0, 1, -9, 0)" filter="url(#Trazado_190)">
+        <path id="Trazado_190-2" data-name="Trazado 190" d="M853.848,5164.022H843.18a8.035,8.035,0,0,1-8.026-8.025v-10.669a8.034,8.034,0,0,1,8.026-8.025h10.668a8.034,8.034,0,0,1,8.026,8.025V5156A8.035,8.035,0,0,1,853.848,5164.022Zm-10.668-24.206a5.518,5.518,0,0,0-5.512,5.512V5156a5.518,5.518,0,0,0,5.512,5.512h10.668A5.519,5.519,0,0,0,859.36,5156v-10.669a5.518,5.518,0,0,0-5.512-5.512Z" transform="translate(-826.15 -5137.3)" fill="#333"/>
+      </g>
+    </g>
+  </g>
+</svg>

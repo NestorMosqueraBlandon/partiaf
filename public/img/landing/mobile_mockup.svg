@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="391.32" height="783.729" viewBox="0 0 391.32 783.729">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.084" y1="0.028" x2="0.776" y2="0.723" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ebc74e"/>
+      <stop offset="0.469" stop-color="#ebc74e"/>
+      <stop offset="0.887" stop-color="#434343"/>
+      <stop offset="1" stop-color="#262626"/>
+    </linearGradient>
+  </defs>
+  <g id="mobile_mockup" transform="translate(-764 -1284.136)">
+    <g id="Rectángulo_742" data-name="Rectángulo 742" transform="translate(787.691 1299.285)" fill="#ebc74e" stroke="#707070" stroke-width="1">
+      <rect width="348.441" height="751.42" stroke="none"/>
+      <rect x="0.5" y="0.5" width="347.441" height="750.42" fill="none"/>
+    </g>
+    <path id="Trazado_949" data-name="Trazado 949" d="M189.666,0H54.2A54.356,54.356,0,0,0,0,54.2V728.355a55.537,55.537,0,0,0,55.374,55.373H330.5a55.373,55.373,0,0,0,55.374-55.373V53.379A53.379,53.379,0,0,0,332.492,0H189.666M377.15,724.519a49.4,49.4,0,0,1-49.4,49.4H57.031a49.4,49.4,0,0,1-49.4-49.4V57.03a49.4,49.4,0,0,1,49.4-49.4H327.75a49.4,49.4,0,0,1,49.4,49.4Z" transform="translate(769.45 1284.136)" fill="url(#linear-gradient)"/>
+    <rect id="Rectángulo_144" data-name="Rectángulo 144" width="62.16" height="18.559" rx="2.475" transform="translate(930.761 1301.562)" fill="#2b2b2b"/>
+    <ellipse id="Elipse_59" data-name="Elipse 59" cx="11.051" cy="11.051" rx="11.051" ry="11.051" transform="translate(992.5 1299.246)" fill="#2b2b2b"/>
+    <path id="Trazado_950" data-name="Trazado 950" d="M369.52,49.4A49.4,49.4,0,0,0,320.12,0H49.4A49.4,49.4,0,0,0,0,49.4V716.888a49.4,49.4,0,0,0,49.4,49.4H320.12a49.4,49.4,0,0,0,49.4-49.4ZM226.472,14.034a4.5,4.5,0,1,1-4.5,4.5A4.5,4.5,0,0,1,226.472,14.034ZM209.286,19.1a2.7,2.7,0,0,1-2.7,2.7H162.933a2.7,2.7,0,0,1-2.7-2.7v-.055a2.7,2.7,0,0,1,2.7-2.7h43.655a2.7,2.7,0,0,1,2.7,2.7ZM354.26,717.843c0,18.027-13.66,33.185-31.686,33.185H48.855c-18.027,0-33.593-15.158-33.593-33.185V45.175c0-18.027,15.567-32.095,33.593-32.095H83.606c3.717,0,5.777,2.469,5.777,6.186v.262c0,10.586,9.535,19.713,20.122,19.713H261.924c10.586,0,18.215-9.127,18.215-19.713v-.262c0-3.717,3.967-6.186,7.684-6.186h34.751c18.026,0,31.686,14.068,31.686,32.095Z" transform="translate(777.081 1291.766)" stroke="#343434" stroke-width="1.5"/>
+    <path id="Trazado_952" data-name="Trazado 952" d="M1.819,0A2.29,2.29,0,0,0,0,1.723V27.672c0,2.26,1.116,2.849,1.819,2.849H5.45V0Z" transform="translate(764 1386.598)" fill="#262626"/>
+    <path id="Trazado_953" data-name="Trazado 953" d="M1.819,0C1.116,0,0,.427,0,2.5V52.714c0,2.186,1.116,2.877,1.819,2.877H5.45V0Z" transform="translate(764 1444.37)" fill="#262626"/>
+    <path id="Trazado_954" data-name="Trazado 954" d="M2.266,0C.931,0,0,1.186,0,2.928v50.15a2.3,2.3,0,0,0,1.819,2.513H5.45V0Z" transform="translate(764 1515.221)" fill="#262626"/>
+    <g id="Grupo_2838" data-name="Grupo 2838" transform="translate(810.507 1318.21)">
+      <g id="Grupo_2792" data-name="Grupo 2792">
+        <g id="Grupo_192" data-name="Grupo 192" transform="translate(0 0)">
+          <text id="_6:45_p.m." data-name="6:45 p.m." transform="translate(0 8)" font-size="9" font-family="ArialMT, Arial" letter-spacing="0.1em"><tspan x="0" y="0">6:45 p.m.</tspan></text>
+        </g>
+        <g id="Grupo_195" data-name="Grupo 195" transform="translate(250.19 1.176)">
+          <rect id="Rectángulo_106" data-name="Rectángulo 106" width="2.278" height="5.145" transform="translate(0 4.493)"/>
+          <rect id="Rectángulo_107" data-name="Rectángulo 107" width="2.278" height="6.579" transform="translate(3.881 3.058)"/>
+          <rect id="Rectángulo_108" data-name="Rectángulo 108" width="2.278" height="7.929" transform="translate(7.804 1.708)"/>
+          <rect id="Rectángulo_109" data-name="Rectángulo 109" width="2.278" height="9.616" transform="translate(11.853 0.021)"/>
+          <g id="Grupo_193" data-name="Grupo 193" transform="translate(33.708 0.243)">
+            <path id="Trazado_88" data-name="Trazado 88" d="M485.969,196.913H471.541a1.616,1.616,0,0,1-1.69-1.529v-5.341a1.616,1.616,0,0,1,1.69-1.529h14.429a1.617,1.617,0,0,1,1.69,1.529v5.341A1.617,1.617,0,0,1,485.969,196.913Zm-14.429-8a1.193,1.193,0,0,0-1.248,1.129v5.341a1.193,1.193,0,0,0,1.248,1.129h14.429a1.2,1.2,0,0,0,1.248-1.129v-5.341a1.2,1.2,0,0,0-1.248-1.129Z" transform="translate(-469.851 -188.514)"/>
+          </g>
+          <path id="Trazado_89" data-name="Trazado 89" d="M483.678,195.291h-12.64a.5.5,0,0,1-.524-.473V189.55a.5.5,0,0,1,.524-.473h12.64a.5.5,0,0,1,.522.473v5.267A.5.5,0,0,1,483.678,195.291Z" transform="translate(-435.52 -187.742)"/>
+          <g id="Grupo_194" data-name="Grupo 194" transform="translate(17.046)">
+            <path id="Trazado_90" data-name="Trazado 90" d="M461.263,190.75l1.4,1.62a7.472,7.472,0,0,1,9.906.082L474,190.857a9.605,9.605,0,0,0-12.735-.107Z" transform="translate(-461.263 -188.389)"/>
+            <path id="Trazado_91" data-name="Trazado 91" d="M463.41,192.484l2.148,2.481,2.189-2.448a3.237,3.237,0,0,0-4.336-.033Z" transform="translate(-459.244 -185.307)"/>
+            <path id="Trazado_92" data-name="Trazado 92" d="M462.3,191.586l1.533,1.773a4.165,4.165,0,0,1,5.576.043l1.556-1.744a6.536,6.536,0,0,0-8.665-.072Z" transform="translate(-460.285 -186.893)"/>
+          </g>
+          <path id="Trazado_93" data-name="Trazado 93" d="M479.631,192.489h-.446V190.05h.446a.456.456,0,0,1,.467.444v1.55A.455.455,0,0,1,479.631,192.489Z" transform="translate(-427.368 -186.827)"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

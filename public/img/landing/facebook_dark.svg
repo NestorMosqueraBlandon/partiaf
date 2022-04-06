@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="29.867" height="44.543" viewBox="0 0 29.867 44.543">
+  <defs>
+    <filter id="facebook_dark" x="0" y="0" width="29.867" height="44.543" filterUnits="userSpaceOnUse">
+      <feOffset dy="10" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#facebook_dark)">
+    <path id="facebook_dark-2" data-name="facebook_dark" d="M601.233,5151.077v12.349a.32.32,0,0,0,.322.32h4.586a.32.32,0,0,0,.322-.32v-12.552h3.325a.322.322,0,0,0,.321-.294l.32-3.782a.32.32,0,0,0-.32-.347h-3.645v-2.684a1.139,1.139,0,0,1,1.139-1.14h2.562a.322.322,0,0,0,.322-.322v-3.782a.322.322,0,0,0-.322-.321h-4.33a4.6,4.6,0,0,0-4.6,4.6v3.647H598.94a.32.32,0,0,0-.322.32v3.781a.321.321,0,0,0,.322.321h2.293Z" transform="translate(-589.62 -5138.2)" fill="#333" fill-rule="evenodd"/>
+  </g>
+</svg>

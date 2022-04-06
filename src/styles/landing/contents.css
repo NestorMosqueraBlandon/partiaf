@@ -1,0 +1,142 @@
+.container__contents {
+  height: 100vh;
+  background: black;
+}
+
+.container__contents .blank_space {
+  height: 25vh;
+  background: #fff;
+}
+
+.blank_space span {
+  display: flex;
+  position: absolute;
+  padding-top: 10rem;
+  padding-left: 15rem;
+  font-size: 3rem;
+  font-family: "Poppins" sans-serif;
+  font-weight: 800;
+  font-style: italic;
+}
+
+.container__contents .text_of_contents {
+  height: 50vh;
+  display: flex;
+  justify-content: space-between;
+  gap: 50rem;
+}
+
+.container__contents .text_of_contents .text_left {
+  color: #fff;
+  font-size: 3rem;
+  padding-left: 15rem;
+  padding-top: 4rem;
+}
+
+.container__contents .text_of_contents .text_right {
+  color: #fff;
+  padding-top: 4rem;
+  padding-right: 8rem;
+  font-size: 2rem;
+}
+
+.container__contents .image {
+  display: flex;
+  position: absolute;
+  padding-left: 34%;
+  top: 70rem;
+  height: 53rem;
+}
+
+.blank_space h2 {
+  text-align: right;
+  padding-top: 12rem;
+  font-size: 3rem;
+  font-family: "Poppins" sans-serif;
+  font-weight: 800;
+  font-style: italic;
+  padding-right: 15rem;
+}
+
+/* < ----------- SECTION 2 ------------------> */
+.section_two .grid_one {
+  background: #000;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+.section_two .container__contents h2 {
+  color: #fff;
+  text-align: right;
+  padding-left: 20rem;
+  padding-right: 10rem;
+  padding-top: 4rem;
+  font-size: 3rem;
+}
+
+.section_two .container__contents p {
+  color: #fff;
+  padding-left: 35rem;
+  padding-right: 10rem;
+  text-align: right;
+}
+
+.section_two .dates_imagen img {
+  position: absolute;
+  width: 40%;
+  padding-left: 10rem;
+  margin-top: -10rem;
+}
+
+.section_two .grid_two {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  margin-top: -35rem;
+  padding-left: 10rem;
+}
+
+.section_two .grid_two .text_2 p {
+  color: #fff;
+  font-size: 8rem;
+  font-weight: 800;
+  letter-spacing: 0.5rem;
+}
+
+.section_two .grid_two .text_2 .container__span {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.section_two .grid_two .text_2 .container__span span {
+  color: #fff;
+}
+
+.section_two .grid_two .text_2 .container__span .group_span {
+  margin-top: -4rem;
+}
+
+.section_two .grid_two .text_2 .container__span .group_span span {
+  letter-spacing: 4rem;
+  font-size: 18rem;
+}
+
+.section_two .grid_two .text_2 .container__span .group_span2 {
+  display: flex;
+  flex-direction: column;
+  margin-top: -1rem;
+}
+
+.section_two .grid_two .text_2 .container__span .group_span2 span {
+  text-align: left;
+  font-size: 6rem;
+}
+
+.section_two .grid_two .text_2 .container__span .group_span2 .textMe {
+  text-align: left;
+  font-size: 3rem;
+}
+
+.grid_two .imagen_disco img{
+    width: 94%;
+    margin-left: 11rem;
+}
