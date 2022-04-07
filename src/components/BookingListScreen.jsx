@@ -7,19 +7,20 @@ import {
 } from "../constants/adminConstants";
 import CoverUpdateScreen from "./CoverUpdateScreen";
 import CardBookin from "./CardBookin";
+import swal from "sweetalert";
+import { deleteBooking } from "../actions/bookingActions";
 
 export default function BookingListScreen({ loading, bookings }) {
   
-  /*
+  
   const adminSignin = useSelector((state) => state.adminSignin);
   const { adminInfo } = adminSignin;
 
   const storeSignin = useSelector((state) => state.storeSignin);
   const { storeInfo } = storeSignin;
-  */
 
   const [update, setUpdate] = useState(false);
-  const [coverSelect] = useState({});
+  const [bookingSelect, setBookingSelect] = useState({});
 
   const deleteCover = useSelector((state) => state.deleteCover);
   const { success: successDelete } = deleteCover;
@@ -29,7 +30,6 @@ export default function BookingListScreen({ loading, bookings }) {
 
   const dispatch = useDispatch();
 
-  /*
   const deleteHandler = (cover) => {
     swal("Seguro que quiere borrar " + cover.name + "?", {
       icon: "warning",
@@ -41,21 +41,20 @@ export default function BookingListScreen({ loading, bookings }) {
           icon: "success",
         });
         dispatch(
-          deleteStoreCover(adminInfo.email, storeInfo.store._id, cover._id)
+          deleteBooking(adminInfo.email, storeInfo.store._id, cover._id)
         );
       }
     });
   };
- 
 
+  
   const updateHandler = async (cover) => {
     console.log(cover);
-    await setCoverSelect(cover);
+    await setBookingSelect(cover);
     await setUpdate(true);
-    console.log(coverSelect);
+    console.log(bookingSelect);
   };
 
-   */
   useEffect(() => {
     if (successDelete) {
       dispatch({ type: DELETE_COVER_RESET });
@@ -69,7 +68,7 @@ export default function BookingListScreen({ loading, bookings }) {
   return (
     <>
       {update ? (
-        <CoverUpdateScreen cover={coverSelect} />
+        <CoverUpdateScreen cover={bookingSelect} />
       ) : (
         <div className="cover__list">
           {loading ? (
@@ -81,13 +80,36 @@ export default function BookingListScreen({ loading, bookings }) {
               ) : (
                 <>
                   {bookings.map((booking) => (
-                    <CardBookin
-                      name={booking.info}
-                      cupos={booking.cupo}
-                      time={booking.hour}
-                      date={booking.date}
-                      state={booking.state}
-                    />
+                    // <CardBookin
+                    //   name={booking.info}
+                    //   cupos={booking.cupo}
+                    //   time={booking.hour}
+                    //   date={booking.date}
+                    //   state={booking.state}
+                    // />
+                    <div className="card card-new">
+                    <div className="card-header">
+                      <p> Estado de reserva: {booking.state === true ? "Activa" : "Finalizada"} </p>
+                    </div>
+                    <div>
+                      INFO
+                      <h2>{booking.name}</h2>
+                    </div>
+                    <ul>
+                      <li>Cupos: {booking.cupo}</li>
+                      <li>Hora: {booking.time}</li>
+                      <li>Fecha: {booking.date}</li>
+                    </ul>
+              
+                    <div className="icons-cardBooking">
+                      <button onClick={() => updateHandler()}>
+                        <i className="bx bxs-pencil"></i>
+                      </button>
+                      <button onClick={() => deleteHandler(booking)}>
+                        <i className="bx bx-trash"></i>
+                      </button>
+                    </div>
+                  </div>
                   ))}
                 </>
               )}

@@ -16,7 +16,9 @@ import {
 } from "../constants/bookingConstants";
 
 
-const URL = "https://partiaf-api.herokuapp.com/api/v1";
+// const URL = "https://partiaf-api.herokuapp.com/api/v1";
+const URL = "http://localhost:4300/api/v1";
+
 
 export const listBookings = (email, storeId) => async (dispatch, getState) => {
   console.log(email, storeId);
@@ -76,7 +78,7 @@ export const deleteBooking =
     });
     try {
       const { data } = await Axios.delete(
-        `${URL}/bookings/covers/${bookingId}?email=${email}&storeId=${storeId}`,
+        `${URL}/bookings/${bookingId}?email=${email}&storeId=${storeId}`,
         {
           email,
           storeId,
@@ -127,7 +129,7 @@ export const updateBooking =
     });
     try {
       const { data } = await Axios.put(
-        `${URL}/bookings/updateCover/${coverId}`,
+        `${URL}/bookings/updateBooking/${coverId}`,
         {
           email,
           storeId,

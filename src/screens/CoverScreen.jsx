@@ -54,10 +54,13 @@ export default function CoverScreen(props) {
     if (successDelete) {
       dispatch({ type: DELETE_COVER_RESET });
       setThatScreen("List");
+
     }
 
     if (successUpdate) {
       dispatch({ type: UPDATE_COVER_RESET });
+      setThatScreen("List");
+
     }
 
     if (storeInfo) {

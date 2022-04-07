@@ -6,6 +6,7 @@ import { listBookings } from "../actions/bookingActions";
 import LoadingBox from "../components/LoadingBox";
 import BookingListScreen from "../components/BookingListScreen";
 import BookingCreateScreen from "../components/BookingCreateScreen";
+import { CREATE_BOOKING_RESET, DELETE_BOOKING_RESET, UPDATE_BOOKING_RESET } from "../constants/bookingConstants";
 
 export default function BookingScreen() {
   const adminSignin = useSelector((state) => state.adminSignin);
@@ -37,6 +38,25 @@ export default function BookingScreen() {
     if (storeInfo) {
       dispatch(listBookings(adminInfo.email, storeInfo.store._id));
     }
+
+    if(successCreate){
+      dispatch({type: CREATE_BOOKING_RESET});
+      setThatScreen("List")
+    }
+
+    if (successDelete) {
+      dispatch({ type: DELETE_BOOKING_RESET });
+      setThatScreen("List");
+
+    }
+
+    if (successUpdate) {
+      dispatch({ type: UPDATE_BOOKING_RESET });
+      setThatScreen("List");
+
+    }
+
+
   }, [dispatch, successCreate, successDelete, successUpdate, adminInfo, storeInfo]);
 
   const setItem = (id) => {
