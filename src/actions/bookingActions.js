@@ -16,8 +16,8 @@ import {
 } from "../constants/bookingConstants";
 
 
-// const URL = "https://partiaf-api.herokuapp.com/api/v1";
-const URL = "http://localhost:4300/api/v1";
+const URL = "https://partiaf-api.herokuapp.com/api/v1";
+// const URL = "http://localhost:4300/api/v1";
 
 
 export const listBookings = (email, storeId) => async (dispatch, getState) => {
