@@ -78,7 +78,7 @@ export default function CoverScreen(props) {
   return (
     <div className="screen">
       <div className="center__screen">
-        <div className="flex flexm">
+        <div className="flex flexm border">
           <div className="box">
             <h3>Total Entradas</h3>
             {loadingList ? <LoadingBox /> : <p>{storeInfo.store.totalLimit}</p>}

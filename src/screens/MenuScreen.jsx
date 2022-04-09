@@ -208,13 +208,13 @@ export default function MenuScreen() {
                           <span className="price"> {item.amount > 0? "DISPONIBLE" : "NO DISPONIBLE"}</span>
                           <div className="actions">
                             <button className="image">
-                              <i className="bx bxs-image"></i>
+                              <i className="bx bx-pencil"></i>
                             </button>
                             <button
                               className="close"
                               onClick={() => deleteItemHandler(item, men)}
                             >
-                              <i className="bx bxs-x-circle"></i>
+                              <i className="bx bx-trash"></i>
                             </button>
                           </div>
                         </li>

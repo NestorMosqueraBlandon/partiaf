@@ -70,8 +70,11 @@ export default function BookingScreen() {
   return (
     <div className="screen">
       <div className="center__screen">
-        <input type="text" className="search" placeholder="Buscar:" />
-        <div className="flex">
+        <span className="search-box">
+          <i class='bx bx-search'></i>
+          <input type="text" className="search" placeholder="Buscar:" />
+        </span>
+        <div className="flex border">
           <div className="box">
             <h3>Total Reservas</h3>
             <p>{loadingList ? <LoadingBox /> : <p>{bookings === undefined? "NO HAY RESERVAS" : bookings.length}</p>}</p>

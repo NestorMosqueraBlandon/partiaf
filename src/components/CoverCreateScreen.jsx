@@ -4,10 +4,7 @@ import { createStoreCover } from "../actions/adminActions";
 import { STORE_COVER_RESET } from "../constants/adminConstants";
 import { TimePicker } from "@material-ui/pickers";
 
-
-
 export default function CoverCreateScreen() {
-  
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [date, setDate] = useState("");
@@ -16,9 +13,7 @@ export default function CoverCreateScreen() {
   const [type, setType] = useState("General");
   const [totalLimit, setTotalLimit] = useState("");
 
-  console.log("HORAA", hour.toLocaleTimeString())
-
-  
+  console.log("HORAA", hour.toLocaleTimeString());
 
   const adminSignin = useSelector((state) => state.adminSignin);
   const { adminInfo } = adminSignin;
@@ -71,8 +66,8 @@ export default function CoverCreateScreen() {
         </button>
       </div>
       <div>
-        <div className="item item-flex w-100 up">
-          <h3>TIPO DE EVENTO</h3>
+        <div className="item w-100 up">
+          <h3>Tipo de evento</h3>
           <input
             type="text"
             name=""
@@ -83,18 +78,9 @@ export default function CoverCreateScreen() {
           />
         </div>
         <div className="event-fields">
-          <div className="left"></div>
+          {/* <div className="left"></div> */}
           <div className="w-70">
             <div className="w-50">
-              <div className="item item-flex w-100">
-                <h3>Precio</h3>
-                <input
-                  type="number"
-                  value={price}
-                  onChange={(e) => setPrice(e.target.value)}
-                  required
-                />
-              </div>
               <div className="item item-flex w-100">
                 <h3>Cupo total</h3>
                 <input
@@ -104,23 +90,33 @@ export default function CoverCreateScreen() {
                   required
                 />
               </div>
+              <div className="item item-flex w-100">
+                <h3>Precio</h3>
+                <input
+                  type="number"
+                  value={price}
+                  onChange={(e) => setPrice(e.target.value)}
+                  required
+                />
+              </div>
 
               <div className="item item-flex w-100">
                 <h3>Fecha</h3>
-                <input type="date" value={date} onChange={(e) => setDate(e.target.value)} required/>
+                <input
+                  type="date"
+                  value={date}
+                  onChange={(e) => setDate(e.target.value)}
+                  required
+                />
               </div>
-              
-            </div>
-            <div className="container__componentsDate">
-
               <div className="componentsDate">
                 <h3>Hora</h3>
                 <div className="cc1">
-                <TimePicker
-                  value={hour.toLocaleTimeString()}
-                  onChange={setHour}
-                  required
-                />
+                  <TimePicker
+                    value={hour.toLocaleTimeString()}
+                    onChange={setHour}
+                    required
+                  />
                 </div>
               </div>
             </div>
@@ -128,7 +124,7 @@ export default function CoverCreateScreen() {
         </div>
       </div>
       <div className="screfooter">
-        <div className="option">
+        <div className="option border">
           <div className="form-group">
             <input
               type="radio"
