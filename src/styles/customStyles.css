@@ -136,3 +136,46 @@
     font-size: 1.3rem;
     font-weight: 600;
 }
+
+.card__chair{
+    border: 1px solid rgba(0, 0, 0, .3);
+    max-width: 250px;
+    border-radius: .3rem;
+    /* padding: 1rem; */
+    padding-top: 0;
+}
+
+.header_card{
+    text-align: center;
+    font-weight: 600;
+    letter-spacing: 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, .3);
+    padding: .5rem;
+}
+
+.card__chair ul {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.card__chair ul li span{
+    font-weight: 600;
+}
+
+.chair__container{
+    margin-top: 2rem;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+    gap: 2rem;
+    grid-auto-flow: dense;
+}
+
+.screen-header{
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}

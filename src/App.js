@@ -15,6 +15,7 @@ import StoreScreen from "./screens/StoreScreen";
 import { useSelector } from "react-redux";
 import LayoutHome from "./components/LayoutHome";
 import ComingSoon from "./screens/ComingSoon";
+import ChairsScreen from "./screens/ChairsScreen";
 
 function App() {
   const adminSignin = useSelector((state) => state.adminSignin);
@@ -33,6 +34,7 @@ function App() {
               <Route path="/home" component={ComingSoon} exact></Route>
               <Route path="/booking" component={BookingScreen} exact></Route>
               <Route path="/menu" component={MenuScreen} exact></Route>
+              <Route path="/chairs" component={ChairsScreen} exact></Route>
               <Route path="/cover" component={CoverScreen} exact></Route>
               <Route path="/buy" component={BuyScreen} exact></Route>
               <Route path="/staff" component={StaffScreen} exact></Route>
