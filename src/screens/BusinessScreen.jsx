@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { listStores, signinStore } from "../actions/adminActions";
+import { listStores, signinStore, signout } from "../actions/adminActions";
 import LoadingBox from "../components/LoadingBox";
 
 export default function BusinessScreen(props) {
@@ -19,8 +19,12 @@ export default function BusinessScreen(props) {
   const storeSignin = useSelector((state) => state.storeSignin);
   const { storeInfo, error: errorSignin } = storeSignin;
 
+
   const dispatch = useDispatch();
 
+  const signoutHandler = () => {
+    dispatch(signout());
+  };
   useEffect(() => {
     dispatch(listStores(adminInfo.email));
   }, [dispatch, adminInfo]);
@@ -48,7 +52,7 @@ export default function BusinessScreen(props) {
     <>
       <div className="bussines">
                   
-      <span className="front-container-logo">
+      <span to="/" className="front-container-logo">
 
 <img className="front-logo" src="./img/resources/logo-header.svg" alt="" />
 <img className="front-logo-word" src="./img/resources/partiaf-icon.svg" alt="" />
@@ -82,6 +86,7 @@ export default function BusinessScreen(props) {
         )}
 
         <Link to="/store">Añadir nuevo</Link>
+        <button className="danger" onClick={signoutHandler}>Salir</button>
       </div>
 
       <div className={openModal ? "modalStore active" : "modalStore"}>

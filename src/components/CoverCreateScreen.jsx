@@ -3,17 +3,16 @@ import { useDispatch, useSelector } from "react-redux";
 import { createStoreCover } from "../actions/adminActions";
 import { STORE_COVER_RESET } from "../constants/adminConstants";
 import { TimePicker } from "@material-ui/pickers";
+import swal from "sweetalert";
 
 export default function CoverCreateScreen() {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [date, setDate] = useState("");
   const [hour, setHour] = useState(new Date());
-  const [price, setPrice] = useState("");
+  const [price, setPrice] = useState(0);
   const [type, setType] = useState("General");
   const [totalLimit, setTotalLimit] = useState("");
-
-  console.log("HORAA", hour.toLocaleTimeString());
 
   const adminSignin = useSelector((state) => state.adminSignin);
   const { adminInfo } = adminSignin;
@@ -27,27 +26,50 @@ export default function CoverCreateScreen() {
   const dispatch = useDispatch();
   const submitHandler = (e) => {
     e.preventDefault();
-
-    console.log(hour);
-    console.log(type);
-    dispatch(
-      createStoreCover(
-        adminInfo.email,
-        storeInfo.store._id,
-        type,
-        date,
-        hour.toLocaleTimeString(),
-        price,
-        description,
-        totalLimit,
-        name
-      )
-    );
+      if (name.length <= 0) {
+          swal("El campo Tipo de evento no puede estar vacio", {
+            icon: "warning",
+          });
+          return;
+      }else if(description.length <= 0){
+        swal("El campo Descripcion no puede estar vacio", {
+          icon: "warning",
+        });
+        return;
+      }else if(price.length <= 0){
+        swal("El campo Precio no puede estar vacio", {
+          icon: "warning",
+        });
+        return;
+      }else if(totalLimit.length <= 0){
+        swal("El campo Cupo total no puede estar vacio", {
+          icon: "warning",
+        });
+        return;
+      }else if(date.length <= 0){
+        swal("El campo Fecha no puede estar vacio", {
+          icon: "warning",
+        });
+        return;
+      }else{
+        dispatch(
+          createStoreCover(
+            adminInfo.email,
+            storeInfo.store._id,
+            type,
+            date,
+            hour.toLocaleTimeString(),
+            price,
+            description,
+            totalLimit,
+            name
+          )
+        );
+      }
   };
 
   useEffect(() => {
     if (successCreate) {
-      console.log("ENTROOO");
       dispatch({ type: STORE_COVER_RESET });
       setName("");
       setDescription("");
@@ -87,17 +109,18 @@ export default function CoverCreateScreen() {
                   type="number"
                   value={totalLimit}
                   onChange={(e) => setTotalLimit(e.target.value)}
-                  required
                 />
               </div>
               <div className="item item-flex w-100">
                 <h3>Precio</h3>
                 <input
-                  type="number"
+                  type="text"
+                  inputmode="numeric"
                   value={price}
                   onChange={(e) => setPrice(e.target.value)}
-                  required
+                  
                 />
+
               </div>
 
               <div className="item item-flex w-100">
@@ -113,9 +136,8 @@ export default function CoverCreateScreen() {
                 <h3>Hora</h3>
                 <div className="cc1">
                   <TimePicker
-                    value={hour.toLocaleTimeString()}
+                    value={hour}
                     onChange={setHour}
-                    required
                   />
                 </div>
               </div>

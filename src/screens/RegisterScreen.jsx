@@ -23,34 +23,33 @@ export default function RegisterScreen(props) {
   const [password, setPassword] = useState("");
 
   const uploadImage = useSelector((state) => state.uploadImage);
-  const {loading} = uploadImage;
+  const { loading } = uploadImage;
 
-  console.log(loading)
+  console.log(loading);
 
-    // UPLOAD IMAGE HANDLER
-    const uploadHandler = async (e, imageFIeld = "image") => {
-        const file = e.target.files[0];
-        const bodyFormData = new FormData();
-        bodyFormData.append("file", file);
-        try {
-          dispatch({ type: "UPLOAD_REQUEST" });
-          const { data } = await axios.post(
-            "https://rveapi.herokuapp.com/api/v1/users/upload",
-            bodyFormData,
-            {
-              headers: {
-                "Content-Type": "multipart/form-data",
-              },
-            }
-          );
-          dispatch({ type: "UPLOAD_SUCCESS" });
-          setImage(data.secure_url);
-        } catch (err) {
-          console.log(err);
+  // UPLOAD IMAGE HANDLER
+  const uploadHandler = async (e, imageFIeld = "image") => {
+    const file = e.target.files[0];
+    const bodyFormData = new FormData();
+    bodyFormData.append("file", file);
+    try {
+      dispatch({ type: "UPLOAD_REQUEST" });
+      const { data } = await axios.post(
+        "https://rveapi.herokuapp.com/api/v1/users/upload",
+        bodyFormData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
         }
-      };
-    
-      
+      );
+      dispatch({ type: "UPLOAD_SUCCESS" });
+      setImage(data.secure_url);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   //const redirect = props.location.search ? props.location.search.split("=")[1] : '/';
 
   const adminSignin = useSelector((state) => state.adminSignin);
@@ -95,7 +94,7 @@ export default function RegisterScreen(props) {
 
   return (
     <div className="register">
-      <span className="front-container-logo">
+      <Link to="/" className="front-container-logo">
         <img
           className="front-logo"
           src="./img/resources/logo-header.svg"
@@ -106,7 +105,7 @@ export default function RegisterScreen(props) {
           src="./img/resources/partiaf-icon.svg"
           alt=""
         />
-      </span>
+      </Link>
 
       <form onSubmit={submitHandler}>
         <div className="register-header">
@@ -116,95 +115,107 @@ export default function RegisterScreen(props) {
           </Link>
         </div>
         <div className="register-content">
-
-
-        <div>
-          <input
-            type="text"
-            placeholder="Nombre"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-          <input
-            type="text"
-            placeholder="Apellidos"
-            value={lastname}
-            onChange={(e) => setLastname(e.target.value)}
-          />
-          
-          <label htmlFor="">Tipo de documento</label>
-          <select name="" id=""  required >
-                    <option value="Discoteca">Cedula de ciudadania</option>
-                    <option value="Bar">Cedula de extrangeria</option>
-                    <option value="Gastrobar">Pasaporte</option>
-                </select>
-          <input
-            type="number"
-            name=""
-            id=""
-            placeholder="CC"
-            value={identification}
-            onChange={(e) => setIdentification(e.target.value)}
-          />
-          <div>
+          <div className="flex-dev">
             <input
-              type="email"
-              placeholder="Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <input
-              type="number"
-              name=""
-              id=""
-              placeholder="Movil"
-              value={mobile}
-              onChange={(e) => setMobile(e.target.value)}
-            />
-          </div>
-          <div>
-            <input
-              type="number"
-              placeholder="Edad"
-              value={age}
-              onChange={(e) => setAge(e.target.value)}
+              type="text"
+              placeholder="Nombre"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
             />
             <input
               type="text"
-              name="address"
-              id="address"
-              placeholder="Direccion"
-              value={address}
-              onChange={(e) => setAddress(e.target.value)}
+              placeholder="Apellidos"
+              value={lastname}
+              onChange={(e) => setLastname(e.target.value)}
             />
+              <label  className="label" htmlFor="">Tipo de documento</label>
+
+            <div className="cont-space">
+              
+            <div className="space">
+              <select className="sel" name="" id="" required>
+                <option value="Discoteca">Cedula de ciudadania</option>
+                <option value="Bar">Cedula de extrangeria</option>
+                <option value="Gastrobar">Pasaporte</option>
+              </select>
+              <input
+                type="number"
+                name=""
+                id=""
+                placeholder="CC"
+                value={identification}
+                onChange={(e) => setIdentification(e.target.value)}
+              />
+              <div>
+                <input
+                  type="email"
+                  placeholder="Email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+            
+              </div>
+            </div>
+            <div className="space">
+            <input
+                  type="number"
+                  name=""
+                  id=""
+                  placeholder="Movil"
+                  value={mobile}
+                  onChange={(e) => setMobile(e.target.value)}
+                />
+              <div>
+                <input
+                  type="number"
+                  placeholder="Edad"
+                  value={age}
+                  onChange={(e) => setAge(e.target.value)}
+                />
+                <input
+                  type="text"
+                  name="address"
+                  id="address"
+                  placeholder="Direccion"
+                  value={address}
+                  onChange={(e) => setAddress(e.target.value)}
+                />
+              </div>
+            </div>
+            </div>
+
+            <p>Ingrese contrseña y confirme</p>
+            <div>
+              <input
+                type="password"
+                placeholder="Contraseña"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <input
+                className={password == confirmPassword ? "" : "warning"}
+                type="password"
+                placeholder="Confirmar contraseña"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+              />
+            </div>
           </div>
 
-          <p>Ingrese contrseña y confirme</p>
-          <div>
+          <div className="file-input">
             <input
-              type="password"
-              placeholder="Contraseña"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              type="file"
+              name="file"
+              id="file"
+              onChange={(e) => uploadHandler(e, "featuredImage")}
             />
-            <input
-            className={password == confirmPassword? "" : "warning"}
-              type="password"
-              placeholder="Confirmar contraseña"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-            />
+            {loading ? (
+              <LoadingBoxWhite />
+            ) : (
+              <img alt="" className="img-preview" src={image} />
+            )}
           </div>
         </div>
-
-        <div className="file-input">
-        <input type="file" name="file" id="file"  onChange={(e) => uploadHandler(e, "featuredImage")}  />
-        {loading? <LoadingBoxWhite /> : (
-        <img alt="" className="img-preview" src={image}  />
-        )}
-        </div>
-        </div>
-
 
         <span className="term">
           Al registrase usted acepta los terminos y condiciones del servicio de

@@ -10,7 +10,7 @@ import {
 
 } from '../constants/userConstants';
 
-const URL = 'https://partiaf-api.herokuapp.com/';
+const URL = 'https://partiaf-api-v2.herokuapp.com/';
 
 
 export const signin = (username, password) => async (dispatch) => {

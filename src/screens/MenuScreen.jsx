@@ -70,6 +70,8 @@ export default function MenuScreen() {
   };
 
 
+
+
   // < --------------------Create Item Process  ------------------------->
   //enviar email - storeid, menuId, name, precio
   const itemCreate = useSelector((state) => state.itemCreate);
@@ -82,6 +84,7 @@ export default function MenuScreen() {
   const [itemImage, setItemImage] = useState("");
 
 
+  
   const submitCreateItemHandler = (e) => {
     e.preventDefault();
     dispatch(
@@ -96,6 +99,69 @@ export default function MenuScreen() {
       })
     );
   };
+
+  // Update item process
+
+  const itemUpdate = useSelector((state) => state.itemUpdate);
+  const { success: successUpdateItem } = itemUpdate;
+
+  const [itemId, setItemId] = useState();
+
+  const [openModalUpdateItem, setOpenModalUpdateItem] = useState(false);
+  const [nameUpdate, setNameUpdate] = useState();
+  const [priceUpdate, setPriceUpdate] = useState();
+  const [amountUpdate, setAmountUpdate] = useState();
+  const [itemImageUpdate, setItemImageUpdate] = useState();
+
+     // UPLOAD IMAGE HANDLER
+     const uploadUpdateHandler = async (e, imageFIeld = "image") => {
+      const file = e.target.files[0];
+      const bodyFormData = new FormData();
+      bodyFormData.append("file", file);
+      try {
+        dispatch({ type: "UPLOAD_REQUEST" });
+        const { data } = await axios.post(
+          "https://rveapi.herokuapp.com/api/v1/users/upload",
+          bodyFormData,
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
+          }
+        );
+        dispatch({ type: "UPLOAD_SUCCESS" });
+        setItemImageUpdate(data.secure_url);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    
+  const updateItemHanlder = async (item, menuIdUpdate) => {
+    await setItemId(item);
+    await setMenuId(menuIdUpdate);
+    setNameUpdate     (item?.name);
+    setPriceUpdate    (item?.price);
+    setAmountUpdate   (item?.amount);
+    setItemImageUpdate(item?.itemImage);
+    setOpenModalUpdateItem(true);
+  }
+  const submitUpdateItemHandler = (e) => {
+    e.preventDefault();
+    dispatch(
+      itemsActions.update({
+        name: nameUpdate,
+        price: priceUpdate,
+        image: itemImageUpdate,
+        amount: amountUpdate,
+        email: adminInfo.email,
+        storeId: storeInfo.store._id,
+        menuId: menuId,
+        _id: itemId._id
+      })
+    );
+  };
+
 
   // < --------------------delete process  ------------------------->
   const menuDelete = useSelector((state) => state.menuDelete);
@@ -160,6 +226,12 @@ export default function MenuScreen() {
       setOpenModalItem(false);
     }
 
+    if (successUpdateItem) {
+      dispatch({ type: itemsConstants.constants().UPDATE_RESET });
+      setOpenModalUpdateItem(false);
+    }
+
+
     if (storeInfo) {
       dispatch(menuActions.list(adminInfo.email, storeInfo.store._id));
     }
@@ -173,15 +245,13 @@ export default function MenuScreen() {
     }
   }, [
     dispatch,
-    adminInfo,
-    storeInfo,
-    successCreate,
-    successDelete,
+    adminInfo.coverSelect,
     successCreateItem,
     succesDeleteItem,
+    successUpdateItem
   ]);
   
-  console.log(menu)
+  console.log(itemId)
 
   return (
     <>
@@ -207,7 +277,7 @@ export default function MenuScreen() {
                           <span className="price"> $ {item.price}</span>
                           <span className="price"> {item.amount > 0? "DISPONIBLE" : "NO DISPONIBLE"}</span>
                           <div className="actions">
-                            <button className="image">
+                            <button className="image" onClick={() => updateItemHanlder(item, men._id)}>
                               <i className="bx bx-pencil"></i>
                             </button>
                             <button
@@ -305,6 +375,49 @@ export default function MenuScreen() {
             <button
               className="btn btn-none"
               onClick={() => setOpenModalItem(false)}
+            >
+              Cancelar
+            </button>
+          </div>
+        </div>
+      </div>
+
+
+      {/*MODAL ITEM UPDATE*/}
+      <div className={openModalUpdateItem ? "openModal" : "closeModal"}>
+        <div className="modal">
+          <div className="modal-header">
+            <h2>Crear</h2>
+          </div>
+          <form action="" className="form-items">
+            <input
+              type="text"
+              placeholder="Nombre Item"
+              value={nameUpdate}
+              onChange={(e) => setNameUpdate(e.target.value)}
+            />
+            <input
+              type="number"
+              placeholder="Precio"
+              value={priceUpdate}
+              onChange={(e) => setPriceUpdate(e.target.value)}
+            />
+              <input
+              type="number"
+              placeholder="Cantidad"
+              value={amountUpdate}
+              onChange={(e) => setAmountUpdate(e.target.value)}
+            />
+            <input type="file" name="file" id="file"  onChange={(e) => uploadUpdateHandler(e, "featuredImage")}  />
+            <img alt="" className="img-preview" src={itemImage}  />
+          </form>
+          <div className="modal-footer">
+            <button className="btn" onClick={submitUpdateItemHandler}>
+              Guardar
+            </button>
+            <button
+              className="btn btn-none"
+              onClick={() => setOpenModalUpdateItem(false)}
             >
               Cancelar
             </button>

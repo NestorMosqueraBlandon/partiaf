@@ -121,7 +121,7 @@
 .front-container-logo{
     display: flex;
     gap: 1rem;
-    margin-top: 100px;
+    margin-top: 10px;
     margin-bottom: 120px ;
 }
 
@@ -178,4 +178,40 @@
     display: flex;
     gap: 2rem;
     align-items: center;
+}
+
+.cont-space{
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+}
+
+.space{ 
+ 
+   width: 50%;
+}
+
+.label{
+    padding: 1rem;
+    font-size: 1.4rem;
+    
+}
+
+.sel{
+    margin-top: 1rem;
+}
+
+.danger{
+    background-color: #ff0f0f;
+    width: 200px;
+    margin-top: 1rem;
+    border-radius: 1rem;
+    color: #fff;
+
+}
+
+.footer__list{
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
 }

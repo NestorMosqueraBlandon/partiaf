@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import chairActions from "../actions/chairActions";
 import constantsTemplate from "../constants/constantsTemplate";
 import LoadingBox from "../components/LoadingBox";
+import swal from "sweetalert";
 export default function ChairsScreen() {
 
   const chairList = useSelector((state) => state.chairList);
@@ -13,6 +14,8 @@ export default function ChairsScreen() {
   const chairCreate = useSelector((state) => state.chairCreate);
   const { success: successCreate } = chairCreate;
 
+  const chairDelete = useSelector((state) => state.chairDelete);
+  const { success: successDelete } = chairDelete;
 
   const adminSignin = useSelector((state) => state.adminSignin);
   const { adminInfo } = adminSignin;
@@ -31,6 +34,27 @@ export default function ChairsScreen() {
   const dispatch = useDispatch();
   const submitCreateItemHandler = (e) => {
     e.preventDefault();
+    if (type.length <= 0) {
+      swal("El campo Tipo de mesa no puede estar vacio", {
+        icon: "warning",
+      });
+      return;
+  }else if(price.length <= 0){
+    swal("El campo Precio no puede estar vacio", {
+      icon: "warning",
+    });
+    return;
+  }else if(amount.length <= 0){
+    swal("El campo Cantidad no puede estar vacio", {
+      icon: "warning",
+    });
+    return;
+  }else if(limit.length <= 0){
+    swal("El campo Cupo total no puede estar vacio", {
+      icon: "warning",
+    });
+    return;
+  }else{
     dispatch(
       chairActions.create({
         email: adminInfo.email,
@@ -41,6 +65,7 @@ export default function ChairsScreen() {
         amount: amount,
       })
     );
+  }
   };
 
   useEffect(() => {
@@ -90,16 +115,16 @@ export default function ChairsScreen() {
           <button onClick={() => setOpenModalItem(true)}>Crear Mesa</button>
 
           <span>
-              Cantidad de Sillas Generales: {chairs.filter((chair) => chair.type == "General").reduce((p, c) => p + c.amount, 0)}
+              Cantidad de Sillas Generales: {chairs.filter((chair) => chair.type == "GENERAL").reduce((p, c) => p + c.amount * c.limit, 0)}
           </span>
           <span>
-              Cantidad de Sillas Privadas: {chairs.filter((chair) => chair.type == "Privado").reduce((p, c) => p + c.amount, 0)}
+              Cantidad de Sillas Privadas: {chairs.filter((chair) => chair.type == "PRIVADO").reduce((p, c) => p + c.amount * c.limit, 0)}
           </span>
           <span>
-              Cantidad de Sillas Especiales: {chairs.filter((chair) => chair.type == "Especial").reduce((p, c) => p + c.amount, 0)}
+              Cantidad de Sillas Especiales: {chairs.filter((chair) => chair.type == "ESPECIAL").reduce((p, c) => p + c.amount * c.limit, 0)}
           </span>
           <span>
-              Cantidad de Sillas Totales: {chairs.reduce((p, c) => p + c.amount, 0)}
+              Cantidad de Sillas Totales: {chairs.reduce((p, c) => p + c.amount * c.limit, 0)}
           </span>
         </div>
 
@@ -107,7 +132,7 @@ export default function ChairsScreen() {
         <div className="chair__container">
             {chairs.map((chair) => (
 
-          <div className="card__chair">
+          <div key={chair._id} className="card__chair">
             <div className="header_card">{chair.type.toUpperCase()}</div>
             <div>
               <ul>
@@ -128,6 +153,11 @@ export default function ChairsScreen() {
                 </li>
               </ul>
             </div>
+            <div className="footer__list">
+            <button><i className="bx bx-pencil"></i></button>
+
+              <button> <i className="bx bx-trash"></i></button>
+            </div>
           </div>
             ))}
 
@@ -146,6 +176,7 @@ export default function ChairsScreen() {
           <form action="" className="form-items">
             <select name="" id="" 
             onChange={(e) => setType(e.target.value)}
+            required
             >
               <option value="">Tipo</option>
               <option value="PRIVADO">Privado</option>
@@ -157,18 +188,21 @@ export default function ChairsScreen() {
               placeholder="Precio"
               value={price}
               onChange={(e) => setPrice(e.target.value)}
+              required
             />
               <input
               type="number"
               placeholder="Cantidad"
               value={amount}
               onChange={(e) => setAmount(e.target.value)}
+            required
             />
                  <input
               type="number"
               placeholder="Cupos"
               value={limit}
               onChange={(e) => setLimit(e.target.value)}
+              required
             />
           </form>
           <div className="modal-footer">

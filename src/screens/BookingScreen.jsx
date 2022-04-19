@@ -90,23 +90,9 @@ export default function BookingScreen() {
         </div>
 
         <div className="flex">
-          {thatScreen === "List" ? (
-            <button
-              className="btn-create"
-              onClick={() => setThatScreen("Create")}
-            >
-              {" "}
-              CREAR RESERVA <i className="bx bxs-plus-square"></i>
-            </button>
-          ) : (
-            <button
-              className="btn-create"
-              onClick={() => setThatScreen("List")}
-            >
-              {" "}
-              LISTA DE RESERVAS
-            </button>
-          )}
+         
+        
+         
           <div className="right-buttons">
             <button>
               <i className="bx bx-calendar"></i>
@@ -114,12 +100,8 @@ export default function BookingScreen() {
           </div>
         </div>
 
-        {thatScreen === "List" ? (
           <BookingListScreen loading={loadingList} bookings={bookings} />
-        ) : (
-            // <p>This will be moved</p>
-          <BookingCreateScreen />
-        )}
+   
         {/* <div className="flex wrap">
                     <CardBookin name="Owen Wilson" cupos="22" time="7:30pm" date="12/03/2021" state="Finalizada" />
                     <CardBookin name="Karla Ramirez" cupos="22" time="7:30pm" date="12/03/2021" state="Finalizada" />

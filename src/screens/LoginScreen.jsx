@@ -54,7 +54,7 @@ export default function LoginScreen(props) {
             alt=""
           />
 
-          <span className="front-container-logo">
+          <Link to="/" className="front-container-logo">
             <img
               className="front-logo"
               src="./img/resources/logo-header.svg"
@@ -65,7 +65,7 @@ export default function LoginScreen(props) {
               src="./img/resources/partiaf-icon.svg"
               alt=""
             />
-          </span>
+          </Link>
           <form onSubmit={submitHandler}>
             <input
               type="email"
