@@ -137,7 +137,7 @@ export default function ChairsScreen() {
             <div>
               <ul>
                 <li>
-                  <span> Cupos</span>: {chair.limit}
+                  <span> Cupos por mesa</span>: {chair.limit}
                 </li>
                 <li>
                   <span> Precio</span>: {DivisaFormater(chair.price)}
@@ -199,7 +199,7 @@ export default function ChairsScreen() {
             />
                  <input
               type="number"
-              placeholder="Cupos"
+              placeholder="Cupos por mesa"
               value={limit}
               onChange={(e) => setLimit(e.target.value)}
               required

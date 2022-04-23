@@ -729,6 +729,7 @@ button {
   /* justify-content: center; */
   flex-direction: column;
   padding-top: 5rem;
+  padding-bottom: 5rem;
 }
 
 .bussines .front-container-logo{
@@ -1046,7 +1047,9 @@ select {
   max-height: 50vh;
   display: flex;
   flex-direction: column;
-  overflow-y: auto;
+  overflow: hidden;
+  overflow-y: scroll;
+
 }
 
 .btn-none{
