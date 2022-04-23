@@ -1,6 +1,6 @@
 #root{
     max-height: 100vh;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .screen {
@@ -421,6 +421,11 @@ textarea {
   align-items: center;
   justify-content: space-between;
   margin-top: 3rem;
+}
+
+.footer-card-t div{
+  display: flex;
+  gap: 1rem;
 }
 
 .register {
@@ -1046,7 +1051,7 @@ select {
 
 .btn-none{
   background-color: #ccc;
-  margin-top: 1rem;
+  /* margin-top: 1rem; */
 }
 
 .center-extend{
@@ -1107,4 +1112,11 @@ select {
   width: 80px;
   height: 80px;
   border-radius: 5rem;
+}
+
+.register {
+  overflow-y: scroll;
+}
+.register form{
+  overflow-y: scroll;
 }

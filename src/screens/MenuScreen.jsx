@@ -77,6 +77,7 @@ export default function MenuScreen() {
   const itemCreate = useSelector((state) => state.itemCreate);
   const { success: successCreateItem } = itemCreate;
 
+  const [openModalUpdate, setOpenModalUpdate] = useState(false);
   const [openModalItem, setOpenModalItem] = useState(false);
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
@@ -109,9 +110,12 @@ export default function MenuScreen() {
 
   const [openModalUpdateItem, setOpenModalUpdateItem] = useState(false);
   const [nameUpdate, setNameUpdate] = useState();
+  const [titleUpdateMenu, setTitleUpdateMenu] = useState();
   const [priceUpdate, setPriceUpdate] = useState();
   const [amountUpdate, setAmountUpdate] = useState();
   const [itemImageUpdate, setItemImageUpdate] = useState();
+
+  const [nameUpdateMenu, setNameUpdateMenu] = useState();
 
      // UPLOAD IMAGE HANDLER
      const uploadUpdateHandler = async (e, imageFIeld = "image") => {
@@ -161,6 +165,21 @@ export default function MenuScreen() {
       })
     );
   };
+
+  const updateMenuHandler = async (menu) => {
+    await setMenuId(menu._id);
+    setTitleUpdateMenu     (menu?.title);
+    setOpenModalUpdate(true);
+  }
+  const submitUpateMenu = (e) => {
+    e.preventDefault();
+    dispatch(menuActions.update({
+      name: nameUpdateMenu,
+      menuId: menuId,
+      email: adminInfo.email,
+      storeId: storeInfo.store._id,
+    }));
+  }
 
 
   // < --------------------delete process  ------------------------->
@@ -294,9 +313,16 @@ export default function MenuScreen() {
                       <button onClick={() => AddItem(men._id)}>
                         <i className="bx bx-plus-medical"></i> Agregar Item
                       </button>
+                      <div>
+
+                      <button className="image" onClick={() => updateItemHanlder(men)}>
+                              <i className="bx bx-pencil"></i>
+                        </button>
                       <button onClick={() => deleteHandler(men)}>
                         <i className="bx bxs-trash-alt"></i>
                       </button>
+                      </div>
+
                     </div>
                   </div>
                 ))}
@@ -328,6 +354,34 @@ export default function MenuScreen() {
           </form>
           <div className="modal-footer">
             <button className="btn" onClick={submitCreateHandler}>
+              Guardar
+            </button>
+            <button
+              className="btn btn-none"
+              onClick={() => setOpenModal(false)}
+            >
+              Cancelar
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/*MODAL UPDATE MENU*/}
+      <div className={openModalUpdate ? "openModal" : "closeModal"}>
+        <div className="modal">
+          <div className="modal-header">
+            <h2>Crear</h2>
+          </div>
+          <form action="" className="form-items">
+            <input
+              type="text"
+              placeholder="Titulo"
+              value={titleUpdateMenu}
+              onChange={(e) => setTitleUpdateMenu(e.target.value)}
+            />
+          </form>
+          <div className="modal-footer">
+            <button className="btn" onClick={submitUpateMenu}>
               Guardar
             </button>
             <button

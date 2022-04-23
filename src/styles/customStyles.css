@@ -74,6 +74,23 @@
     background-color: #fff;
     color: #000;
     box-shadow: 0 4px 8px rgba(0, 0, 0, .2);
+    transition: .3s;
+}
+
+.btn{
+    box-shadow: 0 4px 8px rgba(0, 0, 0, .2);
+    transition: .3s;
+}
+
+.btn:hover{
+    box-shadow: 0 0px 0px rgba(0, 0, 0, .2);
+    transform: scale(.95);
+
+}
+
+.btn-none:hover{
+    box-shadow: 0 0px 0px rgba(0, 0, 0, .2);
+    transform: scale(.95);
 }
 
 .form-items{
