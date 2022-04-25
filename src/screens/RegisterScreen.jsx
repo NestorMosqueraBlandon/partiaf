@@ -121,12 +121,14 @@ export default function RegisterScreen(props) {
               placeholder="Nombre"
               value={name}
               onChange={(e) => setName(e.target.value)}
+              required
             />
             <input
               type="text"
               placeholder="Apellidos"
               value={lastname}
               onChange={(e) => setLastname(e.target.value)}
+              required
             />
               <label  className="label" htmlFor="">Tipo de documento</label>
 
@@ -145,6 +147,7 @@ export default function RegisterScreen(props) {
                 placeholder="CC"
                 value={identification}
                 onChange={(e) => setIdentification(e.target.value)}
+                required
               />
               <div>
                 <input
@@ -152,6 +155,7 @@ export default function RegisterScreen(props) {
                   placeholder="Email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
+                  required
                 />
             
               </div>
@@ -164,6 +168,7 @@ export default function RegisterScreen(props) {
                   placeholder="Movil"
                   value={mobile}
                   onChange={(e) => setMobile(e.target.value)}
+                  required
                 />
               <div>
                 <input
@@ -171,6 +176,7 @@ export default function RegisterScreen(props) {
                   placeholder="Edad"
                   value={age}
                   onChange={(e) => setAge(e.target.value)}
+                  required
                 />
                 <input
                   type="text"
@@ -179,6 +185,7 @@ export default function RegisterScreen(props) {
                   placeholder="Direccion"
                   value={address}
                   onChange={(e) => setAddress(e.target.value)}
+                  required
                 />
               </div>
             </div>
@@ -191,6 +198,7 @@ export default function RegisterScreen(props) {
                 placeholder="Contraseña"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                required
               />
               <input
                 className={password == confirmPassword ? "" : "warning"}
@@ -198,10 +206,12 @@ export default function RegisterScreen(props) {
                 placeholder="Confirmar contraseña"
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
+                required
               />
             </div>
           </div>
 
+          <p htmlFor="">Foto de perfil</p>
           <div className="file-input">
             <input
               type="file"
