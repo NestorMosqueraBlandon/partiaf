@@ -80,58 +80,6 @@ export default function BusinessScreen(props) {
                   {store.name}
                 </button>
               ))}
-                 <button
-                  key={1}
-                  className="store-link"
-                >
-                  Negocio 1
-                </button>
-                <button
-                  key={1}
-                  className="store-link"
-                >
-                  Negocio 2
-                </button>  <button
-                  key={1}
-                  className="store-link"
-                >
-                  Negocio 3
-                </button>  <button
-                  key={1}
-                  className="store-link"
-                >
-                  Negocio 4
-                </button>  <button
-                  key={1}
-                  className="store-link"
-                >
-                  Negocio 5
-                </button>  <button
-                  key={1}
-                  className="store-link"
-                >
-                  Negocio 1
-                </button>  <button
-                  key={1}
-                  className="store-link"
-                >
-                  Negocio 1
-                </button>  <button
-                  key={1}
-                  className="store-link"
-                >
-                  Negocio 1
-                </button>  <button
-                  key={1}
-                  className="store-link"
-                >
-                  Negocio 1
-                </button>  <button
-                  key={1}
-                  className="store-link"
-                >
-                  Negocio 1
-                </button>
             </div>
               ): (<h3>No hay Negocios</h3>)}
           </>

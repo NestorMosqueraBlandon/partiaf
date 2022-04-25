@@ -96,22 +96,11 @@ export default function SettingScreen(props) {
       <div className="screen">
 
     <div className="register">
-      <Link to="/" className="front-container-logo">
-        <img
-          className="front-logo"
-          src="./img/resources/logo-header.svg"
-          alt=""
-        />
-        <img
-          className="front-logo-word"
-          src="./img/resources/partiaf-icon.svg"
-          alt=""
-        />
-      </Link>
+
 
       <form onSubmit={submitHandler}>
         <div className="register-header">
-          <p>Datos de registro</p>
+          <p>Datos</p>
           <Link to="/">
             <button className="btn-normal">Atras</button>
           </Link>

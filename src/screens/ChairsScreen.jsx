@@ -31,7 +31,7 @@ export default function ChairsScreen() {
   const [openModalUpdate, setOpenModalUpdate] = useState(false);
 
   const [type, setType] = useState("");
-  const [price, setPrice] = useState("");
+  const [price, setPrice] = useState(0);
   const [amount, setAmount] = useState("");
   const [limit, setLimit] = useState("");
 
@@ -49,11 +49,6 @@ export default function ChairsScreen() {
         icon: "warning",
       });
       return;
-  }else if(price.length <= 0){
-    swal("El campo Precio no puede estar vacio", {
-      icon: "warning",
-    });
-    return;
   }else if(amount.length <= 0){
     swal("El campo Cantidad no puede estar vacio", {
       icon: "warning",
@@ -133,6 +128,10 @@ export default function ChairsScreen() {
     //   setOpenModalItem(false);
     // }
 
+    if(successUpdate){
+      dispatch({ type: chairConstants.constants().UPDATE_RESET });
+      setOpenModalUpdate(false);
+    }
     if (storeInfo) {
       dispatch(chairActions.list(adminInfo.email, storeInfo.store._id));
     }

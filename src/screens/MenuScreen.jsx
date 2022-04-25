@@ -317,7 +317,7 @@ export default function MenuScreen() {
                       </button>
                       <div>
 
-                      <button className="image" onClick={() => updateItemHanlder(men)}>
+                      <button className="image" onClick={() => updateMenuHandler(men)}>
                               <i className="bx bx-pencil"></i>
                         </button>
                       <button onClick={() => deleteHandler(men)}>
