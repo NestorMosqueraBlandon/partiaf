@@ -17,6 +17,9 @@ export default function ChairsScreen() {
   const chairDelete = useSelector((state) => state.chairDelete);
   const { success: successDelete } = chairDelete;
 
+  const chairUpdate = useSelector((state) => state.chairUpdate);
+  const { success: successUpdate } = chairUpdate;
+
   const adminSignin = useSelector((state) => state.adminSignin);
   const { adminInfo } = adminSignin;
 
@@ -25,11 +28,18 @@ export default function ChairsScreen() {
 
 
   const [openModalItem, setOpenModalItem] = useState(false);
+  const [openModalUpdate, setOpenModalUpdate] = useState(false);
+
   const [type, setType] = useState("");
   const [price, setPrice] = useState("");
   const [amount, setAmount] = useState("");
   const [limit, setLimit] = useState("");
 
+  const [chairId, setChairId] = useState("");
+  const [typeUpdate, setTypeUpdate] = useState("");
+  const [priceUpdate, setPriceUpdate] = useState("");
+  const [amountUpdate, setAmountUpdate] = useState("");
+  const [limitUpdate, setLimitUpdate] = useState("");
 
   const dispatch = useDispatch();
   const submitCreateItemHandler = (e) => {
@@ -68,12 +78,53 @@ export default function ChairsScreen() {
   }
   };
 
+
+  const deleteHandler = (chair) => {
+    swal("Seguro que quieres borrar " + chair.type + "?", {
+      icon: "warning",
+      buttons: ["Cancelar", "Si"],
+      dangerMode: true,
+    }).then((willDelete) => {
+      if (willDelete) {
+        swal("Poof! " + chair.type + " borrado", {
+          icon: "success",
+        });
+        dispatch(
+          chairActions.delete(chair._id, adminInfo.email, storeInfo.store._id)
+        );
+      }
+    });
+  };
+
+  const updateChairHandler = async (chair) => {
+    await setChairId(chair._id)
+    setTypeUpdate     (chair?.type);
+    setPriceUpdate    (chair?.price);
+    setAmountUpdate   (chair?.amount);
+    setLimitUpdate(chair?.limit);
+    setOpenModalUpdate(true);
+  }
+
+  const submitUpateChair = (e) => {
+    e.preventDefault();
+    dispatch(chairActions.update({
+      type: typeUpdate,
+      limit: limitUpdate,
+      amount: amountUpdate,
+      price: priceUpdate,
+      chairId: chairId,
+      email: adminInfo.email,
+      storeId: storeInfo.store._id,
+    }));
+  }
+
+
   useEffect(() => {
-    const menuConstants = new constantsTemplate("MENU");
+    const chairConstants = new constantsTemplate("CHAIR");
     const itemsConstants = new constantsTemplate("ITEM");
 
     if (successCreate) {
-      dispatch({ type: menuConstants.constants().CREATE_RESET });
+      dispatch({ type: chairConstants.constants().CREATE_RESET });
       setOpenModalItem(false);
     }
 
@@ -86,9 +137,9 @@ export default function ChairsScreen() {
       dispatch(chairActions.list(adminInfo.email, storeInfo.store._id));
     }
 
-    // if (successDelete) {
-    //   dispatch({ type: menuConstants.constants().DELETE_RESET });
-    // }
+    if (successDelete) {
+      dispatch({ type: chairConstants.constants().DELETE_RESET });
+    }
 
     // if (succesDeleteItem) {
     //   dispatch({ type: itemsConstants.constants().DELETE_RESET });
@@ -98,7 +149,8 @@ export default function ChairsScreen() {
     adminInfo,
     storeInfo,
     successCreate,
-    // successDelete,
+    successDelete,
+    successUpdate
     // successCreateItem,
     // succesDeleteItem,
   ]);
@@ -154,9 +206,9 @@ export default function ChairsScreen() {
               </ul>
             </div>
             <div className="footer__list">
-            <button><i className="bx bx-pencil"></i></button>
+            <button onClick={() => updateChairHandler(chair)}><i className="bx bx-pencil"></i></button>
 
-              <button> <i className="bx bx-trash"></i></button>
+              <button onClick={() => deleteHandler(chair)}> <i className="bx bx-trash"></i></button>
             </div>
           </div>
             ))}
@@ -164,7 +216,6 @@ export default function ChairsScreen() {
         </div>
       </div>
     </div>
-
 )}
     
       {/*MODAL ITEM CREATE*/}
@@ -212,6 +263,58 @@ export default function ChairsScreen() {
             <button
               className="btn btn-none"
               onClick={() => setOpenModalItem(false)}
+            >
+              Cancelar
+            </button>
+          </div>
+        </div>
+      </div>
+
+       {/*MODAL ITEM UPDATE*/}
+       <div className={openModalUpdate ? "openModal" : "closeModal"}>
+        <div className="modal">
+          <div className="modal-header">
+            <h2>Crear</h2>
+          </div>
+          <form action="" className="form-items">
+            <select name="" id="" 
+            onChange={(e) => setTypeUpdate(e.target.value)}
+            required
+            >
+              <option value="">Tipo</option>
+              <option value="PRIVADO">Privado</option>
+              <option value="GENERAL">General</option>
+              <option value="ESPECIAL">Especial</option>
+            </select>
+            <input
+              type="number"
+              placeholder="Precio"
+              value={priceUpdate}
+              onChange={(e) => setPriceUpdate(e.target.value)}
+              required
+            />
+              <input
+              type="number"
+              placeholder="Cantidad"
+              value={amountUpdate}
+              onChange={(e) => setAmountUpdate(e.target.value)}
+            required
+            />
+                 <input
+              type="number"
+              placeholder="Cupos por mesa"
+              value={limitUpdate}
+              onChange={(e) => setLimitUpdate(e.target.value)}
+              required
+            />
+          </form>
+          <div className="modal-footer">
+            <button className="btn" onClick={submitCreateItemHandler}>
+              Guardar
+            </button>
+            <button
+              className="btn btn-none"
+              onClick={() => setOpenModalUpdate(false)}
             >
               Cancelar
             </button>

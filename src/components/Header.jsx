@@ -33,6 +33,9 @@ export default function Header() {
             <Link to="/settings" className="color">
               <i className="bx bxs-cog"></i> Configuracion
             </Link>
+            <button className="ml-10" >
+              <Link to="/setting"> Configuracion de usuario</Link>
+            </button>
             <button className="ml-10" onClick={signoutStoreHandler}>
               Cambiar de negocio
             </button>
