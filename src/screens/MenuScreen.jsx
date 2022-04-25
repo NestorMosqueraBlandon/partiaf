@@ -265,6 +265,8 @@ export default function MenuScreen() {
   }, [
     dispatch,
     adminInfo.coverSelect,
+    successCreate,
+    successDelete,
     successCreateItem,
     succesDeleteItem,
     successUpdateItem

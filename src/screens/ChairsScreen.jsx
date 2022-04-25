@@ -112,7 +112,7 @@ export default function ChairsScreen() {
       limit: limitUpdate,
       amount: amountUpdate,
       price: priceUpdate,
-      chairId: chairId,
+      _id: chairId,
       email: adminInfo.email,
       storeId: storeInfo.store._id,
     }));
@@ -309,7 +309,7 @@ export default function ChairsScreen() {
             />
           </form>
           <div className="modal-footer">
-            <button className="btn" onClick={submitCreateItemHandler}>
+            <button className="btn" onClick={submitUpateChair}>
               Guardar
             </button>
             <button
