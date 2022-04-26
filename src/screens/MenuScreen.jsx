@@ -7,6 +7,9 @@ import "../styles/customStyles.css";
 import swal from "sweetalert";
 import itemsActions from "../actions/itemsActions";
 import axios from "axios";
+import { DragDropContext } from "react-beautiful-dnd";
+import { Droppable } from "react-beautiful-dnd";
+import { Draggable } from "react-beautiful-dnd";
 
 export default function MenuScreen() {
   const dispatch = useDispatch();
@@ -280,35 +283,48 @@ export default function MenuScreen() {
         {loading ? (
           <LoadingBox />
         ) : (
+
+          <DragDropContext>
+
           <div className="center__screen">
             {menu.length === undefined ? (
               <h2>NO HAY MENUS, POR FAVOR AÑADE UNO </h2>
             ) : (
               <>
                 {menu.map((men) => (
-                  <div key={men._id} className="card-t">
+                  <Droppable key={men._id} droppableId={men._id} >
+                    {(provided) => (
+
+                  <div className="card-t" ref={provided.innerRef} {...provided.droppableProps}> 
                     <h4>{men.title}</h4>
 
                     <ul>
                       {men.items.map((item) => (
-                        <li key={men._id} className="menu-item">
+                        <Draggable key={men._id}>
+                          {(provided) => (
+
+                        <li className="menu-item" ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps} >
                           <img className="img-preview-menu" src={item.image} alt="" />
                           <p>{item.name} </p>
 
                           <span className="price"> $ {item.price}</span>
                           <span className="price"> {item.amount > 0? "DISPONIBLE" : "NO DISPONIBLE"}</span>
                           <div className="actions">
-                            <button className="image" onClick={() => updateItemHanlder(item, men._id)}>
+                            <button className="image btn-none-new" onClick={() => updateItemHanlder(item, men._id)}>
                               <i className="bx bx-pencil"></i>
                             </button>
                             <button
-                              className="close"
+                              className="close  btn-none-new"
                               onClick={() => deleteItemHandler(item, men)}
                             >
                               <i className="bx bx-trash"></i>
                             </button>
                           </div>
                         </li>
+                          )}
+
+                        </Draggable>
+
                       ))}
                     </ul>
                     <div className="footer-card-t">
@@ -317,16 +333,21 @@ export default function MenuScreen() {
                       </button>
                       <div>
 
-                      <button className="image" onClick={() => updateMenuHandler(men)}>
+                      <button className="image"  onClick={() => updateMenuHandler(men)}>
                               <i className="bx bx-pencil"></i>
                         </button>
-                      <button onClick={() => deleteHandler(men)}>
+                      <button  onClick={() => deleteHandler(men)}>
                         <i className="bx bxs-trash-alt"></i>
                       </button>
                       </div>
 
                     </div>
+                    {provided.placeholder}
                   </div>
+                    )}
+
+                  </Droppable>
+
                 ))}
               </>
             )}
@@ -337,6 +358,7 @@ export default function MenuScreen() {
               </button>
             </div>
           </div>
+          </DragDropContext>
         )}
       </div>
 

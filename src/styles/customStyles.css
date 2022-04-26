@@ -107,10 +107,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     width: calc(100% - 15rem);
 }
 
-.settings button{
+.settings .btn-danger{
     background-color: #ff0f0f;
     margin-top: 5rem;
     color: #fff;

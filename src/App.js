@@ -17,6 +17,7 @@ import LayoutHome from "./components/LayoutHome";
 import ComingSoon from "./screens/ComingSoon";
 import ChairsScreen from "./screens/ChairsScreen";
 import SettingScreen from "./screens/SettingScreen";
+import SettingStoreScreen from "./screens/SettingStoreScreen";
 
 function App() {
   const adminSignin = useSelector((state) => state.adminSignin);
@@ -41,6 +42,7 @@ function App() {
               <Route path="/staff" component={StaffScreen} exact></Route>
               <Route path="/setting" component={SettingScreen} exact></Route>
               <Route path="/settings" component={SettingsScreen} exact></Route>
+              <Route path="/settingstore" component={SettingStoreScreen} exact></Route>
             </Switch>
             {/* <Route path="/" component={ComingSoon} exact></Route>   */}
           </Layout>

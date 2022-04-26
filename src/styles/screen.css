@@ -401,6 +401,7 @@ textarea {
   align-items: center;
   justify-content: space-between;
   margin-bottom: 1rem;
+  /* border-bottom: 1px solid rgba(0, 0, 0, 0.3); */
 }
 
 .menu-item .actions {
@@ -417,10 +418,13 @@ textarea {
 }
 
 .footer-card-t {
+  border-top: 1px solid rgba(0, 0, 0, 0.6);
   display: flex;
   align-items: center;
   justify-content: space-between;
+  /* flex-direction: row-reverse; */
   margin-top: 3rem;
+  padding-top: 2rem;
 }
 
 .footer-card-t div{
@@ -1122,4 +1126,15 @@ select {
 }
 .register form{
   overflow-y: scroll;
+}
+
+.btn-success{
+  background-color: #ebc74e;
+  padding: .5rem;
+  display: block;
+  max-width: 100px;
+  margin-left: 1rem;
+  cursor: pointer;
+  border-radius: .5rem;
+  text-align: center;
 }

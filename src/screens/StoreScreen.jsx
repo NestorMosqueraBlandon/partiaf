@@ -38,6 +38,8 @@ export default function StoreScreen(props) {
         }
     }, [successCreate])
 
+    const [noNit, setNoNit] = useState(true);
+
     return (
         <div className="register center">
             <h2 className="register-title new-title">Bienvenido!</h2>
@@ -51,7 +53,10 @@ export default function StoreScreen(props) {
                     <option value="Bar">Bar</option>
                     <option value="Gastrobar">Gastrobar</option>
                 </select>
-                <input type="number" value={nit} onChange={(e) => setNit(e.target.value)} name="" id="" placeholder="NIT" required />
+                <span className='btn-success' onClick={() => setNoNit(!noNit)}>{noNit? "No tengo nit" : "Tengo nit"} </span>
+                {noNit && (
+                <input type="number" value={nit} onChange={(e) => setNit(e.target.value)} name="" id="" placeholder="NIT" />
+                )}
                 <input type="text" value={totalLimit} onChange={(e) => setTotalLimit(e.target.value)} name="" id="" placeholder="Cupo total" required />
                 <div>
                     <input type="email" value={emailStore} onChange={(e) => setEmailStore(e.target.value)} placeholder="Email" required />
