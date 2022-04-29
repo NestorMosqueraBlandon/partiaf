@@ -1,7 +1,7 @@
 import { applyMiddleware, combineReducers, createStore, compose } from "redux"
 import thunk from "redux-thunk";
 import { userSigninReducer } from '../reducers/userReducer.js';
-import { adminSigninReducer, coverListReducer, createStoreCoverReducer, createStoreReducer, deleteStoreCoverReducer, storeListReducer, storeSigninReducer, updateStoreCoverReducer } from '../reducers/adminReducer.js';
+import { adminSigninReducer, coverListReducer, createStoreCoverReducer, createStoreReducer, deleteStoreCoverReducer, storeListReducer, storeSigninReducer, updateStoreCoverReducer, updateStoreReducer } from '../reducers/adminReducer.js';
 import { bookingCreateReducer, bookingDeleteReducer, bookingListReducer, bookingUpdateReducer } from "../reducers/bookingReducer.js";
 import menuReducer from "../reducers/menuReducer.js";
 import chairReducer from "../reducers/chairReducer.js";
@@ -25,6 +25,7 @@ const reducer = combineReducers({
     userSignin: userSigninReducer,
     adminSignin: adminSigninReducer,
     storeCreate: createStoreReducer,
+    storeUpdate: updateStoreReducer,
     storeList: storeListReducer,
     storeSignin: storeSigninReducer,
     createCover: createStoreCoverReducer,

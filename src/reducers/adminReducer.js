@@ -29,6 +29,10 @@ import {
     UPDATE_COVER_SUCCESS,
     UPDATE_COVER_FAIL,
     UPDATE_COVER_RESET,
+    UPDATE_STORE_REQUEST,
+    UPDATE_STORE_SUCCESS,
+    UPDATE_STORE_FAIL,
+    UPDATE_STORE_RESET,
   } from '../constants/adminConstants';
 
 export const adminSigninReducer = (state = {}, action) => {
@@ -56,6 +60,21 @@ export const createStoreReducer = (state = {}, action) => {
     case CREATE_STORE_FAIL:
       return { loading: false, error: action.payload };
     case CREATE_STORE_RESET:
+      return {};
+    default:
+      return state;
+  }
+};
+
+export const updateStoreReducer = (state = {}, action) => {
+  switch (action.type) {
+    case UPDATE_STORE_REQUEST:
+      return { loading: true };
+    case UPDATE_STORE_SUCCESS:
+      return { loading: false, storeInfo: action.payload };
+    case UPDATE_STORE_FAIL:
+      return { loading: false, error: action.payload };
+    case UPDATE_STORE_RESET:
       return {};
     default:
       return state;

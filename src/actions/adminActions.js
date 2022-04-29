@@ -32,10 +32,13 @@ import {
   CREATE_STORE_FAIL,
   DELETE_STORE_REQUEST,
   DELETE_STORE_FAIL,
+  UPDATE_STORE_SUCCESS,
+  UPDATE_STORE_REQUEST,
+  UPDATE_STORE_FAIL,
 } from "../constants/adminConstants";
 
-// const URL = "http://localhost:4300/api/v1";
-const URL = 'https://partiaf-api-v2.herokuapp.com/api/v1';
+const URL = "http://localhost:4300/api/v1";
+// const URL = 'https://partiaf-api-v2.herokuapp.com/api/v1';
 
 export const signin = (email, password) => async (dispatch) => {
   dispatch({ type: ADMIN_SIGNIN_REQUEST, payload: { email, password } });
@@ -101,6 +104,26 @@ export const createStore = (store) => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: CREATE_STORE_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    });
+  }
+};
+
+export const updateStore = (store) => async (dispatch) => {
+  dispatch({ type: UPDATE_STORE_REQUEST, payload: store });
+  try {
+    const { data } = await Axios.put(`${URL}/stores/updateStore/${store.id}`, store);
+
+    dispatch({ type: UPDATE_STORE_SUCCESS, payload: data });
+    dispatch({ type: STORE_SIGNIN_SUCCESS, payload: data });
+    console.log(data)
+    localStorage.setItem("storeInfo", JSON.stringify(data));
+  } catch (error) {
+    dispatch({
+      type: UPDATE_STORE_FAIL,
       payload:
         error.response && error.response.data.message
           ? error.response.data.message

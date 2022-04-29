@@ -177,6 +177,9 @@ export default function ChairsScreen() {
           <span>
               Cantidad de Sillas Totales: {chairs.reduce((p, c) => p + c.amount * c.limit, 0)}
           </span>
+          <span>
+              Cantidad de Mesas Totales: {chairs.reduce((p, c) => p + c.amount, 0)}
+          </span>
         </div>
 
 
@@ -194,7 +197,7 @@ export default function ChairsScreen() {
                   <span> Precio</span>: {DivisaFormater(chair.price)}
                 </li>
                 <li>
-                  <span> Cantidad</span>: {chair.amount}
+                  <span> Cantidad de Mesas</span>: {chair.amount}
                 </li>
                 <li>
                   <span> Reservados</span>: {chair.reserved}
@@ -294,7 +297,7 @@ export default function ChairsScreen() {
             />
               <input
               type="number"
-              placeholder="Cantidad"
+              placeholder="Cantidad de mesas"
               value={amountUpdate}
               onChange={(e) => setAmountUpdate(e.target.value)}
             required

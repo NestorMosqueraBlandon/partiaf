@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { deleteStore } from "../actions/adminActions";
+import { deleteStore, updateStore } from "../actions/adminActions";
 
 export default function SettingsScreen(props) {
 
@@ -15,6 +15,10 @@ export default function SettingsScreen(props) {
     const storeSignin = useSelector((state) => state.storeSignin);
     const { storeInfo, error: errorSignin } = storeSignin;
 
+    const storeUpdate = useSelector((state) => state.storeUpdate);
+    const { storeInfo: storeInfoUpdate } = storeUpdate;
+
+
     const dispatch = useDispatch();
 
     const submitHandler = (e) => {
@@ -23,7 +27,7 @@ export default function SettingsScreen(props) {
     }
 
 
-    console.log(storeInfo)
+    console.log(storeInfoUpdate)
 
     const storeCreate = useSelector((state) => state.storeCreate);
     const { loading, error, success: successCreate } = storeCreate;
@@ -39,6 +43,15 @@ export default function SettingsScreen(props) {
     const [totalLimit, setTotalLimit] = useState(storeInfo.store.totalLimit);
 
 
+    const updateSubmit = (e) => {
+        e.preventDefault();
+        console.log("CLICK")
+        dispatch(updateStore({id: storeInfo.store._id, name, type, nit, mobile, employes, address, emailStore, email, totalLimit, password: storeInfo.store.password}))
+    }
+
+    useEffect(() => {
+        
+    }, [])
 
     const [noNit, setNoNit] = useState(true);
 
@@ -68,15 +81,15 @@ export default function SettingsScreen(props) {
                     <input type="text" value={address} onChange={(e) => setAddress(e.target.value)} name="" id="" placeholder="Direccion" required />
                 </div>
 
-                <p>Ingrese contrseña y confirme</p>
+                {/* <p>Ingrese contrseña y confirme</p>
                 <div>
                     <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Contraseña" required />
                     <input type="password" placeholder="Confirmar contraseña" />
-                </div>
+                </div> */}
 
                 <div className="footer">
                     <Link to="/"><button className="btn-normal">Atras</button></Link>
-                    <button >Editar</button>
+                    <button onClick={(e) => updateSubmit(e)} >Editar</button>
                 </div>
             </form>
             

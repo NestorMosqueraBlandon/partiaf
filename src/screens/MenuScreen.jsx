@@ -365,7 +365,7 @@ export default function MenuScreen() {
 
             <div className="center-extend">
               <button onClick={() => setOpenModal(!openModal)}>
-                Agregar Menu
+              <i className="bx bx-plus-medical"></i> Agregar Menu
               </button>
             </div>
           </div>
