@@ -8,12 +8,6 @@ html{
     font-size: 62.5%;
 }
 
-#root{
-    min-height: 100vh;
-    max-height: 100vh;
-    margin: 0;
-    padding: 0;
-}
 body{
     font-family: 'Roboto', sans-serif;
     font-size: 1.6rem;
@@ -44,7 +38,7 @@ input[type=number]::-webkit-outer-spin-button {
 input[type=number] { -moz-appearance:textfield; }
 
 
-.btn-none-new{
+/* .btn-none-new{
     background-color: #fff;
     font-size: 2rem;
-}
+} */

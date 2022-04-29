@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import "./styles/main.css";
-import "./styles/screen.css";
+// import "./styles/screen.css";
+import "./styles/login.css";
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
@@ -10,17 +11,6 @@ import store from './utils/store';
 import {MuiPickersUtilsProvider} from '@material-ui/pickers';
 import DateFnsUtils from '@date-io/date-fns';
 import esLocale from 'date-fns/locale/es';
-// import ApolloProvider from "./utils/ApolloProvider"
-// import { ApolloClient, InMemoryCache } from '@apollo/client';
-
-// const client = new ApolloClient({
-//   uri: 'http://localhost:5100/',
-//   cache: new InMemoryCache()
-// })
-
-
-// ReactDOM.render(ApolloProvider, document.getElementById('root'));
-
 
 ReactDOM.render(
   <Provider store={store}>

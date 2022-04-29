@@ -118,13 +118,7 @@
     width: 300px;
 }
 
-.back-logo{
-    filter: invert(.05);
-    position: absolute;
-    z-index: -1;
-    width: 1000px;
-    top: 0;
-}
+
 
 .front-logo{
     max-width: 50px;
