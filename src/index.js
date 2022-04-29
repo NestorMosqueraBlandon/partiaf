@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import "./styles/main.css";
-// import "./styles/screen.css";
+import "./styles/screen.css";
 import "./styles/login.css";
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';

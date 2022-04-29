@@ -43,7 +43,7 @@ export default function LoginScreen(props) {
   };
 
   return (
-    <div className="home">
+    <div className="login">
       {loading ? (
         <LoadingBox />
       ) : (
@@ -53,6 +53,8 @@ export default function LoginScreen(props) {
             src="./img/background_wallpaper.svg"
             alt=""
           />
+
+          
 
           <Link to="/" className="front-container-logo">
             <img
@@ -66,6 +68,8 @@ export default function LoginScreen(props) {
               alt=""
             />
           </Link>
+          <img className="user-icon" src="/img/usericon.svg" alt="" />
+
           <form onSubmit={submitHandler}>
             <input
               type="email"
@@ -82,7 +86,7 @@ export default function LoginScreen(props) {
             />
             {error == "Password incorrect" && <ErrorBox error={error} />}
 
-            <input className="home__link" type="submit" value="ENTRAR" />
+            <input className="login__link" type="submit" value="ENTRAR" />
           </form>
         </>
       )}

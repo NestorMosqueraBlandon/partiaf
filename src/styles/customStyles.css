@@ -227,3 +227,16 @@
     gap: 1rem;
     justify-content: flex-end;
 }
+
+.file-input{
+    max-height: 50px;
+}
+
+.store-images{
+    display: flex;
+    gap: 2rem;
+}
+
+.store-images img{
+    max-width: 60px;
+}

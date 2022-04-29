@@ -692,27 +692,6 @@ button {
   background-color: #ebc74e;
 }
 
-.home form {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.home form input {
-  padding: 1rem 1rem;
-  border-radius: 1rem;
-  background: none;
-  border: 2px solid rgba(0, 0, 0, 0.6);
-}
-
-.home form input[type="submit"] {
-  border: none;
-}
-
-.home form input:last-child {
-  position: relative;
-}
-
 .bussines {
   position: absolute;
   width: 100%;
@@ -1117,10 +1096,10 @@ select {
 }
 
 .register {
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
 }
 .register form{
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
 }
 
 .btn-success{

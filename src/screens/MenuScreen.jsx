@@ -170,6 +170,7 @@ export default function MenuScreen() {
   };
 
   const updateMenuHandler = async (menu) => {
+    console.log(menu)
     await setMenuId(menu._id);
     setTitleUpdateMenu     (menu?.title);
     setOpenModalUpdate(true);
@@ -177,6 +178,7 @@ export default function MenuScreen() {
   const submitUpateMenu = (e) => {
     e.preventDefault();
     dispatch(menuActions.update({
+      _id: menuId,
       name: nameUpdateMenu,
       menuId: menuId,
       email: adminInfo.email,
@@ -410,7 +412,7 @@ export default function MenuScreen() {
             </button>
             <button
               className="btn btn-none"
-              onClick={() => setOpenModal(false)}
+              onClick={() => setOpenModalUpdate(false)}
             >
               Cancelar
             </button>
