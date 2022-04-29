@@ -36,6 +36,14 @@ export default function Navigation() {
                       </div>
                       <div className="title">Reservas</div>
                 </Link>
+                <Link to="/buy" onClick={() => setActive('menu')} className={active === "menu"? "navigation__item active"
+                  : 'navigation__item'}>
+
+                      <div className="icon">
+                      <img src="./img/navigation/buy-icon.svg" alt="" />
+                      </div>
+                      <div className="title">Compras</div>
+                </Link>
                 <Link to="/menu" onClick={() => setActive('menu')} className={active === "menu"? "navigation__item active"
                   : 'navigation__item'}>
 

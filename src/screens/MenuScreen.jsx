@@ -35,6 +35,9 @@ export default function MenuScreen() {
   const menuCreate = useSelector((state) => state.menuCreate);
   const { success: successCreate } = menuCreate;
 
+  const menuUpdate = useSelector((state) => state.menuUpdate);
+  const { success: successUpdate } = menuUpdate;
+
   const [openModal, setOpenModal] = useState(false);
   const [title, setTitle] = useState("");
 
@@ -179,7 +182,7 @@ export default function MenuScreen() {
     e.preventDefault();
     dispatch(menuActions.update({
       _id: menuId,
-      title: nameUpdateMenu,
+      title: titleUpdateMenu,
       menuId: menuId,
       email: adminInfo.email,
       storeId: storeInfo.store._id,
@@ -267,6 +270,11 @@ export default function MenuScreen() {
     if (succesDeleteItem) {
       dispatch({ type: itemsConstants.constants().DELETE_RESET });
     }
+
+    if(successUpdate){
+      setOpenModalUpdate(false);
+      dispatch({ type: menuConstants.constants().UPDATE_RESET });
+    }
   }, [
     dispatch,
     adminInfo.coverSelect,
@@ -274,7 +282,8 @@ export default function MenuScreen() {
     successDelete,
     successCreateItem,
     succesDeleteItem,
-    successUpdateItem
+    successUpdateItem,
+    successUpdate
   ]);
   
   console.log(itemId)
@@ -403,7 +412,7 @@ export default function MenuScreen() {
               type="text"
               placeholder="Titulo"
               value={titleUpdateMenu}
-              onChange={(e) => setNameUpdateMenu(e.target.value)}
+              onChange={(e) => setTitleUpdateMenu(e.target.value)}
             />
           </form>
           <div className="modal-footer">

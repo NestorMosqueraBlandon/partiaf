@@ -22,8 +22,8 @@ export default class actionsTemplate {
     this.DELETE_RESET = constants.DELETE_RESET;
 
     this.api=api;
-    this.URL = "https://partiaf-api-v2.herokuapp.com/api/v1";
-    // this.URL = "http://localhost:4300/api/v1";
+    // this.URL = "https://partiaf-api-v2.herokuapp.com/api/v1";
+    this.URL = "http://localhost:4300/api/v1";
 
   }
 
