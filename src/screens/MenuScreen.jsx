@@ -179,7 +179,7 @@ export default function MenuScreen() {
     e.preventDefault();
     dispatch(menuActions.update({
       _id: menuId,
-      name: nameUpdateMenu,
+      title: nameUpdateMenu,
       menuId: menuId,
       email: adminInfo.email,
       storeId: storeInfo.store._id,
@@ -403,7 +403,7 @@ export default function MenuScreen() {
               type="text"
               placeholder="Titulo"
               value={titleUpdateMenu}
-              onChange={(e) => setTitleUpdateMenu(e.target.value)}
+              onChange={(e) => setNameUpdateMenu(e.target.value)}
             />
           </form>
           <div className="modal-footer">
