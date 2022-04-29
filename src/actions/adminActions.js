@@ -37,8 +37,8 @@ import {
   UPDATE_STORE_FAIL,
 } from "../constants/adminConstants";
 
-const URL = "http://localhost:4300/api/v1";
-// const URL = 'https://partiaf-api-v2.herokuapp.com/api/v1';
+// const URL = "http://localhost:4300/api/v1";
+const URL = 'https://partiaf-api-v2.herokuapp.com/api/v1';
 
 export const signin = (email, password) => async (dispatch) => {
   dispatch({ type: ADMIN_SIGNIN_REQUEST, payload: { email, password } });
