@@ -42,3 +42,20 @@ input[type=number] { -moz-appearance:textfield; }
     background-color: #fff;
     font-size: 2rem;
 }
+
+.store-images .image{
+position: relative;
+}
+.store-image-btn{
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50rem;
+    padding: 0;
+    position: absolute;
+    top: -8px;
+    left: 50px;
+}
+
+.img-preview-modal{
+    max-width: 100px;
+}

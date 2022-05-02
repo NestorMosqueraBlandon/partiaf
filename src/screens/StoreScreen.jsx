@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { createStore } from '../actions/adminActions';
+import CardLocation from '../components/CardLocation';
 
 export default function StoreScreen(props) {
     
@@ -27,6 +28,13 @@ export default function StoreScreen(props) {
 
 
     const dispatch = useDispatch();
+
+    const removeImage = (e, image) => {
+        e.preventDefault();
+        const index = images.indexOf(image);
+        const newArray = images.splice(index, 1);        
+        setImages([...images]);   
+    }
 
     const uploadHandler = async (e, imageFIeld = "image") => {
         const file = e.target.files[0];
@@ -61,11 +69,14 @@ export default function StoreScreen(props) {
         if(successCreate){
             props.history.push('/home')
         }
+        
     }, [successCreate])
 
     const [noNit, setNoNit] = useState(true);
 
     console.log(images)
+
+
 
     return (
         <div className="register center">
@@ -90,6 +101,7 @@ export default function StoreScreen(props) {
                     <input type="email" value={emailStore} onChange={(e) => setEmailStore(e.target.value)} placeholder="Email" required />
                     <input type="text" value={mobile} onChange={(e) => setMobile(e.target.value)} name="" id="" placeholder="Movil" required />
                 </div>
+                <CardLocation />
                 <div>
                     <input type="number" value={employes} onChange={(e) => setEmployes(e.target.value)} placeholder="N° de empleados" required />
                     <input type="text" value={address} onChange={(e) => setAddress(e.target.value)} name="" id="" placeholder="Direccion" required />
@@ -104,7 +116,11 @@ export default function StoreScreen(props) {
                 <input type="file" name="" className='file-input' id="" onChange={(e) => uploadHandler(e, "featuredImage")} />
                 <div className="store-images">
                     {images.map((image) => (
+                        <div className="image">
                         <img src={image} alt="" />
+                        <span className='store-image-btn' onClick={(e) => removeImage(e, image)} >X</span>
+                        </div>
+
                     ))}
                 </div>
 

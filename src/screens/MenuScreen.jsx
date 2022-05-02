@@ -455,7 +455,7 @@ export default function MenuScreen() {
               onChange={(e) => setAmount(e.target.value)}
             />
             <input type="file" name="file" id="file"  onChange={(e) => uploadHandler(e, "featuredImage")}  />
-            <img alt="" className="img-preview" src={itemImage}  />
+            <img alt="" className="img-preview-modal" src={itemImage}  />
           </form>
           <div className="modal-footer">
             <button className="btn" onClick={submitCreateItemHandler}>
