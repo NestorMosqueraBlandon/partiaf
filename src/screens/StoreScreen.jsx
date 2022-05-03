@@ -118,7 +118,7 @@ export default function StoreScreen(props) {
                     {images.map((image) => (
                         <div className="image">
                         <img src={image} alt="" />
-                        <span className='store-image-btn' onClick={(e) => removeImage(e, image)} >X</span>
+                        <button className='store-image-btn' onClick={(e) => removeImage(e, image)} >X</button>
                         </div>
 
                     ))}
