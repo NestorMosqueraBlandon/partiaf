@@ -86,6 +86,7 @@ export default function MenuScreen() {
   const [openModalUpdate, setOpenModalUpdate] = useState(false);
   const [openModalItem, setOpenModalItem] = useState(false);
   const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
   const [amount, setAmount] = useState("");
   const [itemImage, setItemImage] = useState("");
@@ -97,6 +98,7 @@ export default function MenuScreen() {
     dispatch(
       itemsActions.create({
         name: name,
+        description: description,
         price: price,
         image: itemImage,
         amount: amount,
@@ -441,6 +443,12 @@ export default function MenuScreen() {
               placeholder="Nombre Item"
               value={name}
               onChange={(e) => setName(e.target.value)}
+            />
+                       <input
+              type="text"
+              placeholder="Descripcion"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
             />
             <input
               type="number"
