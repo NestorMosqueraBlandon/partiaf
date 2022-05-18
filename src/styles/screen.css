@@ -1112,3 +1112,24 @@ select {
   border-radius: .5rem;
   text-align: center;
 }
+
+.container-tags{
+  width: 100%;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.menu-tag{
+  padding: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  border-radius: .5rem;
+  background-color: #FFF;
+}
+
+.menu-tag h4{
+  font-weight: 400;
+  
+}
