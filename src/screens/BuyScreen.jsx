@@ -5,13 +5,19 @@ import CardBooking from "../components/CardBooking";
 import data from "../utils/data";
 import { DivisaFormater } from "../utils/DivisaFormater";
 export default function BuyScreen() {
+
+  const adminSignin = useSelector((state) => state.adminSignin);
+  const { adminInfo } = adminSignin;
+  
   const buyList = useSelector((state) => state.buyList);
   const { loading, data: buys } = buyList;
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(buyActions.list());
+    if (storeInfo) {
+      dispatch(buyActions.list(adminInfo.email, storeInfo.store._id));
+    }
   }, [dispatch]);
 
   return (
