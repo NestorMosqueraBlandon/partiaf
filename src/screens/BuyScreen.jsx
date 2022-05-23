@@ -8,7 +8,12 @@ export default function BuyScreen() {
 
   const adminSignin = useSelector((state) => state.adminSignin);
   const { adminInfo } = adminSignin;
+
+  const storeSignin = useSelector((state) => state.storeSignin);
+  const { storeInfo } = storeSignin;
+
   
+
   const buyList = useSelector((state) => state.buyList);
   const { loading, data: buys } = buyList;
 
