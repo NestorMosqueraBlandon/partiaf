@@ -7,6 +7,7 @@ import menuReducer from "../reducers/menuReducer.js";
 import chairReducer from "../reducers/chairReducer.js";
 import itemsReducer from "../reducers/itemsReducer.js";
 import { generalReducer } from "../reducers/globalReducer.js";
+import buyReducer from "../reducers/buyReducers.js";
 const initialState = {
     adminSignin: {
         adminInfo: localStorage.getItem('adminInfo')
@@ -42,6 +43,9 @@ const reducer = combineReducers({
     menuCreate: menuReducer.createReducer,
     menuUpdate: menuReducer.updateReducer,
     menuDelete: menuReducer.deleteReducer, 
+
+        //<------- BUY ----------> 
+        buyList: buyReducer.listReducer,
 
     //<------- ITEM ---------->
     itemList: itemsReducer.listReducer,

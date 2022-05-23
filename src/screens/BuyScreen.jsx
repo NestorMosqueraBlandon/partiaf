@@ -1,181 +1,45 @@
-import React from 'react'
-import CardBooking from '../components/CardBooking'
-import data from '../utils/data'
-
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import buyActions from "../actions/buyActions";
+import CardBooking from "../components/CardBooking";
+import data from "../utils/data";
+import { DivisaFormater } from "../utils/DivisaFormater";
 export default function BuyScreen() {
-    
-    // const [name, setName] = useState("")
-    // const [note, setNote] = useState("")
-    // const [date, setDate] = useState("")
+  const buyList = useSelector((state) => state.buyList);
+  const { loading, data: buys } = buyList;
 
-    const setItem = (id) => {
-        // data.bookings.filter((booking) => booking.id == id).map((booking) => {
-        //     setName(booking.name)
-        //     setNote(booking.note)
-        //     setDate(booking.date)
-        // })
-    }
+  const dispatch = useDispatch();
 
-    
-    return (
-        <div className='screen'>
-            <div className="center__screen state-scroll">
-                <input type="text" className="search m-b" placeholder="Buscar:" />
-                <div className="state-card">
-                    <div className="state__header">
-                    <h3>OWEN WILSON / MESA 4 / M. FELIPE GRANADOS</h3>
-                    <span className="corner"><i className='bx bxs-star' ></i></span>
-                    </div>
-                    <div className="buy_item-list">
-                        <div className="buy_item">
-                            <p>10 Covers</p>
-                            <span>$ 200.000</span>
-                        </div>
-                        <div className="buy_item">
-                            <p>2 Bot. Buchannans</p>
-                            <span>$ 200.000</span>
-                        </div>
-                        <div className="buy_item">
-                            <p>8 Mojitos</p>
-                            <span>$ 48.000</span>
-                        </div>
-                        <div className="buy_item">
-                            <p>4 SnackPack</p>
-                            <span>$ 120.000</span>
-                        </div>
-                    </div>
+  useEffect(() => {
+    dispatch(buyActions.list());
+  }, [dispatch]);
+
+  return (
+    <div className="screen">
+      <div className="center__screen state-scroll">
+        <input type="text" className="search m-b" placeholder="Buscar:" />
+
+        {!loading &&
+          buys.map((buy) => (
+            <div className="state-card">
+              <div className="state__header">
+                <h3>{buy.name}</h3>
+                <span className="corner">
+                  <i className="bx bxs-star"></i>
+                </span>
+              </div>
+              <div className="buy_item-list">
+                  {buy.items.map((item) => (
+                    <div className="buy_item">
+                  <p>{item.name}</p>
+                  <span>{DivisaFormater(item.price)}</span>
                 </div>
-                <div className="state-card">
-                    <div className="state__header">
-                    <h3>OWEN WILSON / MESA 4 / M. FELIPE GRANADOS</h3>
-                    <span className="corner"><i className='bx bxs-star' ></i></span>
-                    </div>
-                    <div className="buy_item-list">
-                        <div className="buy_item">
-                            <p>10 Covers</p>
-                            <span>$ 200.000</span>
-                        </div>
-                        <div className="buy_item">
-                            <p>2 Bot. Buchannans</p>
-                            <span>$ 200.000</span>
-                        </div>
-                        <div className="buy_item">
-                            <p>8 Mojitos</p>
-                            <span>48.000</span>
-                        </div>
-                        <div className="buy_item">
-                            <p>4 SnackPack</p>
-                            <span>$ 120.000</span>
-                        </div>
-                    </div>
-                </div>
-                <div className="state-card">
-                    <div className="state__header">
-                    <h3>OWEN WILSON / MESA 4 / M. FELIPE GRANADOS</h3>
-                    <span className="corner"><i className='bx bxs-star' ></i></span>
-                    </div>
-                    <div className="buy_item-list">
-                        <div className="buy_item">
-                            <p>10 Covers</p>
-                            <span>$ 200.000</span>
-                        </div>
-                        <div className="buy_item">
-                            <p>2 Bot. Buchannans</p>
-                            <span>$ 200.000</span>
-                        </div>
-                        <div className="buy_item">
-                            <p>8 Mojitos</p>
-                            <span>$ 48.000</span>
-                        </div>
-                        <div className="buy_item">
-                            <p>4 SnackPack</p>
-                            <span>$ 120.000</span>
-                        </div>
-                    </div>
-                </div>
-                <div className="state-card">
-                    <div className="state__header">
-                    <h3>OWEN WILSON / MESA 4 / M. FELIPE GRANADOS</h3>
-                    <span className="corner"><i className='bx bxs-star' ></i></span>
-                    </div>
-                    <div className="buy_item-list">
-                        <div className="buy_item">
-                            <p>10 Covers</p>
-                            <span>$ 200.000</span>
-                        </div>
-                        <div className="buy_item">
-                            <p>2 Bot. Buchannans</p>
-                            <span>$ 200.000</span>
-                        </div>
-                        <div className="buy_item">
-                            <p>8 Mojitos</p>
-                            <span>48.000</span>
-                        </div>
-                        <div className="buy_item">
-                            <p>4 SnackPack</p>
-                            <span>$ 120.000</span>
-                        </div>
-                    </div>
-                </div>
-                <div className="state-card">
-                    <div className="state__header">
-                    <h3>OWEN WILSON / MESA 4 / M. FELIPE GRANADOS</h3>
-                    <span className="corner"><i className='bx bxs-star' ></i></span>
-                    </div>
-                    <div className="buy_item-list">
-                        <div className="buy_item">
-                            <p>10 Covers</p>
-                            <span>$ 200.000</span>
-                        </div>
-                        <div className="buy_item">
-                            <p>2 Bot. Buchannans</p>
-                            <span>$ 200.000</span>
-                        </div>
-                        <div className="buy_item">
-                            <p>8 Mojitos</p>
-                            <span>48.000</span>
-                        </div>
-                        <div className="buy_item">
-                            <p>4 SnackPack</p>
-                            <span>$ 120.000</span>
-                        </div>
-                    </div>
-                </div>
-                <div className="state-card">
-                    <div className="state__header">
-                    <h3>OWEN WILSON / MESA 4 / M. FELIPE GRANADOS</h3>
-                    <span className="corner"><i className='bx bxs-star' ></i></span>
-                    </div>
-                    <div className="buy_item-list">
-                        <div className="buy_item">
-                            <p>10 Covers</p>
-                            <span>$ 200.000</span>
-                        </div>
-                        <div className="buy_item">
-                            <p>2 Bot. Buchannans</p>
-                            <span>$ 200.000</span>
-                        </div>
-                        <div className="buy_item">
-                            <p>8 Mojitos</p>
-                            <span>48.000</span>
-                        </div>
-                        <div className="buy_item">
-                            <p>4 SnackPack</p>
-                            <span>$ 120.000</span>
-                        </div>
-                    </div>
-                </div>
+                  ))}                
+              </div>
+              <div>Total: {DivisaFormater(buy.total)}</div>
             </div>
-            <div className="right__screen">
-            <div className="card__title">
-                    <h4>Compras Stream</h4>
-                </div>
-                {data.bookings.map((booking) => (
-                    <button className="button__none" onClick={() => setItem(booking.id)}>
-                    <CardBooking key={booking.id} name={booking.name} number={booking.number}/>
-                    </button>
-                ))}
-            </div>
-        </div>
-    )
+          ))}
+      </div>
+    </div>
+  );
 }

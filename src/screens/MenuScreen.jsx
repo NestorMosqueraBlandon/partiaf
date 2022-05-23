@@ -417,7 +417,7 @@ export default function MenuScreen() {
             />
           </form>
           <div className="modal-footer">
-            <button className="btn" onClick={submitCreateHandler}>
+          <button type="submit" className="btn" onClick={submitCreateHandler}>
               Guardar
             </button>
             <button
@@ -426,6 +426,7 @@ export default function MenuScreen() {
             >
               Cancelar
             </button>
+            
           </div>
         </div>
       </div>
@@ -551,14 +552,15 @@ export default function MenuScreen() {
             <img alt="" className="img-preview" src={itemImage} />
           </form>
           <div className="modal-footer">
-            <button className="btn" onClick={submitUpdateItemHandler}>
-              Guardar
-            </button>
+
             <button
               className="btn btn-none"
               onClick={() => setOpenModalUpdateItem(false)}
             >
               Cancelar
+            </button>
+            <button className="btn" onClick={submitUpdateItemHandler}>
+              Guardar
             </button>
           </div>
         </div>
