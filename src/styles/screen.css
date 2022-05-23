@@ -1120,6 +1120,8 @@ select {
   align-items: center;
   gap: 2rem;
   margin-bottom: 2rem;
+  overflow: auto;
+  white-space: nowrap;
 }
 
 .menu-tag{
