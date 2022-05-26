@@ -71,7 +71,7 @@ export default function BookingScreen() {
     <div className="screen">
       <div className="center__screen">
         <span className="search-box">
-          <i class='bx bx-search'></i>
+          <i className='bx bx-search'></i>
           <input type="text" className="search" placeholder="Buscar:" />
         </span>
         <div className="flex border">

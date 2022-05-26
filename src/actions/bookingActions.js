@@ -21,12 +21,13 @@ const URL = "https://partiaf-api-v2.herokuapp.com/api/v1";
 
 
 export const listBookings = (email, storeId) => async (dispatch, getState) => {
-  console.log(email, storeId);
   dispatch({ type: LIST_BOOKING_REQUEST });
   try {
     const { data } = await Axios.get(
-      `${URL}/bookings/booking?email=${email}&storeId=${storeId}`
+      `${URL}/booking?email=${email}&storeId=${storeId}`
     );
+
+    console.log(data)
     
     dispatch({ type: LIST_BOOKING_SUCCESS, payload: data });
   } catch (error) {

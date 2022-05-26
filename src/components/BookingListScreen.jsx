@@ -93,12 +93,12 @@ export default function BookingListScreen({ loading, bookings }) {
                     </div>
                     <div>
                       INFO
-                      <h2>{booking.name}</h2>
+                      <h2>{booking.type}</h2>
                     </div>
                     <ul>
-                      <li>Cupos: {booking.cupo}</li>
-                      <li>Hora: {booking.time}</li>
-                      <li>Fecha: {booking.date}</li>
+                      <li>Cupos: {booking.peoples}</li>
+                      <li>Hora: {booking.hour}</li>
+                      <li>Fecha: {booking.day}</li>
                     </ul>
               
                     <div className="icons-cardBooking">
