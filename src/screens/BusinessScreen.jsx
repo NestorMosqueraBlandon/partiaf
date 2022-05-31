@@ -84,7 +84,6 @@ export default function BusinessScreen(props) {
               ): (<h3>No hay Negocios</h3>)}
           </>
         )}
-
         <Link to="/store">Añadir nuevo</Link>
         <button className="danger" onClick={signoutHandler}>Salir</button>
       </div>
