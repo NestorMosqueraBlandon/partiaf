@@ -238,14 +238,14 @@ export default function ChairsScreen() {
             </select>
             <input
               type="number"
-              placeholder="Precio"
+              placeholder="Consumo minimo mesa"
               value={price}
               onChange={(e) => setPrice(e.target.value)}
               required
             />
               <input
               type="number"
-              placeholder="Cantidad"
+              placeholder="Cantidad de mesas"
               value={amount}
               onChange={(e) => setAmount(e.target.value)}
             required

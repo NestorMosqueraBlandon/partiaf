@@ -18,6 +18,8 @@ export default function BookingScreen() {
   const bookingList = useSelector((state) => state.bookingList);
   const { loading: loadingList,  bookings } = bookingList;
 
+  console.log("RESERVASSSSS", bookings)
+
   const bookingCreate = useSelector((state) => state.bookingCreate);
   const {
     

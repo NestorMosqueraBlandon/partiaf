@@ -18,7 +18,7 @@ export default function BuyScreen() {
   const buyList = useSelector((state) => state.buyList);
   const { loading, data: buys } = buyList;
 
-  console.log(buys);
+  console.log("COMPRAS", buys);
 
   const dispatch = useDispatch();
 
